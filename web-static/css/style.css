@@ -1,0 +1,19 @@
+:root{
+    /****Universal****/
+    --primary-color:#3c5e83;
+    --color-black:#090909;
+    --color-white:#ffffff;
+    --font-family-base: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    --font-family-title: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
+    --font-family-official: 'Times New Roman', Times, serif;
+    /**Child-Universal**/
+    --body-background-color:#f0f0f0;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--body-background-color);
+}

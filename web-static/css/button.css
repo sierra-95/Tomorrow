@@ -1,0 +1,40 @@
+@import 'style.css';
+:root{
+    --button-official-padding: 10px;
+    --button-official-border: solid 2px var(--primary-color);
+    --button-official-border-radius:4px;
+    --button-official-color: var(--color-black);
+    --button-official-background-color: var(--color-white);
+    --button-official-hover-background: var(--primary-color);
+    --button-custom-padding: 10px;
+    --button-custom-border: none;
+    --button-custom-border-radius:4px;
+    --button-custom-color: var(--color-black);
+    --button-custom-background-color: var(--primary-color);
+    --button-custom-hover-transition: opacity 0.3s ease-in-out;
+    --button-custom-hover-opacity: 1.0;
+
+}
+.button-official {
+    padding: var(--button-official-padding);
+    background-color: var(--button-offical-background-color);
+    color: var(--button-offcial-color);
+    border: var(--button-official-border);
+    border-radius: var(--button-official-border-radius);
+    cursor: pointer;
+}
+.button-official:hover {
+   background-color: var(--button-official-hover-background);
+}
+.button-custom {
+    padding: var(--button-custom-padding);
+    border: var(--button-custom-border);
+    background-color: var(--button-custom-background-color);
+    color: var(--button-custom-color);
+    border-radius: var(--button-custom-border-radius);
+    cursor: pointer;
+    transition: var(--button-custom-hover-transition);
+}
+.button-custom:hover {
+    opacity: var(--button-custom-hover-opacity);
+}
