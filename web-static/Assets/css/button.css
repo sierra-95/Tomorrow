@@ -1,11 +1,12 @@
 @import 'style.css';
 :root{
-    --button-official-padding: 10px;
+    --button-official-padding: 20px;
     --button-official-border: solid 2px var(--primary-color);
     --button-official-border-radius:4px;
     --button-official-color: var(--color-black);
     --button-official-background-color: var(--color-white);
     --button-official-hover-background: var(--primary-color);
+    --button-official-hover-color: var(--color-white);
     --button-custom-padding: 10px;
     --button-custom-border: none;
     --button-custom-border-radius:4px;
@@ -25,6 +26,7 @@
 }
 .button-official:hover {
    background-color: var(--button-official-hover-background);
+   color: var(--button-official-hover-color);
 }
 .button-custom {
     padding: var(--button-custom-padding);

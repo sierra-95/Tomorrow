@@ -10,7 +10,17 @@
   --input-padding: 8px;
   --input-border:1px solid #ccc;
   --input-border-radius:4px;
-}  
+} 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--body-background-color);
+  background-image: url(../images/Logo/dark-blue-light.png);
+  background-size: cover;
+} 
   .login-container {
     background-color: var(--login-container-background);
     padding: var(--login-container-padding);
