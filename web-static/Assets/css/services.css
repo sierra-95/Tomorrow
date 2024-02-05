@@ -18,11 +18,10 @@
     padding: 20px;
     text-align: center;
     width:auto;
-    background-color: white;
-    border: 2px solid var(--primary-color);
+    border: 0px solid;
     border-radius: 0px;
-    color: var(--color-black);
-    background-color: var(--color-white-base);
+    color: var(--color-white);
+    background-color: var(--color-black);
     font-family: var(--font-family-base);
     font-size: 1rem;
     opacity:80%;
