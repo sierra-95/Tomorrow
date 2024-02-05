@@ -1,12 +1,13 @@
 @import 'style.css';
 :root{
-  --login-container-background: var(--color-white);
+  --login-container-color:var(--color-white);
+  --login-container-background:var(--color-black);
   --login-container-font-family: var(--font-family-official);
   --login-container-padding:40px;
   --login-container-border-radius:8px;
   --login-container-box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
   --label-font-family: var(--font-family-base);
-  --label-font-color: var(--color-black);
+  --label-font-color: var(--color-white);
   --input-padding: 8px;
   --input-border:1px solid #ccc;
   --input-border-radius:4px;
@@ -22,6 +23,7 @@ body {
   background-size: cover;
 } 
   .login-container {
+    color: var(--login-container-color);
     background-color: var(--login-container-background);
     padding: var(--login-container-padding);
     border-radius: var(--login-container-border-radius);

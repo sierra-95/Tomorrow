@@ -1,17 +1,18 @@
 :root{
     /****Universal****/
-    --primary-color:#76a9e0;
-    --color-red:rgb(157, 30, 30);
+    --primary-color:rgb(131, 84, 202);
     --color-black: black;
+    --color-grey:grey;
     --color-white:#ffffff;
+    --color-white-new:#ccc;
     --font-family-base: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
     --font-family-title: Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;
     --font-family-official: 'Times New Roman', Times, serif;
     /**Child-Universal**/
-    --body-background-color:#f0f0f0;
+    --body-background-color:#ccc;
 }
 body, html {
     margin: 0;
     padding: 0;
-    background-color: var(--color-white);
+    background-color: var(--body-background-color);
 }

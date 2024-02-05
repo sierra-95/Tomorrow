@@ -1,0 +1,13 @@
+@import 'style.css';
+:root{
+    --background-image:url('../images/Logo/dark-blue-light.png');
+}
+.about-container{
+    box-sizing: border-box;
+    margin:10px;
+    width: auto;
+    height:auto;
+    border:none;
+    background-image: var(--background-image);
+    background-size: cover;
+}

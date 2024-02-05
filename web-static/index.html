@@ -5,39 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" viewport-fit=cover">
     <title>Home</title>
     <link rel="icon" type="image/png" href="Assets/images/Favicon/Dark.png">
-    <link rel="stylesheet" href="Assets/css/index.css">
     <link rel="stylesheet" href="Assets/css/style.css">
     <link rel="stylesheet" href="Assets/css/button.css">
     <link rel="stylesheet" href="Assets/css/Hero.css">
+    <link rel="stylesheet" href="Assets/css/services.css">
+    <link rel="stylesheet" href="Assets/css/about.css">
     </head>
     <body>
-        <div class="super-container">
+        <div class="Hero-container">
             <header>
-                <div class="container">
+                <div class="child-Hero-container">
                     <div class="Logo">
-                        <a href="#"><img src="Assets/images/Logo/dark-blue-light.png" alt="Logo" width="120px" height="auto"></a>
+                        <a href="#"><img src="Assets/images/Logo/Light-purple.png" alt="Logo" width="120px" height="auto"></a>
                     </div>
                     <nav>
                         <ul>
-                            <li><a href="index.html">Services</a></li>
-                            <li><a href="index.html">About</a></li>
-                            <li><a href="index.html">Testimonials</a></li>
-                            <li><a href="index.html">Contact us</a></li>
+                            <li><a href="#services">Services<span></span></a></li>
+                            <li><a href="#about">About<span></span></a></li>
+                            <li><a href="#contact">Contact us<span></span></a></li>
                         </ul>
                     </nav>
                 </div>
             </header>
             <main>
-                <div class="container">
+                <!--Hero section-->
+                <div class="child-Hero-container">
                     <div class="Hero">
                         <h1 class="Hero-title">
                            To<span style="color: var(--primary-color)">mo</span>rr<span style="color: var(--primary-color)">o</span>w
                         </h1>
-                        <h3>Your personal task manager</h3>
+                        <h3 class="Hero-subtitle">Your personal task manager</h3>
                         <a href="login.html"><button class="button-official">Get started</button></a>
                     </div>
-                </div>
+                </div>                
             </main>
         </div>
+         <!--services-->
+         <section id="services">
+            <div class="services-container">
+                <h1 class="services-title">Services</h1>
+                <h2 class="services-subtitle">
+                    We<span style="color: var(--color-grey)"> value</span> your<span style="color: var(--color-grey)"> time</span>
+                </h2>
+                <div class="services-child-container">
+                    <h2 class="services-child">Task priority</h2>
+                    <h2 class="services-child">Time tracking</h2>
+                    <h2 class="services-child">Goal tracking</h2>
+                </div>
+            </div>
+        <!--About Tomorrow-->
+        <section id="about">
+            <div class="about-container">
+                <h1>hello</h1>
+            </div>
+        </section>
     </body>
 </html>
