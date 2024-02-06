@@ -1,13 +1,40 @@
 @import 'style.css';
-:root{
-    --background-image:url('../images/Logo/dark-blue-light.png');
-}
 .about-container{
+    background-color: var(--color-black);
     box-sizing: border-box;
     margin:10px;
     width: auto;
     height:auto;
     border:none;
-    background-image: var(--background-image);
-    background-size: cover;
+    display: flex;
+}
+.about-child-container{
+    box-sizing: border-box;
+    margin:10px;
+    width: auto;
+    height:auto;
+    border:none;    
+}
+.about-title{
+    font-size: 3rem;
+    color: var(--color-white);
+    text-align: center;
+    font-family: var(--font-family-official);
+}
+.about-subtitle {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-top: -30px;
+    text-align: center;
+    font-family: var(--font-family-base);
+}
+.about-catch-phrase{
+    color: var(--color-grey);
+    font-size: 1rem;
+    font-family: var(--font-family-base);
+}
+.about-catch-paragraph{
+    color: var(--color-white);
+    font-size: 0.9rem;
+    font-family: var(--font-family-base);
 }

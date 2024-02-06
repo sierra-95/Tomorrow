@@ -1,21 +1,28 @@
 @import 'style.css';
-
+:root{
+    --background-services-image: url('../images/Logo/Light-cyan.png');
+}
 .services-container{
+    /*background-image: var(--background-services-image);
+    background-size: cover;*/
     box-sizing: border-box;
-    width:100%;
+    width:auto;
     height:auto;
     border:none;
     padding:20px;
+    margin:10px;
 }
 .services-child-container{
+    box-sizing: border-box;
     padding: 0px;
-    margin-left: 30%;
+    margin-left: 25%;
     display:flex;
-    width:40%;
+    width:50%;
     justify-content: space-between;
 }
 .services-child{
-    padding: 20px;
+    box-sizing: border-box;
+    padding: 40px;
     text-align: center;
     width:auto;
     border: 0px solid;
@@ -24,7 +31,7 @@
     background-color: var(--color-black);
     font-family: var(--font-family-base);
     font-size: 1rem;
-    opacity:80%;
+    opacity:90%;
 }
 .services-child:hover{
     opacity: 90%;
@@ -39,8 +46,9 @@
     font-family: var(--font-family-official);
 }
 .services-subtitle {
-    font-size: 1.5rem;
-    color: var(--primary-color);
+    font-size: 1rem;
+    color: var(--color-black);
     margin-top: -30px;
     text-align: center;
+    font-family: var(--font-family-base);
 }

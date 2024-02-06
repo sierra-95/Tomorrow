@@ -1,0 +1,32 @@
+.footer-container {
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    margin: 10px;
+    background-color: black;
+    margin-top:0px;
+    color: var(--color-white);
+}
+.footer-child-container {
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    padding: 20px;
+    margin: 10px;
+    background-color: black;
+    display: flex;
+}
+
+.footer-icon {
+    display: block;
+}
+
+.footer-icon svg {
+    width: 30px;
+    height: auto;
+}
+.footer-logo{
+    display: flex;
+    justify-content: space-between;
+}

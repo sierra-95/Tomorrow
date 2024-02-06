@@ -6,11 +6,12 @@
     box-sizing: border-box;
     margin:10px;
     width:auto;
-    padding:40px;
+    padding:100px;
     font-family: var(--font-family-title);
     border: none;
-    background-image: var(--background-image);
-    background-size: cover;
+    /*background-image: var(--background-image);
+    background-size: cover;*/
+    background-color: var(--color-black);
 }
 .child-Hero-container{
     position: relative;
