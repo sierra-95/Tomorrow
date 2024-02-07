@@ -1,6 +1,6 @@
 @import 'style.css';
 :root{
-    --background-image:url('../images/Logo/dark-blue-dark.png') ;
+    --background-image:url('../images/Unsplash/blue-bird.jpg') ;
 }
 .Hero-container{
     box-sizing: border-box;
@@ -9,8 +9,8 @@
     padding:100px;
     font-family: var(--font-family-title);
     border: none;
-    /*background-image: var(--background-image);
-    background-size: cover;*/
+    background-image: var(--background-image);
+    background-size: cover;
     background-color: var(--color-black);
 }
 .child-Hero-container{
@@ -78,7 +78,8 @@ li{
 }
 .Hero-title{
     font-size: 4rem;
-    color: var(--color-grey);
+    color: var(--color-white);
+    font-family: var(--font-family-official);
     
 }
 .Hero-subtitle {
@@ -89,4 +90,66 @@ li{
 
 .Hero button {
     margin-top: 20px;
+}
+
+
+/**@media**/
+
+@media (max-width: 768px) {
+    .Hero-container {
+        padding: 50px;
+    }
+
+    .child-Hero-container {
+        width: 90%;
+    }
+
+    .Logo {
+        margin-left: 20px;
+    }
+
+    .Hero {
+        margin-left: 20px;
+    }
+
+    .Hero-title {
+        font-size: 3rem;
+    }
+
+    .Hero-subtitle {
+        font-size: 0.8rem;
+        margin-top: -30px;
+    }
+}
+
+/* Responsive styles for screens up to 460px */
+@media (max-width: 460px) {
+    .Hero-container {
+        padding: 30px;
+    }
+
+    .child-Hero-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Logo {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .Hero {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .Hero-title {
+        font-size: 2.5rem;
+    }
+
+    .Hero-subtitle {
+        font-size: 0.7rem;
+        margin-top: -20px;
+    }
+
 }
