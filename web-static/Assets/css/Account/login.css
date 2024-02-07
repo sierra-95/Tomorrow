@@ -19,7 +19,7 @@ body {
   height: 100vh;
   margin: 0;
   background-color: var(--body-background-color);
-  background-image: url(../images/Logo/dark-blue-light.png);
+  background-image: url(../../images/Logo/dark-blue-light.png);
   background-size: cover;
 } 
   .login-container {
@@ -40,6 +40,7 @@ body {
     margin-bottom: 8px;
     color:var(--label-font-color);
     font-family: var(--label-font-family);
+    font-size: 0.9rem;
   }
   
   input {
@@ -49,5 +50,16 @@ body {
     border-radius: var(--input-border-radius);
   }
   
+  /**@media**/
+  @media (max-width: 768px) {
+    .login-container {
+      width: 40%;
+    }
+  }
+  @media (max-width: 460px) {
+    .login-container {
+      width: 40%;
+    }
+  }
 
   

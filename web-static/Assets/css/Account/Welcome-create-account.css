@@ -1,0 +1,25 @@
+@import url('../style.css');
+body{
+    display: flex;
+    align-items: center;
+    background-image: url(../../images/Unsplash/blue-bird.jpg);
+    background-size: cover;
+    margin:0;
+    height:100vh;
+}
+.welcome-container{
+    width: 50%;
+    padding: 40px;
+    margin-left:100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-black);
+}
+.welcome-child-container{
+    color: var(--color-white);
+    font-size: 0.9rem;
+    font-family: var(--font-family-base);    
+}
+.welcome-title{
+    color: var(--primary-color);
+    font-family: var(--font-family-title);
+}

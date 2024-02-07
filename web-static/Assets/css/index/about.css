@@ -1,4 +1,4 @@
-@import 'style.css';
+@import '../style.css';
 .about-container{
     background-color: var(--color-black);
     box-sizing: border-box;
@@ -61,11 +61,11 @@
     }
 
     .about-catch-phrase {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     .about-catch-paragraph {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -99,6 +99,6 @@
     .about-image{
         width:380px;
         height:auto;
-        margin-top: -10px;
+        margin-top: -5px;
     }
 }
