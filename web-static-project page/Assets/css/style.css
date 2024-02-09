@@ -11,7 +11,7 @@
     --font-family-title: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-family-official: 'Times New Roman', Times, serif;
     /**Child-Universal**/
-    --body-background-color:#ccc;
+    --body-background-color: var(--color-white);
 }
 body, html {
     margin: 0;

@@ -2,18 +2,20 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" viewport-fit="cover">
-        <title>Home</title>
+        <title>User Home</title>
         <link rel="icon" type="image/png" href="Assets/images/Favicon/Dark.png">
         <link rel="stylesheet" href="Assets/css/style.css">
         <link rel="stylesheet" href="Assets/css/Hero.css"> 
-        <link rel="stylesheet" href="Assets/css/button.css">   
+        <link rel="stylesheet" href="Assets/css/button.css">  
+        <link rel="stylesheet" href="Assets/css/todays-tasks.css"> 
+        <link rel="stylesheet" href="Assets/css/calender.css"> 
     </head>
     <body>
         <div class="Hero-container">
             <header>
                 <div class="child-Hero-container">
                     <div class="Logo">
-                        <a href="#"><img src="Assets/images/Logo/dark-blue-light.png" alt="Logo" width="120px" height="auto"></a>
+                        <a href="index.html"><img src="Assets/images/Logo/dark-blue-light.png" alt="Logo" width="120px" height="auto"></a>
                     </div>
                     <nav id="nav-links" class="hide-links">
                         <!-- Hamburger icon for screens with max-width: 460px -->
@@ -32,6 +34,59 @@
                     <script src="Assets/js/hamburger-menu.js"></script>
                 </div>
             </header>
+            <main>
+                <!--User section-->
+                <div class="child-Hero-container">
+                    <div class="Hero">
+                        <h1 class="Hero-title">Welcome Michael Machohi</h1>
+                    </div>
+                </div>                
+            </main-->
         </div>
+        <!--section Todays tasks-->
+        <section id="todays-tasks">
+            <div class="todays-tasks-container">
+                <h1 class="todays-tasks-title">Task manager</h1>
+                <div class="todays-tasks-child-container">
+                    <div class="todays-tasks-child-first">
+                        <h1 class="todays-tasks-subtitle">Today's planning</h1>
+                    </div>
+                    <div class="todays-tasks-child-second">
+                        <h1 style="color: var(--color-black);" class="todays-tasks-subtitle">Latest events</h1>
+                    </div>
+                    <!--calender start-->
+                    <div class="calendar light">
+                        <div class="calendar-header">
+                            <span class="month-picker" id="month-picker">April</span>
+                            <div class="year-picker">
+                                <span class="year-change" id="prev-year">
+                                    <pre><</pre>
+                                </span>
+                                <span id="year">2022</span>
+                                <span class="year-change" id="next-year">
+                                    <pre>></pre>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="calendar-body">
+                            <div class="calendar-week-day">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tue</div>
+                                <div>Wed</div>
+                                <div>Thu</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div class="calendar-days"></div>
+                        </div>
+                       
+                        <div class="month-list"></div>
+                    </div>
+                    <script src="Assets/js/calender.js"></script>                  
+                    <!--calender end-->
+                </div>
+            </div>
+        </section>
     </body>
 </html>

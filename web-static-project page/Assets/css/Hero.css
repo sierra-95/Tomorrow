@@ -1,6 +1,6 @@
 @import 'style.css';
 :root{
-    --background-image:url('../images/Unsplash/bus.jpg') ;
+    --background-image:url('../images/Unsplash/blue-bird.jpg') ;
 }
 .Hero-container{
     box-sizing: border-box;
@@ -29,12 +29,12 @@
     margin-left:50px;
 }
 .Hero{
-    margin-top: -10px;
+    margin-top: 0px;
     margin-left: 50px;
     text-align: left;
 }
 .Hero-title{
-    font-size: 4rem;
+    font-size: 2rem;
     color: var(--color-white);
     font-family: var(--font-family-official);
     
