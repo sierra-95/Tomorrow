@@ -23,6 +23,10 @@ body{
     color: var(--primary-color);
     font-family: var(--font-family-title);
 }
+.login-title{
+    font-size: 0.8rem;
+    font-family: var(--font-family-base);
+  }
 @media (max-width: 768px) {
     .welcome-container {
       width: auto;

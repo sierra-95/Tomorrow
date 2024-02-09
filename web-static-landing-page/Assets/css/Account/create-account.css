@@ -57,6 +57,7 @@ input {
   color: var(--primary-color);
 }
 
+
 /**@media**/
 @media (max-width: 768px) {
   .create-account-container {

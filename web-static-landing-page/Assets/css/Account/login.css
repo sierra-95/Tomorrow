@@ -49,6 +49,10 @@ body {
     border: var(--input-border);
     border-radius: var(--input-border-radius);
   }
+  .login-title{
+    font-size: 1rem;
+    font-family: var(--font-family-base);
+  }
   
   /**@media**/
   @media (max-width: 768px) {
