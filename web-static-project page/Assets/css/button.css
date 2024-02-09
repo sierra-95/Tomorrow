@@ -1,19 +1,19 @@
 @import 'style.css';
 :root{
     --button-official-padding: 20px;
-    --button-official-border: solid 2px var(--primary-color);
+    --button-official-border: solid 2px var(--color-black);
     --button-official-border-radius:4px;
-    --button-official-color: var(--primary-color);
-    --button-official-background-color: var(--color-white);
-    --button-official-hover-background: var(--primary-color);
+    --button-official-color: var(--color-white);
+    --button-official-background-color: var(--color-black);
+    --button-official-hover-background: var(--color-black);
     --button-official-hover-color: var(--color-white);
-    --button-custom-padding: 10px;
+    --button-custom-padding: 20px;
     --button-custom-border: none;
     --button-custom-border-radius:4px;
-    --button-custom-color: var(--color-black);
-    --button-custom-background-color: var(--primary-color);
-    --button-custom-hover-transition: opacity 0.3s ease-in-out;
-    --button-custom-hover-opacity: 1.0;
+    --button-custom-color: var(--color-white);
+    --button-custom-background-color: var(--color-black);
+    --button-custom-hover-transition: opacity 0.2s ease-in;
+    --button-custom-hover-opacity: 70%;
 
 }
 .button-official {
@@ -39,7 +39,53 @@
 }
 .button-custom:hover {
     opacity: var(--button-custom-hover-opacity);
+    border: 1px solid var(--color-white);
 }
+
+.button-special{
+    display: none;
+    background-color: var(--button-custom-background-color);
+    color: var(--button-custom-color);
+    border: 1px solid var(--color-white);
+    padding: var(--button-custom-padding);
+}
+.button-special:hover {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+}
+
+input[type="checkbox"] {
+    --tick-color: var(--primary-color);
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 20px;
+    height: 20px; 
+    border: 1px solid #555; 
+    border-radius: 3px; 
+    outline: none; 
+    transition: background-color 0.3s;
+
+    /* Use a pseudo-element to create the tick */
+    &:checked::before {
+        content: '\2713'; /* Unicode character for checkmark */
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 14px; 
+        color: var(--tick-color);
+    }
+}
+input[type="checkbox"]:hover {
+    background-color: var(--color-white);
+}
+
 
 /*Hamburger navigation bar */
 .hamburger-menu {
@@ -52,6 +98,13 @@
     height: 3px;
     background-color: var(--color-white);
     margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    .button-special{
+        display:flex;
+        margin:20px;
+    }
 }
 @media (max-width: 460px) {
     .hamburger-menu {
@@ -74,5 +127,8 @@
 
     .nav-list li {
         padding: 10px;
+    }
+    .button-special{
+        display:flex;
     }
 }

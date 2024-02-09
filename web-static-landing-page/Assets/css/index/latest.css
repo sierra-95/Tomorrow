@@ -42,10 +42,10 @@
     font-family: var(--font-family-base);
 }
 .latest-phrase {
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: var(--color-black);
     text-align: center;
-    font-family: var(--font-family-official);
+    font-family: var(--font-family-base);
 }
 .latest-image{
     border-radius: 0%;

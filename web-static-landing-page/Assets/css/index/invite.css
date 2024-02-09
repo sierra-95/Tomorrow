@@ -6,7 +6,6 @@
     border:none;
     padding:20px;
     margin:10px;
-    background-color: var(--color-black);
 }
 .invite-child-container{
     box-sizing: border-box;
@@ -14,16 +13,16 @@
     height:auto;
     border:none;
     padding:20px;
-    margin-left:20%;
+    margin-left:0;
 }
 .invite-title{
     font-size: 3rem;
-    color: var(--color-white);
+    color: var(--color-black);
     font-family: var(--font-family-official);
 }
 .invite-subtitle {
-    font-size: 1rem;
-    color: var(--color-white);
+    font-size: 0.9rem;
+    color: var(--color-black);
     margin-top: -30px;
     font-family: var(--font-family-base);
 }

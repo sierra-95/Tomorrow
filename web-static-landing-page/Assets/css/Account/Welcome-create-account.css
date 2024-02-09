@@ -2,13 +2,13 @@
 body{
     display: flex;
     align-items: center;
-    background-image: url(../../images/Unsplash/blue-bird.jpg);
+    background-image: url(../../images/Logo/dark-blue-light.png);
     background-size: cover;
     margin:0;
     height:100vh;
 }
 .welcome-container{
-    width: 50%;
+    width: auto;
     padding: 40px;
     margin-left:100px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -23,3 +23,15 @@ body{
     color: var(--primary-color);
     font-family: var(--font-family-title);
 }
+@media (max-width: 768px) {
+    .welcome-container {
+      width: auto;
+      margin-left: 0;
+    }
+  }
+  @media (max-width: 460px) {
+    .welcome-container {
+        width: auto;
+        margin-left: 0;
+      }
+  }
