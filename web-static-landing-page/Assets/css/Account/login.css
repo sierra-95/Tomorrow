@@ -50,7 +50,7 @@ body {
     border-radius: var(--input-border-radius);
   }
   .login-title{
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-family: var(--font-family-base);
   }
   
