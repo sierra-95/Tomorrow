@@ -1,4 +1,4 @@
-@import 'style.css';
+@import '../style.css';
 :root{
   --login-container-color:var(--color-white);
   --login-container-background:var(--color-black);

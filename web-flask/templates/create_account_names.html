@@ -12,6 +12,15 @@
 <body>
   <div class="create-account-container">
     <h3 class="title">We are happy to have you</h3>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for message in messages %}
+            <div class="flash-message">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
     <form action="{{ url_for('create_account_names') }}" method="post">
       <label for="firstname">First name:</label>
       <input type="text" id="firstname" name="firstname" required>
@@ -19,11 +28,14 @@
       <label for="lastname">Last name:</label>
       <input type="text" id="lastname" name="lastname" required>
   
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+  
       <label for="email">Email:</label>
       <input type="text" id="email" name="email" required>
   
       <button class="button-custom" type="submit">Next</button>
-    </form>
+    </form>  
   </div>  
 </body>
 </html>
