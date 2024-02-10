@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" viewport-fit="cover">
+  <title>Create account</title>
+  <link rel="icon" type="image/png" href="../static/images/Favicon/Dark.png">
+  <link rel="stylesheet" href="../static/css/Account/create-account.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/index/button.css">
+</head>
+<body>
+  <div class="create-account-container">
+    <h3 class="title">Our first event on the calender!</h3>
+    <form action="{{ url_for('create_account_dob') }}" method="post">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        <button class="button-custom" type="submit">Next</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" viewport-fit="cover">
+  <title>Create account</title>
+  <link rel="icon" type="image/png" href="../static/images/Favicon/Dark.png">
+  <link rel="stylesheet" href="../static/css/Account/create-account.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/index/button.css">
+</head>
+<body>
+  <div class="create-account-container">
+    <h3 class="title">We are happy to have you</h3>
+    {% if errors %}
+      <div class="error-message">
+        {{ errors }}
+      </div>
+    {% endif %}
+
+    <form action="{{ url_for('create_account_dob') }}" method="post">
+      <label for="firstname">First name:</label>
+      <input type="text" id="firstname" name="firstname" value="{{ session['first_name'] }}" required>
+
+      <label for="lastname">Last name:</label>
+      <input type="text" id="lastname" name="lastname" value="{{ session['last_name'] }}" required>
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" value="{{ session['email'] }}" required>
+
+      <button class="button-custom" type="submit">Next</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,104 @@
+@import '../style.css';
+.about-container{
+    background-color: var(--color-black);
+    box-sizing: border-box;
+    margin:10px;
+    width: auto;
+    height:auto;
+    border:none;
+    display: flex;
+}
+.about-child-container{
+    box-sizing: border-box;
+    margin:10px;
+    width: auto;
+    height:auto;
+    border:none;    
+}
+.about-title{
+    font-size: 3rem;
+    color: var(--color-white);
+    text-align: center;
+    font-family: var(--font-family-official);
+}
+.about-subtitle {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-top: -30px;
+    text-align: center;
+    font-family: var(--font-family-base);
+}
+.about-catch-phrase{
+    color: var(--color-grey);
+    font-size: 1rem;
+    font-family: var(--font-family-base);
+}
+.about-catch-paragraph{
+    color: var(--color-white);
+    font-size: 0.9rem;
+    font-family: var(--font-family-base);
+}
+
+/**@media**/
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-child-container {
+        margin: 5px;
+    }
+
+    .about-title {
+        font-size: 2.5rem;
+    }
+
+    .about-subtitle {
+        font-size: 0.9rem;
+        margin-top: -20px;
+    }
+
+    .about-catch-phrase {
+        font-size: 1rem;
+    }
+
+    .about-catch-paragraph {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsive styles for screens up to 460px */
+@media (max-width: 460px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-child-container {
+        margin: 5px;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-subtitle {
+        font-size: 0.8rem;
+        margin-top: -15px;
+    }
+
+    .about-catch-phrase {
+        font-size: 0.9rem;
+    }
+
+    .about-catch-paragraph {
+        font-size: 0.8rem;
+    }
+    .about-image{
+        width:380px;
+        height:auto;
+        margin-top: -5px;
+    }
+}

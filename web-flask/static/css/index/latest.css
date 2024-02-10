@@ -1,0 +1,123 @@
+@import '../style.css';
+
+.latest-container{
+    box-sizing: border-box;
+    width:auto;
+    height:auto;
+    border:none;
+    padding:20px;
+    margin:10px;
+}
+.latest-child-container{
+    box-sizing: border-box;
+    padding: 0px;
+    display:flex;
+    width:70%;
+    justify-content: space-between;
+    margin-left: 10%;
+}
+.latest-child{
+    box-sizing: border-box;
+    padding: 40px;
+    text-align: center;
+    width:100px;
+    width:auto;
+    border: 0px solid;
+    color: var(--color-black);
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    opacity:100%;
+}
+.latest-title{
+    font-size: 3rem;
+    color: var(--color-black);
+    text-align: center;
+    font-family: var(--font-family-official);
+}
+.latest-subtitle {
+    font-size: 1rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top:-30px;
+    font-family: var(--font-family-base);
+}
+.latest-phrase {
+    font-size: 1rem;
+    color: var(--color-black);
+    text-align: center;
+    font-family: var(--font-family-base);
+}
+.latest-image{
+    border-radius: 0%;
+    width: 250px;
+    height: auto;
+}
+.latest-image:hover{
+    opacity: 80%;
+}
+
+/**@media**/
+
+@media (max-width: 768px) {
+    .latest-container {
+        padding: 10px;
+    }
+
+    .latest-child-container {
+        flex-direction: row;
+        align-items: center;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .latest-child {
+        padding: 20px;
+        font-size: 0.8rem;
+    }
+
+    .latest-title {
+        font-size: 2.5rem;
+    }
+
+    .latest-subtitle {
+        font-size: 0.9rem;
+        margin-top: -20px;
+    }
+    .latest-image{
+        width:100px;
+        height: auto;
+    }
+}
+
+/* Responsive styles for screens up to 460px */
+@media (max-width: 460px) {
+    .latest-container {
+        padding: 5px;
+    }
+
+    .latest-child-container {
+        flex-direction: row;
+        align-items: center;
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    .latest-child {
+        padding: 10px;
+        font-size: 0.7rem;
+    }
+    .latest-subtitle {
+        font-size: 0.8rem;
+        margin-top: -15px;
+    }
+    .latest-title {
+        font-size: 2rem;
+    }
+    .latest-phrase {
+        font-size: 0.8rem;
+    }
+    .latest-image{
+        width:70px;
+        height: auto;
+    }
+}

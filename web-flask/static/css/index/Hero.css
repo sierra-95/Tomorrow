@@ -1,0 +1,154 @@
+@import '../style.css';
+:root{
+    --background-image:url('../../images/Unsplash/blue-bird.jpg') ;
+}
+.Hero-container{
+    box-sizing: border-box;
+    margin:10px;
+    width:auto;
+    padding:100px;
+    font-family: var(--font-family-title);
+    border: none;
+    background-image: var(--background-image);
+    background-size: cover;
+    background-color: var(--color-black);
+}
+.child-Hero-container{
+    position: relative;
+    padding:0px;
+    border: none;
+    width:80%;
+    margin: 0px;
+    display: flex;
+    justify-content:space-between; /* Put items at the start and end of the container */
+    align-items:center;
+    color: var(--color-white);
+
+}
+.Logo{
+    margin-left:50px;
+}
+.Hero{
+    margin-top: -10px;
+    margin-left: 50px;
+    text-align: left;
+}
+.Hero-title{
+    font-size: 4rem;
+    color: var(--color-white);
+    font-family: var(--font-family-official);
+    
+}
+.Hero-subtitle {
+    font-size: 1rem;
+    color: var(--color-grey);
+    margin-top: -50px;
+}
+
+.Hero button {
+    margin-top: 20px;
+}
+a{
+    color: var(--primary-color);
+    text-decoration: none; /*to avoid underlining*/
+}
+ a:hover{
+    text-decoration: none;
+}
+nav a {
+    position: relative;
+    transition: 0.5s;
+    color: grey;
+    text-decoration: none; 
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+nav a span {
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    height: 2px; 
+    background-color: var(--primary-color); 
+    border-radius: 15px;
+    transform: scaleX(0); 
+    transform-origin: bottom left; 
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.5s;
+}
+nav a:hover span {
+    transform: scaleX(1);
+    opacity: 1;
+}
+ul{
+    display: flex;
+    list-style: none;
+}
+li{
+    padding:20px;
+    font-family: var(--font-family-title);
+    font-size: 1rem;
+}
+
+/**@media**/
+
+@media (max-width: 768px) {
+    .Hero-container {
+        padding: 50px;
+    }
+
+    .child-Hero-container {
+        width: 90%;
+    }
+
+    .Logo {
+        margin-left: 20px;
+    }
+
+    .Hero {
+        margin-left: 20px;
+    }
+
+    .Hero-title {
+        font-size: 3rem;
+    }
+
+    .Hero-subtitle {
+        font-size: 0.8rem;
+        margin-top: -30px;
+    }
+}
+
+/* Responsive styles for screens up to 460px */
+@media (max-width: 460px) {
+    .Hero-container {
+        padding: 30px;
+    }
+
+    .child-Hero-container {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .Logo {
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
+
+    .Hero {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .Hero-title {
+        font-size: 3rem;
+    }
+
+    .Hero-subtitle {
+        font-size: 0.9rem;
+        margin-top: -20px;
+    }
+
+}

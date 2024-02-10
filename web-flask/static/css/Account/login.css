@@ -1,0 +1,69 @@
+@import 'style.css';
+:root{
+  --login-container-color:var(--color-white);
+  --login-container-background:var(--color-black);
+  --login-container-font-family: var(--font-family-official);
+  --login-container-padding:40px;
+  --login-container-border-radius:8px;
+  --login-container-box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+  --label-font-family: var(--font-family-base);
+  --label-font-color: var(--color-white);
+  --input-padding: 8px;
+  --input-border:1px solid #ccc;
+  --input-border-radius:4px;
+} 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--body-background-color);
+  background-image: url(../../images/Logo/dark-blue-light.png);
+  background-size: cover;
+} 
+  .login-container {
+    color: var(--login-container-color);
+    background-color: var(--login-container-background);
+    padding: var(--login-container-padding);
+    border-radius: var(--login-container-border-radius);
+    box-shadow: var(--login-container-box-shadow);
+    font-family: var(--login-container-font-family);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 8px;
+    color:var(--label-font-color);
+    font-family: var(--label-font-family);
+    font-size: 0.9rem;
+  }
+  
+  input {
+    padding: var(--input-padding);
+    margin-bottom: 16px;
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
+  }
+  .login-title{
+    font-size: 0.9rem;
+    font-family: var(--font-family-base);
+  }
+  
+  /**@media**/
+  @media (max-width: 768px) {
+    .login-container {
+      width: 40%;
+    }
+  }
+  @media (max-width: 460px) {
+    .login-container {
+      width: 40%;
+    }
+  }
+
+  

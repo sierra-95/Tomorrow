@@ -1,0 +1,7 @@
+CREATE USER 'Tomorrow'@'localhost' IDENTIFIED BY 'P@ssword@!967';
+GRANT ALL PRIVILEGES ON *.* TO 'Tomorrow'@'localhost' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
+CREATE DATABASE IF NOT EXISTS Tomorrow;
+

@@ -1,0 +1,71 @@
+@import '../style.css';
+.invite-container{
+    box-sizing: border-box;
+    width:auto;
+    height:auto;
+    border:none;
+    padding:20px;
+    margin:10px;
+}
+.invite-child-container{
+    box-sizing: border-box;
+    width:auto;
+    height:auto;
+    border:none;
+    padding:20px;
+    margin-left:0;
+}
+.invite-title{
+    font-size: 3rem;
+    color: var(--color-black);
+    font-family: var(--font-family-official);
+}
+.invite-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-black);
+    margin-top: -30px;
+    font-family: var(--font-family-base);
+}
+
+/**@media**/
+
+@media (max-width: 768px) {
+    .invite-container {
+        padding: 10px;
+    }
+
+    .invite-child-container {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .invite-title {
+        font-size: 2.5rem;
+    }
+
+    .invite-subtitle {
+        font-size: 0.9rem;
+        margin-top: -20px;
+    }
+}
+
+/* Responsive styles for screens up to 460px */
+@media (max-width: 460px) {
+    .invite-container {
+        padding: 5px;
+    }
+
+    .invite-child-container {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .invite-title {
+        font-size: 2rem;
+    }
+
+    .invite-subtitle {
+        font-size: 0.8rem;
+        margin-top: -15px;
+    }
+}

@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="Assets/css/calender.css"> 
         <link rel="stylesheet" href="Assets/css/footer.css">
         <link rel="stylesheet" href="Assets/css/goals.css">
+        <link rel="stylesheet" href="Assets/css/event.css">
     </head>
     <body>
         <div class="Hero-container">
@@ -33,7 +34,7 @@
                             <li><a href="../web-static-landing-page/login-account.html">Log out<span></span></a></li>
                         </ul>
                     </nav>
-                    <script src="Assets/js/hamburger-menu.js"></script>
+                    <script src="Assets/js/hamburger-menu.js"></script>                    
                 </div>
             </header>
             <main>
@@ -119,8 +120,15 @@
                             </div>
                         
                             <div class="month-list"></div>
+                            <div class="event-popup">
+                                <button class="close-btn" onclick="closeEventPopup()">X</button>
+                                <label for="event-input">Event:</label>
+                                <input type="text" id="event-input" placeholder="Type your event...">
+                                <button id="save-btn" onclick="saveEvent()">Save</button>
+                            </div>
                         </div>
-                        <script src="Assets/js/calender.js"></script>             
+                        <script src="Assets/js/calender.js"></script>
+                        <script src="Assets/js/event.js"></script>            
                         
                     </section>      
                     <!--calender end-->             

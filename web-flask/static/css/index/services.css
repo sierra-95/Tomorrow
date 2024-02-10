@@ -1,0 +1,109 @@
+@import '../style.css';
+:root{
+    --background-services-image: url('../images/Logo/Light-cyan.png');
+}
+.services-container{
+    /*background-image: var(--background-services-image);
+    background-size: cover;*/
+    box-sizing: border-box;
+    width:auto;
+    height:auto;
+    border:none;
+    padding:20px;
+    margin:10px;
+}
+.services-child-container{
+    box-sizing: border-box;
+    padding: 0px;
+    margin-left: 25%;
+    display:flex;
+    width:50%;
+    justify-content: space-between;
+}
+.services-child{
+    box-sizing: border-box;
+    padding: 40px;
+    text-align: center;
+    width:auto;
+    border: 0px solid;
+    border-radius: 0px;
+    color: var(--color-white);
+    background-color: var(--color-black);
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    opacity:90%;
+}
+.services-child:hover{
+    opacity: 90%;
+    color: var(--color-white);
+    background-color: var(--primary-color);
+    transition: 0.2s ease-in;
+}
+.services-title{
+    font-size: 3rem;
+    color: var(--color-black);
+    text-align: center;
+    font-family: var(--font-family-official);
+}
+.services-subtitle {
+    font-size: 1rem;
+    color: var(--color-black);
+    margin-top: -30px;
+    text-align: center;
+    font-family: var(--font-family-base);
+}
+
+/**@media**/
+
+@media (max-width: 768px) {
+    .services-container {
+        padding: 10px;
+    }
+
+    .services-child-container {
+        margin-left: 5%;
+        width: 90%;
+    }
+
+    .services-child {
+        padding: 20px;
+        font-size: 0.8rem;
+    }
+
+    .services-title {
+        font-size: 2.5rem;
+    }
+
+    .services-subtitle {
+        font-size: 0.9rem;
+        margin-top: -20px;
+    }
+}
+
+/* Responsive styles for screens up to 460px */
+@media (max-width: 460px) {
+    .services-container {
+        padding: 5px;
+    }
+
+    .services-child-container {
+        margin-left: 0;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .services-child {
+        padding: 10px;
+        font-size: 0.7rem;
+    }
+
+    .services-title {
+        font-size: 2rem;
+    }
+
+    .services-subtitle {
+        font-size: 0.8rem;
+        margin-top: -15px;
+    }
+}

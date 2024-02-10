@@ -1,0 +1,72 @@
+@import 'style.css';
+
+:root {
+  --create-account-container-color: var(--color-white);
+  --create-account-container-background: var(--color-black);
+  --create-account-container-font-family: var(--font-family-official);
+  --create-account-container-padding: 40px;
+  --create-account-container-border-radius: 8px;
+  --create-account-container-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  --label-font-family: var(--font-family-base);
+  --label-font-color: var(--color-white);
+  --input-padding: 8px;
+  --input-border: 1px solid #ccc;
+  --input-border-radius: 4px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: var(--body-background-color);
+  background-image: url(../../images/Logo/dark-blue-light.png);
+  background-size: cover;
+}
+
+.create-account-container {
+  color: var(--create-account-container-color);
+  background-color: var(--create-account-container-background);
+  padding: var(--create-account-container-padding);
+  border-radius: var(--create-account-container-border-radius);
+  box-shadow: var(--create-account-container-box-shadow);
+  font-family: var(--create-account-container-font-family);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  color: var(--label-font-color);
+  font-family: var(--label-font-family);
+  font-size: 0.9rem;
+}
+
+input {
+  padding: var(--input-padding);
+  margin-bottom: 16px;
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+}
+
+.title {
+  color: var(--primary-color);
+}
+
+
+/**@media**/
+@media (max-width: 768px) {
+  .create-account-container {
+    width: 40%;
+  }
+}
+
+@media (max-width: 460px) {
+  .create-account-container {
+    width: 40%;
+  }
+}
