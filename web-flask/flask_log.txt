@@ -1,0 +1,102 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+GET / - 200
+INFO:app:GET / - 200
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "GET / HTTP/1.1" 200 -
+GET /static/css/index/button.css - 304
+INFO:app:GET /static/css/index/button.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "[36mGET /static/css/index/button.css HTTP/1.1[0m" 304 -
+GET /static/css/style.css - 304
+INFO:app:GET /static/css/style.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+GET /static/css/index/Hero.css - 304
+INFO:app:GET /static/css/index/Hero.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "[36mGET /static/css/index/Hero.css HTTP/1.1[0m" 304 -
+GET /static/css/index/services.css - 304
+INFO:app:GET /static/css/index/services.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "[36mGET /static/css/index/services.css HTTP/1.1[0m" 304 -
+GET /static/css/index/latest.css - 304
+INFO:app:GET /static/css/index/latest.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "[36mGET /static/css/index/latest.css HTTP/1.1[0m" 304 -
+GET /static/css/index/about.css - 304
+INFO:app:GET /static/css/index/about.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "[36mGET /static/css/index/about.css HTTP/1.1[0m" 304 -
+GET /static/css/index/invite.css - 304
+INFO:app:GET /static/css/index/invite.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "[36mGET /static/css/index/invite.css HTTP/1.1[0m" 304 -
+GET /static/css/index/footer.css - 304
+INFO:app:GET /static/css/index/footer.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "[36mGET /static/css/index/footer.css HTTP/1.1[0m" 304 -
+GET /static/images/Logo/dark-blue-light.png - 304
+INFO:app:GET /static/images/Logo/dark-blue-light.png - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "[36mGET /static/images/Logo/dark-blue-light.png HTTP/1.1[0m" 304 -
+GET /static/js/hamburger-menu.js - 304
+INFO:app:GET /static/js/hamburger-menu.js - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:35] "[36mGET /static/js/hamburger-menu.js HTTP/1.1[0m" 304 -
+GET /static/images/Unsplash/blue-bird.jpg - 304
+INFO:app:GET /static/images/Unsplash/blue-bird.jpg - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:36] "[36mGET /static/images/Unsplash/blue-bird.jpg HTTP/1.1[0m" 304 -
+GET /static/images/Logo/Light-purple.png - 304
+INFO:app:GET /static/images/Logo/Light-purple.png - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:36] "[36mGET /static/images/Logo/Light-purple.png HTTP/1.1[0m" 304 -
+GET /static/images/Unsplash/person-ocean.jpg - 304
+INFO:app:GET /static/images/Unsplash/person-ocean.jpg - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:36] "[36mGET /static/images/Unsplash/person-ocean.jpg HTTP/1.1[0m" 304 -
+GET /welcome_create_account - 200
+INFO:app:GET /welcome_create_account - 200
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:55] "GET /welcome_create_account HTTP/1.1" 200 -
+GET /static/css/Account/Welcome-create-account.css - 304
+INFO:app:GET /static/css/Account/Welcome-create-account.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:55] "[36mGET /static/css/Account/Welcome-create-account.css HTTP/1.1[0m" 304 -
+GET /static/css/index/Hero.css - 304
+INFO:app:GET /static/css/index/Hero.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:55] "[36mGET /static/css/index/Hero.css HTTP/1.1[0m" 304 -
+GET /static/css/style.css - 304
+INFO:app:GET /static/css/style.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+GET /static/css/index/button.css - 304
+INFO:app:GET /static/css/index/button.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:56] "[36mGET /static/css/index/button.css HTTP/1.1[0m" 304 -
+GET /static/images/Logo/dark-blue-light.png - 304
+INFO:app:GET /static/images/Logo/dark-blue-light.png - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:56] "[36mGET /static/images/Logo/dark-blue-light.png HTTP/1.1[0m" 304 -
+GET /create_account_names - 200
+INFO:app:GET /create_account_names - 200
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:57] "GET /create_account_names HTTP/1.1" 200 -
+GET /static/css/style.css - 304
+INFO:app:GET /static/css/style.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+GET /static/css/index/button.css - 304
+INFO:app:GET /static/css/index/button.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:57] "[36mGET /static/css/index/button.css HTTP/1.1[0m" 304 -
+GET /static/css/Account/create-account.css - 304
+INFO:app:GET /static/css/Account/create-account.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:57] "[36mGET /static/css/Account/create-account.css HTTP/1.1[0m" 304 -
+GET /static/css/Account/style.css - 404
+INFO:app:GET /static/css/Account/style.css - 404
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:57] "[33mGET /static/css/Account/style.css HTTP/1.1[0m" 404 -
+GET /static/images/Logo/dark-blue-light.png - 304
+INFO:app:GET /static/images/Logo/dark-blue-light.png - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:12:57] "[36mGET /static/images/Logo/dark-blue-light.png HTTP/1.1[0m" 304 -
+GET /create_account_names - 200
+INFO:app:GET /create_account_names - 200
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:13:00] "GET /create_account_names HTTP/1.1" 200 -
+GET /static/css/Account/create-account.css - 304
+INFO:app:GET /static/css/Account/create-account.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:13:00] "[36mGET /static/css/Account/create-account.css HTTP/1.1[0m" 304 -
+GET /static/css/style.css - 304
+INFO:app:GET /static/css/style.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:13:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+GET /static/css/index/button.css - 304
+INFO:app:GET /static/css/index/button.css - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:13:00] "[36mGET /static/css/index/button.css HTTP/1.1[0m" 304 -
+GET /static/css/Account/style.css - 404
+INFO:app:GET /static/css/Account/style.css - 404
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:13:00] "[33mGET /static/css/Account/style.css HTTP/1.1[0m" 404 -
+GET /static/images/Logo/dark-blue-light.png - 304
+INFO:app:GET /static/images/Logo/dark-blue-light.png - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:13:00] "[36mGET /static/images/Logo/dark-blue-light.png HTTP/1.1[0m" 304 -
+GET /static/images/Favicon/Dark.png - 304
+INFO:app:GET /static/images/Favicon/Dark.png - 304
+INFO:werkzeug:127.0.0.1 - - [11/Feb/2024 21:13:00] "[36mGET /static/images/Favicon/Dark.png HTTP/1.1[0m" 304 -

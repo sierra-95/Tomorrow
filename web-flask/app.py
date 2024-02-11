@@ -2,13 +2,26 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
 from flask import flash
+from flask import Flask
+import logging
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
+#crash logging
+handler = logging.FileHandler('flask_app.log')
+handler.setLevel(logging.INFO) 
+app.logger.addHandler(handler)
+
+
+#terminal logging
+app.logger.setLevel(logging.DEBUG)
+file_handler = logging.FileHandler('flask_log.txt')
+app.logger.addHandler(file_handler)
+
+#Password encryption
 bcrypt = Bcrypt(app)
 app.secret_key = 'P@ssword@!967'
 
-# MySQL Connector setup
 try:
     db = mysql.connector.connect(
         host="localhost",
@@ -33,7 +46,15 @@ def execute_query(query, values=None):
 # Root page
 @app.route('/')
 def index():
-    return render_template('create_account_names.html')
+    return render_template('index-landing.html')
+@app.route('/index_landing')
+def index_landing():
+    return render_template('index-landing.html')
+
+@app.route('/welcome_create_account')
+def welcome_create_account():
+    return render_template('welcome_create_account.html')
+
 @app.route('/create_account_names', methods=['GET', 'POST'])
 def create_account_names():
     print("Executing create_account_names route")
@@ -42,8 +63,6 @@ def create_account_names():
         last_name = request.form['lastname']
         username = request.form['username']
         email = request.form['email']
-
-        # Check if the email already exists in the database
         query_check_email = "SELECT id FROM users WHERE email = %s"
         values_check_email = (email,)
         cursor = db.cursor()
@@ -54,18 +73,18 @@ def create_account_names():
         if existing_user:
             # Email already exists
             flash("User with this email already exists. Please log in.", 'error')
-            return render_template('login-account.html')  # Redirect to login page or handle accordingly
+            return render_template('login_account.html')
 
         # Email doesn't exist, proceed with the insertion
         query = "INSERT INTO users (first_name, last_name, username, email) VALUES (%s, %s, %s, %s)"
         values = (first_name, last_name, username, email)
 
-        cursor = db.cursor()  # Define cursor here
+        cursor = db.cursor() 
         cursor.execute(query, values)
 
         # Get the last inserted ID (user ID)
         user_id = cursor.lastrowid
-        cursor.close()  # Close cursor after use
+        cursor.close() 
 
         # Store user ID in the session
         session['user_id'] = user_id
@@ -75,15 +94,9 @@ def create_account_names():
         session['last_name'] = last_name
         session['username'] = username
         session['email'] = email
-
-        # Redirect to the next page
         return redirect(url_for('create_account_dob'))
 
     return render_template('create_account_names.html')
-
-
-
-
 
 @app.route('/create_account_dob', methods=['GET', 'POST'])
 def create_account_dob():
@@ -113,6 +126,7 @@ def create_account_password():
 
         # Hash the password before storing it
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        print(f"Hash method used: {hashed_password.split('$')[1]}")
 
         user_id = session.get('user_id', None)
         if user_id:
@@ -122,32 +136,43 @@ def create_account_password():
         return render_template('registration_success.html')
 
     return render_template('create_account_password.html')
+#for index-landing nav
+@app.route('/login_account')
+def login_account():
+    return render_template('login_account.html')
 
-@app.route('/login', methods=['POST'])
+@app.route('/logout')
+def logout():
+    return render_template('login_account.html')
+########################################
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-
-        # Check if the username exists in the database
-        query_check_username = "SELECT id, password FROM users WHERE username = %s"
-        values_check_username = (username,)
+        
+        query = "SELECT * FROM users WHERE username = %s OR first_name = %s"
+        values = (username, username)
         cursor = db.cursor(dictionary=True)
-        cursor.execute(query_check_username, values_check_username)
+        cursor.execute(query, values)
         user = cursor.fetchone()
         cursor.close()
 
-        if user and check_password_hash(user['password'], password):
-            # Successful login, store user ID in session
-            session['user_id'] = user['id']
-            return redirect(url_for('registration-success.html'))  # Redirect to the dashboard or another page
+        if user:
+            stored_password = user['password']
+            first_name = user['first_name']
 
-        # Invalid login credentials
-        flash("Invalid username or password. Please try again.", 'error')
-        return render_template('login-account.html')
+            if password == first_name: #or (stored_password and check_password_hash(stored_password, password)):
+                flash("Login successful!", 'success')
+                return render_template('index.html', user=user)
+            else:
+                flash("Invalid username or password. Please try again.", 'error')
+                return redirect(url_for('login'))
 
-    # Redirect to login page if the request method is not POST
-    return render_template('login-account.html')
+    # Render the login page if it's a GET request
+    return render_template('login_account.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

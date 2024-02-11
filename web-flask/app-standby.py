@@ -1,3 +1,54 @@
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask import Flask, render_template, request, redirect, url_for, session
+import mysql.connector
+from flask import flash
+from flask import Flask
+import logging
+from flask_bcrypt import Bcrypt
+
+#pending fix
+@app.route('/login', methods=['POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        # Query the database for the user with the given username
+        query = "SELECT * FROM users WHERE username = %s"
+        values = (username,)
+        cursor = db.cursor(dictionary=True)
+        cursor.execute(query, values)
+        user = cursor.fetchone()
+        cursor.close()
+
+        if user and 'password' in user:
+            stored_password = user['password']
+            print(f"Fetched user from database: {user}")
+            print(f"Stored password from database: {stored_password}")
+            
+            if check_password_hash(stored_password, password):
+                # Successful login, you can now redirect or perform other actions
+                flash("Login successful!", 'success')
+                print("Login successful!")
+                return redirect(url_for('dashboard'))
+            else:
+                flash("Invalid username or password. Please try again.", 'error')
+                print("Invalid username or password.")
+                return redirect(url_for('login'))
+
+    # Render the login page if it's a GET request
+    return render_template('login-account.html')
+
+#working
+logging.basicConfig(filename='flask_log.txt', level=logging.DEBUG)
+@app.after_request
+def log_request(response):
+    app.logger.info(
+        f"{request.method} {request.path} - {response.status_code}"
+    )
+    return response
+
+
 #working
 @app.route('/create_account_names', methods=['GET', 'POST'])
 def create_account_names():
