@@ -9,3 +9,15 @@ CREATE TABLE IF NOT EXISTS users (
     dob DATE,
     password VARCHAR(255)
 );
+
+
+CREATE TABLE IF NOT EXISTS events (
+    event_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    event_name VARCHAR(255),
+    event_date DATE,
+    event_description TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+

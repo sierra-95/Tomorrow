@@ -2,7 +2,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
 from flask import flash
-from flask import Flask
+from flask import Flask, jsonify
 import logging
 from flask_bcrypt import Bcrypt
 
@@ -172,6 +172,25 @@ def login():
     # Render the login page if it's a GET request
     return render_template('login_account.html')
 
+from flask import request, jsonify
+
+@app.route('/save_event', methods=['POST'])
+def save_event():
+    data = request.json
+    event_name = data.get('eventName')
+
+    # Get user_id from the session or wherever you store it
+    user_id = session.get('user_id')
+
+    if event_name and user_id:
+        # Save the event to the database
+        query = "INSERT INTO events (user_id, event_name) VALUES (%s, %s)"
+        values = (user_id, event_name)
+        execute_query(query, values)
+
+        return jsonify({'message': 'Event saved successfully'}), 200
+    else:
+        return jsonify({'error': 'Invalid data or user not logged in'}), 400
 
 
 if __name__ == '__main__':

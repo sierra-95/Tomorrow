@@ -33,3 +33,41 @@ document.addEventListener('DOMContentLoaded', function () {
         // Your existing saveEvent logic...
     }
 });
+
+
+
+//Save button
+let saveBtn = document.getElementById('save-btn');
+
+saveBtn.addEventListener('click', function () {
+    saveEvent();
+    closeEventPopup();
+});
+
+function saveEvent() {
+    let eventName = document.getElementById('event-input').value;
+    // Get other event details like date and description if available
+
+    // Send the event details to the server using AJAX or fetch
+    sendEventToServer(eventName);
+}
+
+function sendEventToServer(eventName) {
+    // Use AJAX or fetch to send the event details to the server
+    // For simplicity, I'll use fetch in this example
+    fetch('/save_event', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ eventName: eventName }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the response if needed
+        console.log('Event saved:', data);
+    })
+    .catch(error => {
+        console.error('Error saving event:', error);
+    });
+}
