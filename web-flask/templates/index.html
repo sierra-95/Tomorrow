@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" viewport-fit="cover">
         <title>User Home</title>
-        <link rel="icon" type="image/png" href="Assets/images/Favicon/Dark.png">
+        <link rel="icon" type="image/png" href="../static/images/Favicon/Dark.png">
         <link rel="stylesheet" href="../static/css-project-page/style.css">
         <link rel="stylesheet" href="../static/css-project-page/Hero.css"> 
         <link rel="stylesheet" href="../static/css-project-page/button.css">  
@@ -41,6 +41,7 @@
                 <!--User section-->
                 <div class="child-Hero-container">
                     <div class="Hero">
+                        <!--1 class="Hero-title">Welcome {{ user['first_name'] }} {{ user['last_name'] }}</h1-->
                         <h1 class="Hero-title">Welcome {{ user['first_name'] }} {{ user['last_name'] }}</h1>
                     </div>
                 </div>                
@@ -52,7 +53,7 @@
                 <h1 class="todays-tasks-title">Task manager</h1>
                 <div class="todays-tasks-child-container">
                     <!--first container-->
-                    <div class="todays-tasks-child-first">
+                    <!--div class="todays-tasks-child-first">
                         <h1 class="todays-tasks-subtitle">Today's planning</h1>
                         <div class="todays-tasks-child-first-content">
                             <h2 class="todays-tasks-child-first-content-title">Take car to garage
@@ -61,7 +62,34 @@
                         </div>
                         <br>
                         <br>
-                        <button class="button-custom"> + Add tasks</button>
+                        <button class="button-custom"> + Add tasks</button>                        
+                    </div-->
+                    <div class="todays-tasks-child-first">
+                        <h1 class="todays-tasks-subtitle">Upcoming tasks</h1>                    
+                        <!-- Display user events -->
+                        {% if events %}
+                            {% for event in events %}
+                                <div class="todays-tasks-child-first-content">                                    
+                                    <h2 class="todays-tasks-child-first-content-title">{{ event.event_name }}</h2>
+                                    <p class="todays-tasks-child-first-content-description">{{ event.event_description }}</p>
+                                    <p class="todays-tasks-child-first-content-date">Date: {{ event.event_date }}</p>
+                                    <div class="event-options">
+                                        <!-- Three-dotted button -->
+                                        <button class="options-btn" onclick="toggleOptions('{{ event.event_id }}')">...</button>
+                                        <!-- Dropdown menu for options -->
+                                        <div class="options-dropdown" id="options{{ event.event_id }}">
+                                            <a href="#">Edit</a>
+                                            <a href="#">Delete</a>
+                                        </div>
+                                        <!--label style="color: var(--color-white);"><input type="checkbox" id="myCheckbox">Done</label-->
+                                    </div>
+                                </div>
+                                <br>
+                            {% endfor %}
+                        {% else %}
+                            <p class="todays-tasks-child-first-content-title">No events for today.</p>
+                        {% endif %}                    
+                        <!--button class="button-custom"> + Add tasks</button-->
                     </div>
                     <a href="#calender"><button class="button-special">View calender</button></a>
                     <!--second container-->
@@ -124,8 +152,11 @@
                                 <button class="close-btn" onclick="closeEventPopup()">X</button>
                                 <label for="event-input">Event:</label>
                                 <input type="text" id="event-input" placeholder="Type your event...">
+                                <label for="event-description">Description:</label> <!-- Add this line -->
+                                <textarea id="event-description" rows="4" placeholder="Type event description..."></textarea> <!-- Add this line -->
                                 <button id="save-btn" onclick="saveEvent()">Save</button>
-                            </div>
+                            </div>                           
+                            
                         </div>
                         <script src="../static/js/calender.js"></script>
                         <script src="../static/js/event.js"></script>            

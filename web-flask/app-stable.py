@@ -5,7 +5,17 @@ from flask import flash
 from flask import Flask
 import logging
 from flask_bcrypt import Bcrypt
+#pending fix
 
+    query = "SELECT id FROM users WHERE username = %s"
+    values = (username)
+    cursor = db.cursor(dictionary=True)
+    cursor.execute(query, values)
+    user = cursor.fetchone()
+    cursor.close()
+    if user:
+        id = user['id']  # Extract user ID
+        print(f"User ID: {id}")  # Print user ID to the terminal
 #pending fix
 @app.route('/login', methods=['POST'])
 def login():
@@ -39,6 +49,109 @@ def login():
     # Render the login page if it's a GET request
     return render_template('login-account.html')
 
+
+
+#******************************************************************#
+#working
+def get_user_events(user_id):
+    query_events = "SELECT * FROM events WHERE user_id = %s"
+    values_events = (user_id,)
+    cursor_events = db.cursor(dictionary=True)
+    cursor_events.execute(query_events, values_events)
+    events = cursor_events.fetchall()
+    cursor_events.close()
+
+    return events
+
+def get_user_info(user_id):
+    query = "SELECT * FROM users WHERE id = %s"
+    values = (user_id,)
+    cursor = db.cursor(dictionary=True)
+    cursor.execute(query, values)
+    user = cursor.fetchone()
+    cursor.close()
+
+    return user
+#works with the function
+@app.route('/dashboard')
+def dashboard():
+    if 'user_id' in session:
+        user_id = session['user_id']
+        user = get_user_info(user_id)
+        print(f"User ID: {user_id}")
+
+        if user:
+            return render_template('index.html', user=user)
+        else:
+            flash("User not found.", 'error')
+            return redirect(url_for('login'))
+
+    # Handle the case where the user is not logged in
+    return redirect(url_for('login'))
+#working
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        query = "SELECT * FROM users WHERE username = %s OR first_name = %s"
+        values = (username, username)
+        cursor = db.cursor(dictionary=True)
+        cursor.execute(query, values)
+        user = cursor.fetchone()
+        cursor.close()
+
+        if user:
+            stored_password = user['password']
+            user_id = user['id']  # Extract user ID
+            first_name = user['first_name']
+
+            print(f"User ID: {user_id}")  # Print user ID to the terminal
+
+            if password == first_name: #or (stored_password and check_password_hash(stored_password, password)):
+                session['user_id'] = user_id
+                print(session['user_id'])
+                flash("Login successful!", 'success')
+                return render_template('index.html', user=user)
+            else:
+                flash("Invalid username or password. Please try again.", 'error')
+                return redirect(url_for('login'))
+
+    # Render the login page if it's a GET request
+    return render_template('login_account.html')
+#working
+# Save event route
+@app.route('/save_event', methods=['POST'])
+def save_event():
+    print('Received request to save event...')
+    data = request.json
+    event_name = data.get('eventName')
+    event_description = data.get('eventDescription')  # Add this line
+
+    # Get user_id from the session or wherever you store it
+    user_id = session.get('user_id')
+
+    if event_name and user_id:
+        print('Event name:', event_name)
+        print('Event description:', event_description)  # Add this line
+        print('User ID:', user_id)
+
+        # Save the event to the database
+        query = "INSERT INTO events (user_id, event_name, event_description) VALUES (%s, %s, %s)"  # Modify this line
+        values = (user_id, event_name, event_description)  # Modify this line
+
+        try:
+            execute_query(query, values)
+            print('Event saved successfully.')
+            return jsonify({'message': 'Event saved successfully'}), 200
+        except Exception as e:
+            print('Error saving event:', str(e))
+            return jsonify({'error': 'Error saving event to the database'}), 500
+
+    else:
+        print('Invalid data or user not logged in.')
+        return jsonify({'error': 'Invalid data or user not logged in'}), 400
 #working
 logging.basicConfig(filename='flask_log.txt', level=logging.DEBUG)
 @app.after_request

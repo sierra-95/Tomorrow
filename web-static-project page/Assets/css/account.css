@@ -1,0 +1,52 @@
+@import 'style.css';
+
+.my-account-container {
+    max-width: auto;
+    height:auto;
+    margin: 10px;
+    padding: 20px;
+    background-image: url('../images/Logo/dark-blue-light.png');
+    background-size: cover;
+}
+
+.my-account-details {
+    margin-top: 20px;
+    color: var(--color-white);
+    font-family: var(--font-family-base);
+}
+
+.my-account-details p {
+    margin: 10px 0;
+}
+
+.my-account-details strong {
+    margin-right: 10px;
+    font-weight: bold;
+}
+@media (max-width: 768px) {
+    .my-account-container {
+        max-width: 400px;
+    }
+
+    .my-account-title {
+        font-size: 1.5rem;
+    }
+
+    .my-account-details p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 460px) {
+    .my-account-container {
+        max-width: 300px;
+    }
+
+    .my-account-title {
+        font-size: 1.2rem;
+    }
+
+    .my-account-details p {
+        font-size: 0.8rem;
+    }
+}

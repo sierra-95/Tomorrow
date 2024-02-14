@@ -33,6 +33,14 @@
     border-radius: 5px;
     overflow-y: auto;
 }
+.event-popup textarea {
+    width: 100%;
+    height: 150px; 
+    resize: vertical; 
+    padding: 10px;
+    box-sizing: border-box; 
+    margin-bottom: 15px; 
+}
 
 .event-popup button {
     background-color: var(--blue);

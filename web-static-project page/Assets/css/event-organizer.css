@@ -1,11 +1,11 @@
 @import 'style.css';
 
 :root {
-    --background-todays-tasks-image: url('../images/Logo/Light-cyan.png');
+    --background-event-organizer-image: url('../images/Logo/Light-cyan.png');
 }
 
-.todays-tasks-container {
-    /*background-image: var(--background-todays-tasks-image);
+.event-organizer-container {
+    /*background-image: var(--background-event-organizer-image);
     background-size: cover;*/
     box-sizing: border-box;
     width: auto;
@@ -16,7 +16,7 @@
     background-color: var(--color-black);
 }
 
-.todays-tasks-child-container {
+.event-organizer-child-container {
     box-sizing: border-box;
     padding: 20px;
     display: flex;
@@ -25,8 +25,8 @@
     justify-content: space-between;
 }
 
-.todays-tasks-child-first {
-    width: 350px;
+.event-organizer-child-first {
+    width: max-content;
     height:520px;
     padding:20px;
     border: 0px solid;
@@ -36,64 +36,69 @@
     background-image: url('../images/Unsplash/andrea.jpg');
     background-size: cover;
 }
-.todays-tasks-child-first-content{
+
+.event-organizer-child-first-content{
     width:auto;
     border:none;
     padding:20px;
     border-radius: 5px;
     background-color: var(--color-black-new);
 }
-.todays-tasks-child-first-content:hover{
+
+.event-organizer-child-first-content:hover{
     transition: opacity 0.2s ease-in;
     opacity: 90%;
 }
-.todays-tasks-child-first-content-title{
+
+.event-organizer-child-first-content-title{
     color: var(--color-white);
     font-size: 1rem;
     font-family: var(--font-family-official);
 }
-.todays-tasks-child-second {
+
+.event-organizer-child-second {
     width: 350px;
-    height:520px;
+    height:435px;
     padding:0px;
     border: 0px solid;
     border-radius: 0px;
     background-color: var(--color-white);
     overflow-y: auto;
 }
-.todays-tasks-child-second-content{
+
+.event-organizer-child-second-content{
     box-sizing: border-box;
     display: block;
     padding:10px;
     width:330px;
     height:auto;
 }
-.todays-tasks-child-second-content:hover {
+
+.event-organizer-child-second-content:hover {
     opacity: 80%;
     transition: 0.2s ease-in;
 }
-.todays-tasks-child-second-content-title{
+
+.event-organizer-child-second-content-title{
     color: var(--color-black);
     font-size: 0.8rem;
     font-family: var(--font-family-base);
     text-align: center;
-
 }
-.todays-tasks-child-second-content img {
+
+.event-organizer-child-second-content img {
     max-width: 100%;
     height: auto; 
 }
 
-
-
-.todays-tasks-title {
+.event-organizer-title {
     font-size: 1.5rem;
     color: var(--color-white);
     text-align: center;
     font-family: var(--font-family-official);
 }
 
-.todays-tasks-subtitle {
+.event-organizer-subtitle {
     font-size: 1.3rem;
     color: var(--color-white);
     text-align: center;
@@ -103,38 +108,40 @@
 /**@media**/
 
 @media (max-width: 768px) {
-    .todays-tasks-container {
+    .event-organizer-container {
         padding: 10px;
     }
 
-    .todays-tasks-child-container {
+    .event-organizer-child-container {
         margin-left: 5%;
         width: 90%;
         flex-direction: column;
     }
 
-    .todays-tasks-child-first{
+    .event-organizer-child-first{
         margin:20px;
         padding: 20px;
         font-size: 0.8rem;
         width: auto;
     }
-    .todays-tasks-child-second{
+
+    .event-organizer-child-second{
         margin:20px;
         padding: 20px;
         font-size: 0.8rem;
         width: auto;
     }
-    .todays-tasks-child-second-content{
+
+    .event-organizer-child-second-content{
         margin-left: 0px;
         width: auto;
     }
 
-    .todays-tasks-title {
+    .event-organizer-title {
         font-size: 2.5rem;
     }
 
-    .todays-tasks-subtitle {
+    .event-organizer-subtitle {
         font-size: 0.9rem;
         margin-top: 20px;
     }
@@ -142,41 +149,43 @@
 
 /* Responsive styles for screens up to 460px */
 @media (max-width: 460px) {
-    .todays-tasks-container {
+    .event-organizer-container {
         padding: 5px;
     }
 
-    .todays-tasks-child-container {
+    .event-organizer-child-container {
         margin-left: 0;
         flex-direction: column;
         align-items: center;
         width: 100%;
     }
 
-    .todays-tasks-child-first {
+    .event-organizer-child-first {
         width:440px;
         height:400px;
         margin: 10px;
         font-size: 0.7rem;
         margin-top: -25px;
     }
-    .todays-tasks-child-second {
+
+    .event-organizer-child-second {
         margin: 10px;
         font-size: 0.7rem;
         width:350px;
         height:300px;
     }
-    .todays-tasks-child-second-content{
+
+    .event-organizer-child-second-content{
         margin-left: 0px;
         width: auto;
     }
 
-    .todays-tasks-title {
+    .event-organizer-title {
         font-size: 1.5rem;
         display: none;
     }
 
-    .todays-tasks-subtitle {
+    .event-organizer-subtitle {
         font-size: 1.2rem;
         margin-top: 15px;
     }

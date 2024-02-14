@@ -4,6 +4,7 @@ import mysql.connector
 from flask import flash
 from flask import Flask, jsonify
 import logging
+from datetime import datetime
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
@@ -43,7 +44,7 @@ def execute_query(query, values=None):
     db.commit()
     cursor.close()
 
-# Root page
+# Root page -Landing page
 @app.route('/')
 def index():
     return render_template('index-landing.html')
@@ -160,11 +161,17 @@ def login():
 
         if user:
             stored_password = user['password']
+            user_id = user['id']  # Extract user ID
             first_name = user['first_name']
 
+            print(f"User ID: {user_id}")  # Print user ID to the terminal
+
             if password == first_name: #or (stored_password and check_password_hash(stored_password, password)):
+                session['user_id'] = user_id
+                print(session['user_id'])
                 flash("Login successful!", 'success')
-                return render_template('index.html', user=user)
+                #return render_template('index.html', user=user)
+                return redirect(url_for('dashboard'))
             else:
                 flash("Invalid username or password. Please try again.", 'error')
                 return redirect(url_for('login'))
@@ -172,25 +179,92 @@ def login():
     # Render the login page if it's a GET request
     return render_template('login_account.html')
 
-from flask import request, jsonify
+#Dashboard section
+def get_user_events(user_id):
+    query_events = "SELECT * FROM events WHERE user_id = %s ORDER BY event_date ASC"
+    values_events = (user_id,)
+    cursor_events = db.cursor(dictionary=True)
+    cursor_events.execute(query_events, values_events)
+    events = cursor_events.fetchall()
+    cursor_events.close()
 
+    return events
+
+def get_user_info(user_id):
+    query_user = "SELECT * FROM users WHERE id = %s"
+    values_user = (user_id,)
+    cursor_user = db.cursor(dictionary=True)
+    cursor_user.execute(query_user, values_user)
+    user = cursor_user.fetchone()
+    cursor_user.close()
+
+    # Fetch user events
+    user['events'] = get_user_events(user_id)
+
+    return user
+
+@app.route('/dashboard')
+def dashboard():
+    if 'user_id' in session:
+        user_id = session['user_id']
+
+        # Retrieve user information
+        user = get_user_info(user_id)
+
+        events = get_user_events(user_id)
+
+        if user:
+            return render_template('index.html', user=user, events=events)
+        else:
+            flash("User not found.", 'error')
+            return redirect(url_for('login'))
+
+    # Handle the case where the user is not logged in
+    return redirect(url_for('login'))
+
+
+
+
+from flask import session
+# Save event route
 @app.route('/save_event', methods=['POST'])
 def save_event():
+    print('Received request to save event...')
     data = request.json
     event_name = data.get('eventName')
+    event_description = data.get('eventDescription')
+    event_date = data.get('eventDate')
+
 
     # Get user_id from the session or wherever you store it
     user_id = session.get('user_id')
+    if event_name and user_id:        
+        #query = "INSERT INTO events (user_id, event_name, event_date, event_description) VALUES (%s, %s, TRIM(%s), %s)"
+        #values = (user_id, event_name, event_date, event_description)
+        event_date_formatted = datetime.strptime(event_date, '%Y-%B-%d').date()
+        event_date_trimmed = event_date_formatted.strftime('%Y-%m-%d')
 
-    if event_name and user_id:
-        # Save the event to the database
-        query = "INSERT INTO events (user_id, event_name) VALUES (%s, %s)"
-        values = (user_id, event_name)
-        execute_query(query, values)
+        query = "INSERT INTO events (user_id, event_name, event_date, event_description) VALUES (%s, %s, %s, %s)"
+        values = (user_id, event_name, event_date_trimmed, event_description)
+        print('Event name:', event_name)
+        print('Event description:', event_description)
+        print('Event date:', event_date)
+        print('User ID:', user_id)
 
-        return jsonify({'message': 'Event saved successfully'}), 200
+        try:
+            execute_query(query, values)
+            print('Event saved successfully.')
+            return jsonify({'message': 'Event saved successfully'}), 200
+        except Exception as e:
+            print('Error saving event:', str(e))
+            return jsonify({'error': 'Error saving event to the database'}), 500
+
     else:
+        print('Invalid data or user not logged in.')
         return jsonify({'error': 'Invalid data or user not logged in'}), 400
+    
+
+
 
 
 if __name__ == '__main__':

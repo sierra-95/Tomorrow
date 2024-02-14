@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="Assets/css/footer.css">
         <link rel="stylesheet" href="Assets/css/goals.css">
         <link rel="stylesheet" href="Assets/css/event.css">
+        <link rel="stylesheet" href="Assets/css/button-events.css">
     </head>
     <body>
         <div class="Hero-container">
@@ -53,15 +54,21 @@
                 <div class="todays-tasks-child-container">
                     <!--first container-->
                     <div class="todays-tasks-child-first">
-                        <h1 class="todays-tasks-subtitle">Today's planning</h1>
+                        <h1 class="todays-tasks-subtitle">Upcoming events</h1>
                         <div class="todays-tasks-child-first-content">
+                            <div class="event-options">
+                                <!-- Three-dotted button -->
+                                <button class="options-btn" onclick="toggleOptions('{{ event.event_id }}')">...</button>
+                                <!-- Dropdown menu for options -->
+                                <div class="options-dropdown" id="options{{ event.event_id }}">
+                                    <a href="#">Edit</a>
+                                    <a href="#">Delete</a>
+                                </div>
+                            </div>
                             <h2 class="todays-tasks-child-first-content-title">Take car to garage
                                 <label><input type="checkbox" id="myCheckbox">Done</label>
                             </h2>
-                        </div>
-                        <br>
-                        <br>
-                        <button class="button-custom"> + Add tasks</button>
+                        </div>                                            
                     </div>
                     <a href="#calender"><button class="button-special">View calender</button></a>
                     <!--second container-->
@@ -122,14 +129,20 @@
                             <div class="month-list"></div>
                             <div class="event-popup">
                                 <button class="close-btn" onclick="closeEventPopup()">X</button>
-                                <label for="event-input">Event:</label>
-                                <input type="text" id="event-input" placeholder="Type your event...">
+                                <label for="event-name-input">Event Name:</label>
+                                <input type="text" id="event-name-input" placeholder="Type your event name...">
+                            
+                                <label for="event-description-input">Event Description:</label>
+                                <textarea id="event-description-input" placeholder="Type your event description..."></textarea>
+                            
                                 <button id="save-btn" onclick="saveEvent()">Save</button>
                             </div>
+                            <br>
+                            <br>
+                            <a href="#calender"><button class="button-custom"> + Add tasks</button> </a>                            
                         </div>
                         <script src="Assets/js/calender.js"></script>
-                        <script src="Assets/js/event.js"></script>            
-                        
+                        <script src="Assets/js/event.js"></script> 
                     </section>      
                     <!--calender end-->             
     

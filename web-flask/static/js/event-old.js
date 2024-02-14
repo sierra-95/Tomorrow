@@ -3,25 +3,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const eventPopup = document.querySelector('.event-popup');
     const closeBtn = document.querySelector('.close-btn');
     const saveBtn = document.getElementById('save-btn');
-    const eventDescriptionInput = document.getElementById('event-description');
-
-    let selectedDate = ''; // Variable to store the selected date
+    const eventDescriptionInput = document.getElementById('event-description'); // Add this line
 
     calendarDays.forEach(day => {
         day.addEventListener('click', () => {
-            selectedDate = day.textContent; // Store the selected date
-            openEventPopup();
+            const selectedDate = day.textContent;
+            openEventPopup(selectedDate);
         });
     });
 
-    function openEventPopup() {
+    function openEventPopup(date) {
         const dateLabel = document.querySelector('.event-popup label');
-        dateLabel.textContent = `Event for ${selectedDate}`;
+        dateLabel.textContent = `Event for ${date}`;
         eventPopup.classList.add('active');
     }
 
     closeBtn.addEventListener('click', closeEventPopup);
 
+    // Combine the event listeners into one
     saveBtn.addEventListener('click', function () {
         saveEvent();
         closeEventPopup();
@@ -34,36 +33,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function saveEvent() {
         let eventName = document.getElementById('event-input').value;
-        let eventDescription = eventDescriptionInput.value;
-    
-        // Assuming selectedDate is in the format 'DD', for example, '14'
-        let selectedMonth = document.querySelector('#month-picker').textContent;
-        let selectedYear = document.querySelector('#year').textContent;
-    
-        // Construct the full date string in the format 'YYYY-MM-DD'
-        let eventDate = `${selectedYear}-${selectedMonth.padStart(2, '0')}-${selectedDate.padStart(2, '0')}`.trim();
+        let eventDescription = eventDescriptionInput.value; // Add this line
 
-
-    
+        // Get other event details like date if available
         console.log('Event name:', eventName);
         console.log('Event description:', eventDescription);
-        console.log('Event date:', eventDate);
-    
-        // Send the event details to the server using AJAX or fetch
-        sendEventToServer(eventName, eventDescription, eventDate);
-    }
-    
 
-    function sendEventToServer(eventName, eventDescription, eventDate) {
+        // Send the event details to the server using AJAX or fetch
+        sendEventToServer(eventName, eventDescription); // Modify this line
+    }
+
+    function sendEventToServer(eventName, eventDescription) {
+        // Use fetch to send the event details to the server
+        // For simplicity, I'll use fetch in this example
         fetch('/save_event', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ eventName: eventName, eventDescription: eventDescription, eventDate: eventDate, }),
+            body: JSON.stringify({ eventName: eventName, eventDescription: eventDescription }), // Modify this line
         })
         .then(response => response.json())
         .then(data => {
+            // Handle the response if needed
             console.log('Server response:', data);
         })
         .catch(error => {
