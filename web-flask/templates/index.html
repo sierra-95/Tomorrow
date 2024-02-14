@@ -30,7 +30,7 @@
                         <!-- Normal navigation for screens larger than 460px -->
                         <ul class="nav-list">
                             <li><a href="{{ url_for('index_landing') }}">Tomorrow<span></span></a></li>
-                            <li><a href="#">My Account<span></span></a></li>
+                            <li><a href="{{ url_for('my_account') }}">My Account<span></span></a></li>
                             <li><a href="{{ url_for('logout') }}">Log out<span></span></a></li>
                         </ul>
                     </nav>
@@ -70,7 +70,7 @@
                         {% if events %}
                             {% for event in events %}
                                 <div class="todays-tasks-child-first-content">                                    
-                                    <h2 class="todays-tasks-child-first-content-title">{{ event.event_name }}</h2>
+                                    <h2 class="todays-tasks-child-first-content-title">Event name: {{ event.event_name }}</h2>                
                                     <p class="todays-tasks-child-first-content-description">{{ event.event_description }}</p>
                                     <p class="todays-tasks-child-first-content-date">Date: {{ event.event_date }}</p>
                                     <div class="event-options">
@@ -122,6 +122,7 @@
                     <!--calender start-->
                     <section id="calender">                        
                         <div class="calendar light">
+                            <h1 class="calender-title">Click calender date to add event</h1>
                             <div class="calendar-header">
                                 <span class="month-picker" id="month-picker">April</span>
                                 <div class="year-picker">

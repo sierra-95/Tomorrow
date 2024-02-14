@@ -16,6 +16,12 @@
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     --font-family: var(--font-family-base);
 }
+.calender-title{
+    color: var(--color-white-new);
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    text-align: center;
+}
 .light {
     --bg-body: var(--light-body);
     --bg-main: var(--light-main);

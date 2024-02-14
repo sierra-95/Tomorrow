@@ -27,7 +27,7 @@
 
 .todays-tasks-child-first {
     width: 350px;
-    height:435px;
+    height:480px;
     padding:20px;
     border: 0px solid;
     border-radius: 0px;
@@ -48,9 +48,9 @@
     opacity: 90%;
 }
 .todays-tasks-child-first-content-title{
-    color: var(--color-white);
-    font-size: 1rem;
-    font-family: var(--font-family-official);
+    color: var(--color-white-new);
+    font-size: 0.9rem;
+    font-family: var(--font-family-base);
 }
 .todays-tasks-child-first-content-description{
     color: var(--color-white);
@@ -58,13 +58,13 @@
     font-family: var(--font-family-base);
 }
 .todays-tasks-child-first-content-date{
-    color: var(--primary-color);
-    font-size: 0.9rem;
+    color: var(--color-white);
+    font-size: 0.8rem;
     font-family: var(--font-family-official);
 }
 .todays-tasks-child-second {
     width: 350px;
-    height:435px;
+    height:480px;
     padding:0px;
     border: 0px solid;
     border-radius: 0px;
@@ -197,7 +197,7 @@
     }
     .todays-tasks-child-first-content-date{
         color: var(--primary-color);
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         font-family: var(--font-family-official);
     }
 }

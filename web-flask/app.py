@@ -223,8 +223,6 @@ def dashboard():
     return redirect(url_for('login'))
 
 
-
-
 from flask import session
 # Save event route
 @app.route('/save_event', methods=['POST'])
@@ -263,7 +261,56 @@ def save_event():
         print('Invalid data or user not logged in.')
         return jsonify({'error': 'Invalid data or user not logged in'}), 400
     
+@app.route('/my_account')
+def my_account():
+    if 'user_id' in session:
+        user_id = session['user_id']
 
+        # Retrieve user information
+        user = get_user_info(user_id)
+
+        if user:
+            return render_template('account.html', user=user)
+        else:
+            flash("User not found.", 'error')
+            return redirect(url_for('login'))
+
+    return redirect(url_for('login')) 
+
+@app.route('/update_user_details', methods=['POST'])
+def update_user_details():
+    if 'user_id' in session:
+        user_id = session['user_id']
+
+        data = request.json
+
+        update_query = "UPDATE users SET "
+        update_values = []
+
+        for field, value in data.items():
+            update_query += f"{field} = %s, "
+            update_values.append(value)
+
+        update_query = update_query.rstrip(', ')
+
+        
+        update_query += " WHERE id = %s"
+        update_values.append(user_id)
+
+        try:
+            cursor = db.cursor()
+            cursor.execute(update_query, update_values)
+            db.commit()
+            cursor.close()
+
+            print('User details updated successfully')
+            return jsonify({'success': True, 'message': 'User details updated successfully'})
+        except Exception as e:
+            print(f'Error updating user details: {str(e)}')
+            return jsonify({'success': False, 'message': f'Error updating user details: {str(e)}'})
+    
+    print('User not logged in')
+    return jsonify({'success': False, 'message': 'User not logged in'})
 
 
 

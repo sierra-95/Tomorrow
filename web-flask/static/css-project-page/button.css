@@ -61,7 +61,7 @@
 }
 
 .options-btn {
-    background: var(--primary-color);
+    background: var(--color-white-new);
     border: none;
     color: var(--color-txt);
     font-size: 18px;

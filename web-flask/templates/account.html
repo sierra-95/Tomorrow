@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="Assets/images/Favicon/Dark.png">
-    <link rel="stylesheet" href="Assets/css/account.css">
-    <link rel="stylesheet" href="Assets/css/Hero.css">
-    <link rel="stylesheet" href="Assets/css/style.css">
-    <link rel="stylesheet" href="Assets/css/button.css">
+    <link rel="icon" type="image/png" href="../static/images/Favicon/Dark.png">
+    <link rel="stylesheet" href="../static/css-project-page/account.css">
+    <link rel="stylesheet" href="../static/css-project-page/Hero.css">
+    <link rel="stylesheet" href="../static/css-project-page/style.css">
+    <link rel="stylesheet" href="../static/css-project-page/button.css">
     <title>My Account</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         <header>
             <div class="child-Hero-container">
                 <div class="Logo">
-                    <a href="index.html"><img src="Assets/images/Logo/dark-blue-light.png" alt="Logo" width="120px" height="auto"></a>
+                    <a href="{{ url_for('dashboard') }}"><img src="../static/images/Logo/dark-blue-light.png" alt="Logo" width="120px" height="auto"></a>
                 </div>
                 <nav id="nav-links" class="hide-links">
                     <!-- Hamburger icon for screens with max-width: 460px -->
@@ -26,11 +26,11 @@
                     </div>
                     <!-- Normal navigation for screens larger than 460px -->
                     <ul class="nav-list">
-                        <li><a href="index.html">Home<span></span></a></li>
-                        <li><a href="../web-static-landing-page/login-account.html">Log out<span></span></a></li>
+                        <li><a href="{{ url_for('dashboard') }}">Home<span></span></a></li>
+                        <li><a href="{{ url_for('login') }}">Log out<span></span></a></li>
                     </ul>
                 </nav>
-                <script src="Assets/js/hamburger-menu.js"></script>                    
+                <script src="../static/js/hamburger-menu.js"></script>                    
             </div>
         </header>
     </div>
@@ -39,30 +39,31 @@
         <div class="my-account-details">
             <div class="form-group">
                 <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" value="Michael" contenteditable="true">
+                <input type="text" id="first-name" value="{{ user.first_name }}" contenteditable="true">
             </div>
             <div class="form-group">
                 <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" value="Machohi" contenteditable="true">
+                <input type="text" id="last-name" value="{{ user.last_name }}" contenteditable="true">
             </div>
             <br>
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" value="michael_machohi" contenteditable="true">
+                <input type="text" id="username" value="{{ user.username }}" contenteditable="true">
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" value="michael@example.com" contenteditable="true">
+                <input type="email" id="email" value="{{ user.email }}" contenteditable="true">
             </div>
             <br>
             <div class="form-group">
                 <label for="date-of-birth">Date of Birth:</label>
-                <input type="text" id="date-of-birth" value="1990-01-01" contenteditable="true">
+                <input type="text" id="date-of-birth" value="{{ user.dob }}" contenteditable="true">
             </div>
             <br>
-            <a href="#"><button class="button-custom">Save Details</button></a>
+            <button onclick="saveDetails()" class="button-custom">Save Details</button>
+            <script src="../static/js/account.js"></script>
         </div>
-    </div>
+    </div>   
     
 </div>
 </body>
