@@ -53,6 +53,24 @@ def login():
 
 #******************************************************************#
 #working
+@app.route('/edit_event/<int:event_id>', methods=['GET', 'POST'])
+def edit_event(event_id):
+    event = get_event_info(event_id)
+
+    if not event:
+        flash("Event not found.", 'error')
+        return redirect(url_for('dashboard'))
+
+    if request.method == 'POST':
+        updated_event_name = request.form.get('event_name')
+        updated_event_date = request.form.get('event_date')
+        updated_event_description = request.form.get('event_description')
+
+        flash("Event updated successfully.", 'success')
+        return redirect(url_for('dashboard'))
+
+    return render_template('edit_event.html', event=event)
+#working
 def get_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s"
     values_events = (user_id,)

@@ -67,6 +67,9 @@
     .about-catch-paragraph {
         font-size: 0.9rem;
     }
+    .about-image{
+        display:none;
+    }
 }
 
 /* Responsive styles for screens up to 460px */
@@ -97,8 +100,6 @@
         font-size: 0.8rem;
     }
     .about-image{
-        width:380px;
-        height:auto;
-        margin-top: -5px;
+        display:none;
     }
 }

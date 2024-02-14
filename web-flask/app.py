@@ -58,6 +58,7 @@ def welcome_create_account():
 
 @app.route('/create_account_names', methods=['GET', 'POST'])
 def create_account_names():
+    session.clear()
     print("Executing create_account_names route")
     if request.method == 'POST':
         first_name = request.form['firstname']
@@ -140,10 +141,12 @@ def create_account_password():
 #for index-landing nav
 @app.route('/login_account')
 def login_account():
+    session.clear()
     return render_template('login_account.html')
 
 @app.route('/logout')
 def logout():
+    session.clear()
     return render_template('login_account.html')
 ########################################
 @app.route('/login', methods=['GET', 'POST'])
@@ -256,17 +259,133 @@ def save_event():
         except Exception as e:
             print('Error saving event:', str(e))
             return jsonify({'error': 'Error saving event to the database'}), 500
+        
 
     else:
         print('Invalid data or user not logged in.')
         return jsonify({'error': 'Invalid data or user not logged in'}), 400
+
+#edit event
+#fetch
+def get_event_info(event_id):
+    query_event = "SELECT * FROM events WHERE event_id = %s"
+    values_event = (event_id,)
     
-@app.route('/my_account')
+    cursor_event = db.cursor(dictionary=True)
+    cursor_event.execute(query_event, values_event)
+    
+    event = cursor_event.fetchone()
+    cursor_event.close()
+
+    return event
+def update_event(event_id, event_name=None, event_date=None, event_description=None):
+    # Initialize an empty list to store the SET clauses for the SQL query
+    set_clauses = []
+
+    # Check if each field is provided and add it to the SET clauses
+    if event_name is not None:
+        set_clauses.append("event_name = %s")
+    if event_date is not None:
+        set_clauses.append("event_date = %s")
+    if event_description is not None:
+        set_clauses.append("event_description = %s")
+
+    # Construct the SET part of the SQL query
+    set_clause = ", ".join(set_clauses)
+
+    # Build the SQL query
+    query_update_event = f"UPDATE events SET {set_clause} WHERE event_id = %s"
+
+    # Prepare the values for the SQL query
+    values_update_event = []
+    if event_name is not None:
+        values_update_event.append(event_name)
+    if event_date is not None:
+        values_update_event.append(event_date)
+    if event_description is not None:
+        values_update_event.append(event_description)
+    print(f"Updating event with ID: {event_id}")
+    print(f"New event name: {event_name}")
+    print(f"New event date: {event_date}")
+    print(f"New event description: {event_description}")
+
+    # Add the event_id to the values
+    values_update_event.append(event_id)
+
+    # Execute the SQL query
+    cursor_update_event = db.cursor()
+    cursor_update_event.execute(query_update_event, values_update_event)
+    db.commit()
+    cursor_update_event.close()
+
+@app.route('/edit_event/<int:event_id>', methods=['GET', 'POST'])
+def edit_event(event_id):
+    # Retrieve event information based on event_id
+    event = get_event_info(event_id)
+
+    if not event:
+        flash("Event not found.", 'error')
+        return redirect(url_for('dashboard'))
+
+    if request.method == 'POST':
+        updated_event_name = request.form.get('event_name')
+        updated_event_date = request.form.get('event_date')
+        updated_event_description = request.form.get('event_description')
+
+        
+        print(f"Form submission for editing event with ID: {event_id}")
+        print(f"New event name: {updated_event_name}")
+        print(f"New event date: {updated_event_date}")
+        print(f"New event description: {updated_event_description}")
+
+        update_event(event_id, updated_event_name, updated_event_date, updated_event_description)
+
+        flash("Event updated successfully.", 'success')
+        return redirect(url_for('dashboard'))
+
+    return render_template('edit_event.html', event=event)
+
+#delete event
+@app.route('/delete_event/<int:event_id>', methods=['GET'])
+def delete_event(event_id):
+    print(f'Received request to delete event with id {event_id}')
+
+    # Get user_id from the session or wherever you store it
+    user_id = session.get('user_id')
+
+    if user_id:
+        delete_query = "DELETE FROM events WHERE event_id = %s AND user_id = %s"
+        delete_values = (event_id, user_id)
+
+        try:
+            execute_query(delete_query, delete_values)
+            print(f'Event with id {event_id} deleted successfully.')
+            return redirect(url_for('dashboard'))  # Redirect to the dashboard after deletion
+        except Exception as e:
+            print(f'Error deleting event with id {event_id}: {str(e)}')
+            return jsonify({'error': f'Error deleting event with id {event_id}'}), 500
+    else:
+        print('User not logged in.')
+        return jsonify({'error': 'User not logged in'}), 401
+        
+#account section
+@app.route('/my_account', methods=['GET', 'POST'])
 def my_account():
     if 'user_id' in session:
         user_id = session['user_id']
 
-        # Retrieve user information
+        if request.method == 'POST':           
+            updated_first_name = request.form.get('first_name')
+            updated_last_name = request.form.get('last_name')
+            updated_username = request.form.get('username')
+            updated_email = request.form.get('email')
+            updated_dob = request.form.get('dob')
+            
+            update_user_details(user_id, updated_first_name, updated_last_name, updated_username, updated_email, updated_dob)
+
+            flash("User details updated successfully.", 'success')
+            return redirect(url_for('my_account'))
+       
         user = get_user_info(user_id)
 
         if user:
@@ -275,44 +394,23 @@ def my_account():
             flash("User not found.", 'error')
             return redirect(url_for('login'))
 
-    return redirect(url_for('login')) 
+    return redirect(url_for('login'))
 
-@app.route('/update_user_details', methods=['POST'])
-def update_user_details():
-    if 'user_id' in session:
-        user_id = session['user_id']
+def update_user_details(user_id, first_name=None, last_name=None, username=None, email=None, dob=None):
+    print(f"Updating user with ID: {user_id}")
+    print(f"New first name: {first_name}")
+    print(f"New last name: {last_name}")
+    print(f"New username: {username}")
+    print(f"New email: {email}")
+    print(f"New date of birth: {dob}")
 
-        data = request.json
+    query_update_user = "UPDATE users SET first_name = %s, last_name = %s, username = %s, email = %s, dob = %s WHERE id = %s"
+    values_update_user = [first_name, last_name, username, email, dob, user_id]
 
-        update_query = "UPDATE users SET "
-        update_values = []
-
-        for field, value in data.items():
-            update_query += f"{field} = %s, "
-            update_values.append(value)
-
-        update_query = update_query.rstrip(', ')
-
-        
-        update_query += " WHERE id = %s"
-        update_values.append(user_id)
-
-        try:
-            cursor = db.cursor()
-            cursor.execute(update_query, update_values)
-            db.commit()
-            cursor.close()
-
-            print('User details updated successfully')
-            return jsonify({'success': True, 'message': 'User details updated successfully'})
-        except Exception as e:
-            print(f'Error updating user details: {str(e)}')
-            return jsonify({'success': False, 'message': f'Error updating user details: {str(e)}'})
-    
-    print('User not logged in')
-    return jsonify({'success': False, 'message': 'User not logged in'})
-
-
+    cursor_update_user = db.cursor()
+    cursor_update_user.execute(query_update_user, values_update_user)
+    db.commit()
+    cursor_update_user.close()
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -16,12 +16,7 @@
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     --font-family: var(--font-family-base);
 }
-.calender-title{
-    color: var(--color-white-new);
-    font-family: var(--font-family-base);
-    font-size: 1rem;
-    text-align: center;
-}
+
 .light {
     --bg-body: var(--light-body);
     --bg-main: var(--light-main);
@@ -265,3 +260,34 @@ body {
 .month-list > div > div:hover {
     background-color: var(--color-hover);
 }
+
+
+/*################*/
+.calender-title{
+    color: var(--color-white-new);
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    text-align: center;
+}
+.instruct{
+    width:auto;
+    margin:10px;
+    padding:10px;
+    border:none;
+    background-color: var(--color-black);
+    opacity:60%;
+    margin-top: 15px;
+}
+.bounce {
+    position: relative;
+    animation: bounceAnimation 1s infinite;
+  }
+  
+  @keyframes bounceAnimation {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }

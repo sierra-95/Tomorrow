@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event</title>
+    <link rel="icon" type="image/png" href="../static/images/Favicon/Dark.png">
+    <link rel="stylesheet" href="../static/css-project-page/edit_event.css">
+</head>
+
+<body>
+    <div class="centered-div">
+        <a href="{{ url_for('dashboard') }}"><button class="close-btn">X</button></a>
+        <h1>Edit Event</h1>
+        <form method="POST" action="{{ url_for('edit_event', event_id=event.event_id) }}">
+            <label for="event_name">Event Name:</label>
+            <input type="text" id="event_name" name="event_name" value="{{ event.event_name }}" required>
+        
+            <label for="event_date">Event Date:</label>
+            <input type="date" id="event_date" name="event_date" value="{{ event.event_date }}" required>
+        
+            <label for="event_description">Event Description:</label>
+            <textarea id="event_description" name="event_description" rows="4" required>{{ event.event_description }}</textarea>
+        
+            <button type="submit">Save Changes</button>
+        </form>
+        
+    </div>
+    
+</body>
+
+</html>

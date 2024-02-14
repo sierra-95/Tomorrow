@@ -36,33 +36,34 @@
     </div>
 
     <div class="my-account-container">
-        <div class="my-account-details">
-            <div class="form-group">
-                <label for="first-name">First Name:</label>
-                <input type="text" id="first-name" value="{{ user.first_name }}" contenteditable="true">
+        <form method="POST" action="{{ url_for('my_account') }}">
+            <div class="my-account-details">
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" id="first-name" name="first_name" value="{{ user.first_name }}" class="editable-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last-name" name="last_name" value="{{ user.last_name }}" class="editable-input" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="{{ user.username }}" class="editable-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="{{ user.email }}" class="editable-input" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="date-of-birth">Date of Birth:</label>
+                    <input type="date" id="date-of-birth" name="dob" value="{{ user.dob }}" class="editable-input" required>
+                </div>
+                <br>
+                <button type="submit" class="button-custom">Save Details</button>
             </div>
-            <div class="form-group">
-                <label for="last-name">Last Name:</label>
-                <input type="text" id="last-name" value="{{ user.last_name }}" contenteditable="true">
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" value="{{ user.username }}" contenteditable="true">
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" value="{{ user.email }}" contenteditable="true">
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="date-of-birth">Date of Birth:</label>
-                <input type="text" id="date-of-birth" value="{{ user.dob }}" contenteditable="true">
-            </div>
-            <br>
-            <button onclick="saveDetails()" class="button-custom">Save Details</button>
-            <script src="../static/js/account.js"></script>
-        </div>
+        </form>
     </div>   
     
 </div>

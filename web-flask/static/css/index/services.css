@@ -87,10 +87,10 @@
     }
 
     .services-child-container {
-        margin-left: 0;
-        flex-direction: column;
+        margin-left: 15%;
+        flex-direction: row;
         align-items: center;
-        width: 100%;
+        width: 70%;
     }
 
     .services-child {
