@@ -80,12 +80,12 @@
                                             <a href="{{ url_for('edit_event', event_id=event.event_id) }}" onclick="return confirm('Did you mean to edit this event?')">Edit</a>
                                             <!--a href="#" onclick="deleteEvent(1)">Delete</a-->
                                             <a href="{{ url_for('delete_event', event_id=event.event_id) }}" onclick="return confirm('Are you sure you want to delete this event?')">Delete</a>
-                                            <!--script src="../static/js/delete_event.js"></script-->
+                                            <!--script src="../static/js/delete_event.js"></script-->                                            
                                         </div>
                                         <!--label style="color: var(--color-white);"><input type="checkbox" id="myCheckbox">Done</label-->
                                     </div>
                                 </div>
-                                <br>
+                                <br>                                
                             {% endfor %}
                         {% else %}
                             <p class="todays-tasks-child-first-content-title">No events for today.</p>
@@ -94,6 +94,7 @@
                         <div class=" instruct bounce">
                             <h1 class="calender-title">Click calender date to add event</h1>
                         </div>
+                        <a href="{{ url_for('expired_tasks') }}"><button class="button-custom">View Expired tasks</button></a>                        
                     </div>
                     <a href="#calender"><button class="button-special">View calender</button></a>
                     <!--second container-->
@@ -101,26 +102,34 @@
                         <h1 style="color: var(--color-black);" class="todays-tasks-subtitle">Discover</h1>
                         
                         <!--Relax-->
-                        <div class="todays-tasks-child-second-content">
-                            <img src="../static/images/Latest-news/person-ocean.jpg" alt="Relax">                            
-                        </div>
-                        <h1 class="todays-tasks-child-second-content-title">Relax</h1>
+                        <a href="https://muffingroup.com/blog/relaxing-websites/">
+                            <div class="todays-tasks-child-second-content">
+                                <img src="../static/images/Latest-news/person-ocean.jpg" alt="Relax">                            
+                            </div>
+                        </a>
+                        <h1 class="todays-tasks-child-second-content-title">Relax and live stress free</h1>
 
                         <!-- Automobiles Section -->
-                        <div class="todays-tasks-child-second-content ">
-                            <img src="../static/images/Latest-news/Benz.jpg" alt="Dubai">    
-                        </div>
-                        <h1 class="todays-tasks-child-second-content-title">Automobiles</h1>
+                        <a href="https://www.carsdirect.com/">
+                            <div class="todays-tasks-child-second-content ">
+                                <img src="../static/images/Latest-news/Benz.jpg" alt="Benz">    
+                            </div>
+                        </a>
+                        <h1 class="todays-tasks-child-second-content-title">Dream big</h1>
                     
                         <!-- Adventure Section -->
-                        <div class="todays-tasks-child-second-content">
-                            <img src="../static/images/Latest-news/lake-naivasha.jpeg" alt="Lake Naivasha">                            
-                        </div> 
+                        <a href="https://travel.usnews.com/rankings/best-african-and-middle-eastern-vacations/">
+                            <div class="todays-tasks-child-second-content">
+                                <img src="../static/images/Latest-news/lake-naivasha.jpeg" alt="Lake Naivasha">                            
+                            </div> 
+                        </a>
                         <h1 class="todays-tasks-child-second-content-title">Adventure</h1>
                         <!--Music-->
-                        <div class="todays-tasks-child-second-content">
-                            <img src="../static/images/Latest-news/music.jpg" alt="music">                            
-                        </div>
+                        <a href="https://open.spotify.com/?">
+                            <div class="todays-tasks-child-second-content">
+                                <img src="../static/images/Latest-news/music.jpg" alt="music">                            
+                            </div>
+                        </a>
                         <h1 class="todays-tasks-child-second-content-title">Music</h1>                   
                     </div>
                     <!--calender start-->

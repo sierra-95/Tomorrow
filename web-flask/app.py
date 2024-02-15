@@ -183,6 +183,7 @@ def login():
     return render_template('login_account.html')
 
 #Dashboard section
+#no limit display events
 def get_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s ORDER BY event_date ASC"
     values_events = (user_id,)
@@ -192,6 +193,27 @@ def get_user_events(user_id):
     cursor_events.close()
 
     return events
+#set limit display future events
+def get_future_user_events(user_id):
+    query_events = "SELECT * FROM events WHERE user_id = %s AND event_date >= CURRENT_DATE() ORDER BY event_date ASC LIMIT 14"
+    values_events = (user_id,)
+    cursor_events = db.cursor(dictionary=True)
+    cursor_events.execute(query_events, values_events)
+    future_events = cursor_events.fetchall()
+    cursor_events.close()
+
+    return future_events
+#display all past events
+def get_past_user_events(user_id):
+    query_events = "SELECT * FROM events WHERE user_id = %s AND event_date <= CURRENT_DATE() ORDER BY event_date DESC"
+    values_events = (user_id,)
+    cursor_events = db.cursor(dictionary=True)
+    cursor_events.execute(query_events, values_events)
+    future_events = cursor_events.fetchall()
+    cursor_events.close()
+
+    return future_events
+
 
 def get_user_info(user_id):
     query_user = "SELECT * FROM users WHERE id = %s"
@@ -214,7 +236,7 @@ def dashboard():
         # Retrieve user information
         user = get_user_info(user_id)
 
-        events = get_user_events(user_id)
+        events = get_future_user_events(user_id)
 
         if user:
             return render_template('index.html', user=user, events=events)
@@ -225,6 +247,23 @@ def dashboard():
     # Handle the case where the user is not logged in
     return redirect(url_for('login'))
 
+#Expired tasks
+@app.route('/expired_tasks')
+def expired_tasks():
+    if 'user_id' in session:
+        user_id = session['user_id']
+        user = get_user_info(user_id)
+
+        events = get_past_user_events(user_id)
+
+        if user:
+            return render_template('expired_tasks.html', user=user, events=events)
+        else:
+            flash("User not found.", 'error')
+            return redirect(url_for('login'))
+
+    # Handle the case where the user is not logged in
+    return redirect(url_for('login'))
 
 from flask import session
 # Save event route
@@ -259,7 +298,6 @@ def save_event():
         except Exception as e:
             print('Error saving event:', str(e))
             return jsonify({'error': 'Error saving event to the database'}), 500
-        
 
     else:
         print('Invalid data or user not logged in.')

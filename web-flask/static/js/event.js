@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             console.log('Server response:', data);
+            window.location.href = '/dashboard';
         })
         .catch(error => {
             console.error('Error sending event to server:', error);
