@@ -426,3 +426,82 @@ Traceback (most recent call last):
   File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 485, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'event' is undefined
+Exception on /my_account [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 430, in my_account
+    return render_template('account.html', user=user)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/account.html", line 67, in top-level template code
+    <form action="{{ url_for('delete_user_route', user_id=user_info['id']) }}" method="post">
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 466, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'user_info' is undefined
+Exception on /my_account [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 430, in my_account
+    return render_template('account.html', user=user)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/account.html", line 67, in top-level template code
+    <form action="{{ url_for('delete_user_route', user_id=user.id) }}" method="post">
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'delete_user_route' with values ['user_id']. Did you mean 'delete_user_account' instead?
+Exception on /delete_user/5 [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 469, in delete_user_account
+    return render_template('account.html', message='Failed to delete user')
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/account.html", line 43, in top-level template code
+    <input type="text" id="first-name" name="first_name" value="{{ user.first_name }}" class="editable-input" required>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'user' is undefined

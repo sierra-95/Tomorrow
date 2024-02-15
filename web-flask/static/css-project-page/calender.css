@@ -276,22 +276,12 @@ body {
     border:none;
     background-color: var(--color-black);
     opacity:60%;
-    margin-top: 15px;
+    margin-top: 25px;
 }
 .bounce {
     position: relative;
     animation: bounceAnimation 1s infinite;
   }
-
-.event-circle {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
-}
 
   
   @keyframes bounceAnimation {

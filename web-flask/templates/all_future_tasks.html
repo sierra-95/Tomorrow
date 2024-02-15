@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../static/css-project-page/button.css">
     <link rel="stylesheet" href="../static/css-project-page/all_tasks.css">
     <link rel="stylesheet" href="../static/css-project-page/calender.css"> 
-    <title>Expired tasks</title>
+    <title>All tasks</title>
 </head>
 <body>
     <div class="Hero-container">
@@ -38,7 +38,7 @@
 
     <div class="todays-tasks-container">
         <div class="todays-tasks-child-first">
-            <h1 class="todays-tasks-subtitle">Expired tasks</h1>                
+            <h1 class="todays-tasks-subtitle">All tasks</h1>                
             <!-- Display user events -->
             {% if events %}
                 {% for event in events %}
@@ -60,7 +60,7 @@
                     <br>                                
                 {% endfor %}
             {% else %}
-                <p class="todays-tasks-child-first-content-title">No expired tasks.</p>
+                <p class="todays-tasks-child-first-content-title">No events created.</p>
             {% endif %}
             <br>
             <br>

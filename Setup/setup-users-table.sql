@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS events (
     event_name VARCHAR(255),
     event_date DATE,
     event_description TEXT,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 

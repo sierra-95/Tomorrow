@@ -34,6 +34,7 @@ try:
 except mysql.connector.Error as err:
     print(f"Error: {err}")
 
+# Helper function to execute SQL queries
 def execute_query(query, values=None):
     cursor = db.cursor()
     if values:
@@ -43,7 +44,7 @@ def execute_query(query, values=None):
     db.commit()
     cursor.close()
 
-######Landing page######
+# Root page -Landing page
 @app.route('/')
 def index():
     return render_template('index-landing.html')
@@ -51,9 +52,6 @@ def index():
 def index_landing():
     return render_template('index-landing.html')
 
-
-
-######Account routes######
 @app.route('/welcome_create_account')
 def welcome_create_account():
     return render_template('welcome_create_account.html')
@@ -75,17 +73,25 @@ def create_account_names():
         cursor.close()
 
         if existing_user:
+            # Email already exists
             flash("User with this email already exists. Please log in.", 'error')
             return render_template('login_account.html')
+
+        # Email doesn't exist, proceed with the insertion
         query = "INSERT INTO users (first_name, last_name, username, email) VALUES (%s, %s, %s, %s)"
         values = (first_name, last_name, username, email)
+
         cursor = db.cursor() 
         cursor.execute(query, values)
 
         # Get the last inserted ID (user ID)
         user_id = cursor.lastrowid
         cursor.close() 
-        session['user_id'] = user_id        
+
+        # Store user ID in the session
+        session['user_id'] = user_id
+
+        # Store user input in the session for later use
         session['first_name'] = first_name
         session['last_name'] = last_name
         session['username'] = username
@@ -119,7 +125,8 @@ def create_account_password():
         if password != confirm_password:
             flash("Passwords don't match. Please try again.", 'error')
             return redirect(url_for('create_account_password'))
-        
+
+        # Hash the password before storing it
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         print(f"Hash method used: {hashed_password.split('$')[1]}")
 
@@ -131,7 +138,7 @@ def create_account_password():
         return render_template('registration_success.html')
 
     return render_template('create_account_password.html')
-
+#for index-landing nav
 @app.route('/login_account')
 def login_account():
     session.clear()
@@ -141,7 +148,7 @@ def login_account():
 def logout():
     session.clear()
     return render_template('login_account.html')
-
+########################################
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -157,10 +164,10 @@ def login():
 
         if user:
             stored_password = user['password']
-            user_id = user['id'] 
+            user_id = user['id']  # Extract user ID
             first_name = user['first_name']
 
-            print(f"User ID: {user_id}") 
+            print(f"User ID: {user_id}")  # Print user ID to the terminal
 
             if password == first_name: #or (stored_password and check_password_hash(stored_password, password)):
                 session['user_id'] = user_id
@@ -171,11 +178,11 @@ def login():
             else:
                 flash("Invalid username or password. Please try again.", 'error')
                 return redirect(url_for('login'))
+
+    # Render the login page if it's a GET request
     return render_template('login_account.html')
 
-
-
-###########Dashboard section#################
+#Dashboard section
 #no limit display events
 def get_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s ORDER BY event_date ASC"
@@ -196,7 +203,7 @@ def get_future_user_events(user_id):
     cursor_events.close()
 
     return future_events
-#No limit display future events
+#set limit display future events
 def get_all_future_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s AND event_date >= CURRENT_DATE() ORDER BY event_date ASC"
     values_events = (user_id,)
@@ -216,7 +223,8 @@ def get_past_user_events(user_id):
     cursor_events.close()
 
     return future_events
-#Display user info
+
+
 def get_user_info(user_id):
     query_user = "SELECT * FROM users WHERE id = %s"
     values_user = (user_id,)
@@ -225,22 +233,28 @@ def get_user_info(user_id):
     user = cursor_user.fetchone()
     cursor_user.close()
 
+    # Fetch user events
     user['events'] = get_user_events(user_id)
+
     return user
 
-#######Dashboard###########
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' in session:
         user_id = session['user_id']
 
+        # Retrieve user information
         user = get_user_info(user_id)
+
         events = get_future_user_events(user_id)
+
         if user:
             return render_template('index.html', user=user, events=events)
         else:
             flash("User not found.", 'error')
             return redirect(url_for('login'))
+
+    # Handle the case where the user is not logged in
     return redirect(url_for('login'))
 
 #Expired tasks
@@ -257,6 +271,8 @@ def expired_tasks():
         else:
             flash("User not found.", 'error')
             return redirect(url_for('login'))
+
+    # Handle the case where the user is not logged in
     return redirect(url_for('login'))
 
 #All future tasks
@@ -273,9 +289,10 @@ def all_future_tasks():
         else:
             flash("User not found.", 'error')
             return redirect(url_for('login'))
+
+    # Handle the case where the user is not logged in
     return redirect(url_for('login'))
 
-###################Saving Events section###########
 from flask import session
 # Save event route
 @app.route('/save_event', methods=['POST'])
@@ -284,7 +301,10 @@ def save_event():
     data = request.json
     event_name = data.get('eventName')
     event_description = data.get('eventDescription')
-    event_date = data.get('eventDate')    
+    event_date = data.get('eventDate')
+
+
+    # Get user_id from the session or wherever you store it
     user_id = session.get('user_id')
     if event_name and user_id:        
         #query = "INSERT INTO events (user_id, event_name, event_date, event_description) VALUES (%s, %s, TRIM(%s), %s)"
@@ -311,7 +331,7 @@ def save_event():
         print('Invalid data or user not logged in.')
         return jsonify({'error': 'Invalid data or user not logged in'}), 400
 
-##########edit event############
+#edit event
 #fetch
 def get_event_info(event_id):
     query_event = "SELECT * FROM events WHERE event_id = %s"
@@ -327,6 +347,7 @@ def get_event_info(event_id):
 def update_event(event_id, event_name=None, event_date=None, event_description=None):
     # Initialize an empty list to store the SET clauses for the SQL query
     set_clauses = []
+
     # Check if each field is provided and add it to the SET clauses
     if event_name is not None:
         set_clauses.append("event_name = %s")
@@ -334,8 +355,10 @@ def update_event(event_id, event_name=None, event_date=None, event_description=N
         set_clauses.append("event_date = %s")
     if event_description is not None:
         set_clauses.append("event_description = %s")
+
     # Construct the SET part of the SQL query
     set_clause = ", ".join(set_clauses)
+
     # Build the SQL query
     query_update_event = f"UPDATE events SET {set_clause} WHERE event_id = %s"
 
@@ -351,7 +374,11 @@ def update_event(event_id, event_name=None, event_date=None, event_description=N
     print(f"New event name: {event_name}")
     print(f"New event date: {event_date}")
     print(f"New event description: {event_description}")
+
+    # Add the event_id to the values
     values_update_event.append(event_id)
+
+    # Execute the SQL query
     cursor_update_event = db.cursor()
     cursor_update_event.execute(query_update_event, values_update_event)
     db.commit()
@@ -407,8 +434,7 @@ def delete_event(event_id):
         print('User not logged in.')
         return jsonify({'error': 'User not logged in'}), 401
         
-
-############account section###################
+#account section
 @app.route('/my_account', methods=['GET', 'POST'])
 def my_account():
     if 'user_id' in session:

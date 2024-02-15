@@ -66,7 +66,7 @@
                     </div-->
                     <div class="todays-tasks-child-first">
                         <h1 class="todays-tasks-subtitle">Upcoming tasks</h1>  
-                        <h1 class="calender-title">Refresh screen on adding event</h1>                  
+                        <h1 class="calender-title">Display for the next 2 weeks</h1>                  
                         <!-- Display user events -->
                         {% if events %}
                             {% for event in events %}
@@ -88,13 +88,16 @@
                                 <br>                                
                             {% endfor %}
                         {% else %}
-                            <p class="todays-tasks-child-first-content-title">No events for today.</p>
+                            <p class="todays-tasks-child-first-content-title">No events created.</p>
                         {% endif %}                    
                         <!--button class="button-custom"> + Add tasks</button-->
                         <div class=" instruct bounce">
                             <h1 class="calender-title">Click calender date to add event</h1>
                         </div>
-                        <a href="{{ url_for('expired_tasks') }}"><button class="button-custom">View Expired tasks</button></a>                        
+                        <div class="button-tasks">
+                            <a href="{{ url_for('expired_tasks') }}"><button class="button-custom">View Expired tasks</button></a>
+                            <a href="{{ url_for('all_future_tasks') }}"><button class="button-custom">View All tasks</button></a>
+                        </div>                        
                     </div>
                     <a href="#calender"><button class="button-special">View calender</button></a>
                     <!--second container-->
@@ -102,7 +105,7 @@
                         <h1 style="color: var(--color-black);" class="todays-tasks-subtitle">Discover</h1>
                         
                         <!--Relax-->
-                        <a href="https://muffingroup.com/blog/relaxing-websites/">
+                        <a href="https://muffingroup.com/blog/relaxing-websites/" target="_blank">
                             <div class="todays-tasks-child-second-content">
                                 <img src="../static/images/Latest-news/person-ocean.jpg" alt="Relax">                            
                             </div>
@@ -110,7 +113,7 @@
                         <h1 class="todays-tasks-child-second-content-title">Relax and live stress free</h1>
 
                         <!-- Automobiles Section -->
-                        <a href="https://www.carsdirect.com/">
+                        <a href="https://www.carsdirect.com/" target="_blank">
                             <div class="todays-tasks-child-second-content ">
                                 <img src="../static/images/Latest-news/Benz.jpg" alt="Benz">    
                             </div>
@@ -118,14 +121,14 @@
                         <h1 class="todays-tasks-child-second-content-title">Dream big</h1>
                     
                         <!-- Adventure Section -->
-                        <a href="https://travel.usnews.com/rankings/best-african-and-middle-eastern-vacations/">
+                        <a href="https://travel.usnews.com/rankings/best-african-and-middle-eastern-vacations/" target="_blank">
                             <div class="todays-tasks-child-second-content">
                                 <img src="../static/images/Latest-news/lake-naivasha.jpeg" alt="Lake Naivasha">                            
                             </div> 
                         </a>
                         <h1 class="todays-tasks-child-second-content-title">Adventure</h1>
                         <!--Music-->
-                        <a href="https://open.spotify.com/?">
+                        <a href="https://open.spotify.com/?" target="_blank">
                             <div class="todays-tasks-child-second-content">
                                 <img src="../static/images/Latest-news/music.jpg" alt="music">                            
                             </div>
