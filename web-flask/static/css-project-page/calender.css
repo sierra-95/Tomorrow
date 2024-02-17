@@ -264,7 +264,7 @@ body {
 
 /*################*/
 .calender-title{
-    color: var(--color-white-new);
+    color: var(--color-white);
     font-family: var(--font-family-base);
     font-size: 1rem;
     text-align: center;
@@ -290,5 +290,11 @@ body {
     }
     50% {
       transform: translateY(-20px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .calendar {
+        width: auto;
     }
   }

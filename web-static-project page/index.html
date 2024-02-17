@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="Assets/css/todays-tasks.css"> 
         <link rel="stylesheet" href="Assets/css/calender.css"> 
         <link rel="stylesheet" href="Assets/css/footer.css">
-        <link rel="stylesheet" href="Assets/css/goals.css">
+        <link rel="stylesheet" href="Assets/css/self-development.css">
         <link rel="stylesheet" href="Assets/css/event.css">
         <link rel="stylesheet" href="Assets/css/button-events.css">
     </head>
@@ -136,10 +136,7 @@
                                 <textarea id="event-description-input" placeholder="Type your event description..."></textarea>
                             
                                 <button id="save-btn" onclick="saveEvent()">Save</button>
-                            </div>
-                            <br>
-                            <br>
-                            <a href="#calender"><button class="button-custom"> + Add tasks</button> </a>                            
+                            </div>                          
                         </div>
                         <script src="Assets/js/calender.js"></script>
                         <script src="Assets/js/event.js"></script> 
@@ -149,33 +146,112 @@
                 </div>
             </div>
         </section>
-        <!--section Goals-->
-        <section id="goals">
-            <div class="goals-container">
-                <div class="goals-child-container">
-                    <div class="goals-first-child">
-                        <h1 class="goals-title">Goals</h1>
-                        <h1 class="goals-subtitle">Paving Your Path to Success</h1>
-                        <div class="goals-child-first-content">
-                            <h1 class="goals-child-first-content-title">No goals set</h1>
-                        </div>
-                        <button class="button-custom"> + Add Goals</button>
-                    </div>
-                    <div class="goals-second-child">
-                        <h1 class="goals-title">Future me</h1>
-                        <p class="goals-subtitle">Welcome to the FutureMe Corner, a space dedicated to self-reflection and envisioning the journey ahead.
+        <!--section self development-->
+        <section id="self-development">
+            <div class="self-development-container">
+                <h1 class="development-title">Self development</h1>
+                <div class="self-development-child-container">                    
+                    <div class="self-development-first-child">
+                        <h1 class="self-development-title">Future me</h1>
+                        <p class="self-development-subtitle">Welcome to the FutureMe Corner, a space dedicated to self-reflection and envisioning the journey ahead.
                         Here, we invite you to pen down your aspirations, dreams, and lessons learned, addressing a letter to your future self.</p>
                         <br>
-                        <p class="goals-subtitle">Take a moment to capture your thoughts, set goals, and embrace the wisdom that comes with the passage
-                         of time. Your words are a gift to your future self</p>
-                        <div class="goals-child-first-content">
-                            <h1 class="goals-child-first-content-title">No letter written</h1>
+                        <p class="self-development-subtitle">Take a moment to capture your thoughts, set goals, and embrace the wisdom that comes with the passage
+                            of time. Your words are a gift to your future self</p>
+                        <div class="self-development-child-first-content">
+                            <h1 class="self-development-child-first-content-title">No letter written</h1>
                         </div>
                         <button class="button-custom"> + Add Letter</button>
+                    </div>
+                    <div class="self-development-second-child">
+                        <h1 class="self-development-title">Be unique</h1>
+                        <div class="self-development-second-child-content">
+                            <div class="self-development-child-second-flex">
+                                <h1 style="color: var(--color-black);" class="self-development-child-second-subtitle">Books</h1>                                
+                                <!-- Grit -->
+                                <a href="https://angeladuckworth.com/grit-book/" target="_blank">
+                                    <div class="self-development-child-second-images">
+                                        <img class= "first" src="Assets/images/Books/grit.jpg" alt="Grit">                            
+                                    </div>
+                                </a>
+                                <h1 class="self-development-child-second-images-title">Passion with perseverance</h1>
+                            
+                                <!-- Power Section -->
+                                <a href="https://pgcag.files.wordpress.com/2010/01/48lawsofpower.pdf" target="_blank">
+                                    <div class="self-development-child-second-images">
+                                        <img class= "first" src="Assets/images/Books/power.jpg" alt="power">    
+                                    </div>
+                                </a>
+                                <h1 class="self-development-child-second-images-title">48 laws of power</h1>
+
+                                <!-- Think big -->
+                                <a href="https://www.njlifehacks.com/the-magic-of-thinking-big-david-j-schwartz-book-summary/" target="_blank">
+                                    <div class="self-development-child-second-images">
+                                        <img class= "first" src="Assets/images/Books/Think big.jpg" alt="Think big">                            
+                                    </div>
+                                </a>
+                                <h1 class="self-development-child-second-images-title">Magic of thinking big</h1>
+                            
+                                <!-- Time Section -->
+                                <a href="https://www.shortform.com/summary/168-hours-summary-laura-vanderkam" target="_blank">
+                                    <div class="self-development-child-second-images">
+                                        <img class= "first" src="Assets/images/Books/168-hours.png" alt="168 Hours">                            
+                                    </div>
+                                </a> 
+                                <h1 class="self-development-child-second-images-title">168 Hours</h1>                           
+                                                   
+                            </div>
+                            <div class="self-development-child-second-flex">
+                                <h1 style="color: var(--color-black);" class="self-development-child-second-subtitle">Speeches</h1> 
+
+                                <a href="https://www.youtube.com/watch?v=Y0B32z3WwwA" target="_blank">
+                                    <div class="self-development-child-second-images">
+                                        <img class= "second" src="Assets/images/Speeches/jackie.jpg" alt="Jackie">                            
+                                    </div>
+                                </a>
+                                <h1 class="self-development-child-second-images-title">Become a dragon -Jackie Chan</h1>
+
+                                <a href="https://www.youtube.com/watch?v=HAnw168huqA" target="_blank">
+                                    <div class="self-development-child-second-images">
+                                        <img class= "second" src="Assets/images/Speeches/Think fast.jpg" alt="think">                            
+                                    </div>
+                                </a>
+                                <h1 class="self-development-child-second-images-title">Think faster, talk smarter -Matt Abrahams</h1>                            
+                                
+                                <a href="https://www.youtube.com/watch?v=H14bBuluwB8" target="_blank">
+                                    <div class="self-development-child-second-images">
+                                        <img class= "second"src="Assets/images/Speeches/AngelaDuckworth.jpg" alt="Angela duckworth">    
+                                    </div>
+                                </a>
+                                <h1 class="self-development-child-second-images-title">Ted talk -Angela Duckworth</h1>                            
+                               
+                                <a href="https://www.youtube.com/watch?v=KLe7Rxkrj94" target="_blank">
+                                    <div class="self-development-child-second-images">
+                                        <img class= "second"src="Assets/images/Speeches/oprah.jpg" alt="oprah">                            
+                                    </div>
+                                </a>
+                                <h1 class="self-development-child-second-images-title">Be yourself -Oprah Winfrey</h1>                            
+                                
+                                <a href="https://www.youtube.com/watch?v=UF8uR6Z6KLc" target="_blank">
+                                    <div class="self-development-child-second-images">
+                                        <img class= "second" src="Assets/images/Speeches/steve jobs.jpg" alt="steve jobs">                            
+                                    </div>
+                                <h1 class="self-development-child-second-images-title">The stages of life -Steve Jobs</h1>                   
+                            </div>
+                        </div>                          
+                    </div>
+                    <div class="self-development-third-child">
+                        <h1 class="self-development-title">Goals</h1>
+                        <h1 class="self-development-subtitle">Paving Your Path to Success</h1>
+                        <div class="self-development-child-third-content">
+                            <h1 class="self-development-child-third-content-title">No goals set</h1>
+                        </div>
+                        <button class="button-custom"> + Add Goals</button>
                     </div>
                 </div>
             </div>
         </section>
+        
         <!--footer-->
         <section id="footer">
             <div class="footer-container">

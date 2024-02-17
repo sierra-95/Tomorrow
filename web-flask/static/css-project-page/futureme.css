@@ -1,0 +1,116 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin: 0;
+    background-image: url('../images/Logo/dark-blue-light.png');
+    background-size: cover;
+}
+
+.container {
+    position: relative;
+    background-image: url('../images/Unsplash/pawel.jpg');
+    background-size: cover;
+    margin:20px;
+    padding:10px;
+    text-align: center;
+    width: 700px;
+    height:auto;
+    background-color: var(--color-black);
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width:auto;
+    margin:10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-white);
+    font-size: 1rem;
+    font-family: var(--font-family-base);
+}
+
+input{
+    width: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+textarea {
+    width: 400px;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow-y: auto;
+    font-size: 1rem;
+    height:200px;
+    background-color: var(--color-white-new);
+}
+
+#deliveryDate {
+    width: auto;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.futureme-title {
+    color: var(--color-white);
+    font-family: var(--font-family-official);
+    font-size: 1.5rem;
+}
+.close-btn {
+    position: absolute;
+    padding: 10px;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-white-new);
+    border: none;
+    border-radius: 3px;
+    color: var(--color-txt);
+    font-size: 10px;
+    cursor: pointer;
+}
+.close-btn:hover {
+    opacity: 80%;
+}
+@media (max-width: 768px) {
+    .body {
+        background-image: url('../images/Logo/dark-blue-light.png');
+        background-size: cover;
+    }
+
+    .container {
+        width: 100%;
+        margin: 10px;
+    }
+
+    textarea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 460px) {
+    .body {
+        background-image: url('../images/Logo/dark-blue-light.png');
+        background-size: cover;
+    }
+
+    .container {
+        width: 100%;
+        margin: 10px;
+    }
+
+    textarea {
+        width: 100%;
+    }
+}

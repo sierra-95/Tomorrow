@@ -14,6 +14,16 @@
     --button-custom-background-color: var(--color-black);
     --button-custom-hover-transition: opacity 0.2s ease-in;
     --button-custom-hover-opacity: 70%;
+    /*##############*/
+    --button-display: inline-block;
+    --button-padding: 0.5rem 1rem;
+    --button-border: 0.2rem;
+    --button-color: var(--color-black);
+    --button-text-decoration: none;
+    --button-font-size: var(--font-size-large);
+    --button-hover-color: var(--primary-color);
+    --button-hover-text-decoration: none;
+    --button-hover-background: var(--secondary-color);
 
 }
 .button-official {
@@ -53,6 +63,7 @@
     background-color: var(--color-white);
     color: var(--color-black);
 }
+
 /*Three dotted button for task-organizer in index-project-page*/
 .event-options {
     position: relative;
@@ -125,6 +136,65 @@ input[type="checkbox"]:hover {
     background-color: var(--color-white);
 }
 
+.button-tasks{
+    display: flex;
+    justify-content: space-between;
+}
+/*######OPtions button part 2#########*/
+.hover-menu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .hover-button {
+    cursor: pointer;
+    display: var(--button-display);
+    padding: var(--button-padding);
+    border: none;
+    border-radius: 5px;
+    font-size: var(--button-font-size);
+    background-color: var(--button-color);
+    text-decoration: var(--button-text-decoration);
+    color:white;
+    opacity:90%;
+  }
+  .hover-button:hover{
+    transition: opacity 0.2s ease-in;
+    opacity: 70%;
+    border: 1px solid var(--color-white);
+  }
+  
+  .options {
+    display: none;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 0px;
+    z-index: 1;
+    color:white;
+    background-color: var(--color-black);
+  }
+  /*display options*/
+  .hover-menu:hover .options {
+    display: block;
+  }
+  
+  .options a {
+    display: block;
+    text-decoration: none;
+    padding: 8px;
+    font-family: var(--font-family-base);
+    font-size: 0.8rem;
+  }
+  
+  .options a:hover {
+    background-color: var(--color-black);
+    transition: opacity 0.2s ease-in;
+    opacity: 70%;
+    border: 1px solid var(--color-white);
+  }
+/*################*/
+
 
 /*Hamburger navigation bar */
 .hamburger-menu {
@@ -143,6 +213,22 @@ input[type="checkbox"]:hover {
     .button-special{
         display:flex;
         margin:20px;
+    }
+    .hover-menu {
+        display: block;
+    }
+    
+    .hover-button {
+        display: block;
+        width: 100%;
+        padding:20px;
+    }
+    
+    .options {
+        position: relative;
+    }
+    .options a{
+        padding:20px;
     }
 }
 @media (max-width: 460px) {
@@ -170,4 +256,11 @@ input[type="checkbox"]:hover {
     .button-special{
         display:flex;
     }
+    .hover-button {
+        padding:10px;
+      }
+    
+      .options a {
+        padding: 10px;
+      }
 }

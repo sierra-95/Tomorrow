@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" href="Assets/css/button.css">
+    <link rel="stylesheet" href="Assets/css/futureme.css">
+    <link rel="icon" type="image/png" href="Assets/images/Favicon/Dark.png">
+    <title>Future Me</title>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="futureme-title">Future Me</h1>
+    <button class="close-btn" onclick="closeEventPopup()">X</button>
+    <br>
+    <form>
+        <div class="form-group">
+            <label for="letterName">What will you call me😀</label>
+            <input type="text" id="letterName" name="letterName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="deliveryDate">Delivery Date:</label>
+            <input type="date" id="deliveryDate" name="deliveryDate" required>
+        </div>
+
+        <div class="form-group">
+            <label for="letterContent">Letter Content:</label>
+            <textarea id="letterContent" name="letterContent" rows="5" required></textarea>
+        </div>      
+
+        <button class="button-custom" type="submit">Save Letter</button>
+    </form>
+    <br>
+    <br>
+</div>
+
+</body>
+</html>

@@ -468,5 +468,13 @@ def delete_user_route(user_id):
     print(f"Deleted user id: {user_id}")
     return redirect(url_for('index_landing'))
 
+
+###Self development
+
+#futureme
+@app.route('/future_me')
+def future_me():
+    return render_template('future_me.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
