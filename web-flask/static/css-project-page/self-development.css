@@ -1,4 +1,4 @@
-@import '../style.css';
+@import 'style.css';
 
 :root {
     --background-self-development-image: url('../images/Logo/Light-cyan.png');
@@ -45,8 +45,6 @@
 
 /*first child*/
 .self-development-first-child {
-    background-image: url('../images/Unsplfash/stairs.jpg');
-    background-size: cover;
     width:400px;
     height:410px;
     box-sizing: border-box;
@@ -67,6 +65,8 @@
     padding: 20px;
     border-radius: 5px;
     background-color: var(--color-black-new);
+    background-image: url('../images/Unsplash/pawel.jpg');
+    background-size: cover;
 }
 
 .self-development-child-first-content:hover {
@@ -75,9 +75,16 @@
 }
 
 .self-development-child-first-content-title {
-    color: var(--color-white);
+    color: var(--color-white-new);
+    font-size: 0.9rem;
+    font-family: var(--font-family-base);
+    text-align: left;
+}
+.self-development-child-first-content-date{
+    color: var(--color-white-new);
     font-size: 0.8rem;
     font-family: var(--font-family-base);
+    text-align: left;
 }
 /*second child*/
 .self-development-second-child {
@@ -136,7 +143,7 @@
 .self-development-third-child {
     background-image: url('../images/Unsplash/bus.jpg');
     background-size: cover;
-    width:400px;
+    width:410px;
     height:410px;
     box-sizing: border-box;
     padding: 0px;
@@ -216,7 +223,7 @@
     }
 
     .self-development-title {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 
     .self-development-subtitle {
@@ -242,7 +249,7 @@
     .self-development-third-child {
         background-image: url(../images/Unsplash/bus.jpg);
         background-size: cover;
-        width:435px;
+        width:auto;
         padding: 10px;
         font-size: 0.7rem;
     }
@@ -270,7 +277,7 @@
     }
 
     .self-development-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .self-development-subtitle {

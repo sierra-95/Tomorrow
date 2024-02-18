@@ -6,7 +6,7 @@
     box-sizing: border-box;
     margin:10px;
     width:auto;
-    padding:100px;
+    padding:50px;
     font-family: var(--font-family-title);
     border: none;
     background-image: var(--background-image);

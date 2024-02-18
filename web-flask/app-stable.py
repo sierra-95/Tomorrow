@@ -95,16 +95,14 @@ def get_user_info(user_id):
 def dashboard():
     if 'user_id' in session:
         user_id = session['user_id']
-        user = get_user_info(user_id)
-        print(f"User ID: {user_id}")
 
+        user = get_user_info(user_id)
+        events = get_future_user_events(user_id)
         if user:
-            return render_template('index.html', user=user)
+            return render_template('index.html', user=user, events=events)
         else:
             flash("User not found.", 'error')
             return redirect(url_for('login'))
-
-    # Handle the case where the user is not logged in
     return redirect(url_for('login'))
 #working
 @app.route('/login', methods=['GET', 'POST'])

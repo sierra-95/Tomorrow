@@ -227,6 +227,22 @@ def get_user_info(user_id):
 
     user['events'] = get_user_events(user_id)
     return user
+#Display futureme letters
+# Function to fetch FutureMe letter
+def get_future_me_letter(user_id, letter_id=None):
+    if letter_id:
+        query = "SELECT * FROM FutureMeLetters WHERE letter_id = %s AND sender_id = %s"
+        values = (letter_id, user_id)
+    else:
+        query = "SELECT * FROM FutureMeLetters WHERE sender_id = %s"
+        values = (user_id,)
+
+    cursor = db.cursor(dictionary=True)
+    cursor.execute(query, values)
+    letter = cursor.fetchone()
+    cursor.close()
+
+    return letter
 
 #######Dashboard###########
 @app.route('/dashboard')
@@ -236,12 +252,15 @@ def dashboard():
 
         user = get_user_info(user_id)
         events = get_future_user_events(user_id)
+        future_me_letter = get_future_me_letter(user_id)
+
         if user:
-            return render_template('index.html', user=user, events=events)
+            return render_template('index.html', user=user, events=events, future_me_letter=future_me_letter)
         else:
             flash("User not found.", 'error')
             return redirect(url_for('login'))
     return redirect(url_for('login'))
+
 
 #Expired tasks
 @app.route('/expired_tasks')
@@ -383,7 +402,44 @@ def edit_event(event_id):
         return redirect(url_for('dashboard'))
 
     return render_template('edit_event.html', event=event)
+###checkbox
+@app.route('/update_task_state/<int:event_id>', methods=['POST'])
+def update_task_state_route(event_id):
+    is_done = request.json.get('isDone')
+    if 'user_id' in session:
+        user_id = session['user_id']
 
+        try:
+            if event_belongs_to_user(event_id, user_id):
+                update_task_state_in_db(event_id, is_done)
+                return jsonify({'message': 'Task state updated successfully'}), 200
+            else:
+                return jsonify({'error': 'Event does not belong to the user'}), 403
+        except Exception as e:
+            return jsonify({'error': f'Error updating task state: {str(e)}'}), 500
+    else:
+        return jsonify({'error': 'User not authenticated'}), 401
+
+def update_task_state_in_db(event_id, is_done):
+    query_update_task_state = "UPDATE events SET is_done = %s WHERE event_id = %s"
+    values_update_task_state = (is_done, event_id)
+
+    cursor_update_task_state = db.cursor()
+    cursor_update_task_state.execute(query_update_task_state, values_update_task_state)
+    db.commit()
+    cursor_update_task_state.close()
+
+def event_belongs_to_user(event_id, user_id):
+    query_check_event_owner = "SELECT 1 FROM events WHERE event_id = %s AND user_id = %s LIMIT 1"
+    values_check_event_owner = (event_id, user_id)
+
+    cursor_check_event_owner = db.cursor()
+    cursor_check_event_owner.execute(query_check_event_owner, values_check_event_owner)
+    result = cursor_check_event_owner.fetchone()
+    cursor_check_event_owner.close()
+
+    return result is not None
+    
 #delete event
 @app.route('/delete_event/<int:event_id>', methods=['GET'])
 def delete_event(event_id):
@@ -472,9 +528,83 @@ def delete_user_route(user_id):
 ###Self development
 
 #futureme
-@app.route('/future_me')
-def future_me():
+@app.route('/future')
+def future():
     return render_template('future_me.html')
+
+def save_future_me_letter(user_id, letter_name, delivery_date, letter_content):
+    try:
+        #query = "INSERT INTO FutureMeLetters (sender_id, letter_name, delivery_date, letter_content) VALUES (%s, %s, %s, %s)"
+        query = "INSERT INTO FutureMeLetters (sender_id, letter_name, delivery_date, letter_content) VALUES (%s, %s, %s, TRIM(%s))"
+        values = (user_id, letter_name, delivery_date, letter_content)
+
+        cursor = db.cursor()
+        cursor.execute(query, values)
+        db.commit()
+        cursor.close()
+
+        return True 
+    except Exception as e:
+        print('Error saving Future Me letter:', str(e))
+        return False
+
+@app.route('/future_me', methods=['POST'])
+def future_me():
+    if 'user_id' in session:
+        user_id = session['user_id']
+
+        if request.method == 'POST':
+            print(f"Letter for user with ID: {user_id}")            
+            letter_name = request.form.get('letterName')
+            delivery_date = request.form.get('deliveryDate')
+            letter_content = request.form.get('letterContent')
+            print(f"Saving: {letter_name} for user id: {user_id} to be delivered on {delivery_date}")
+            delivery_date_formatted = datetime.strptime(delivery_date, '%Y-%m-%d').date()
+
+            if save_future_me_letter(user_id, letter_name, delivery_date_formatted, letter_content):
+                flash("Letter saved successfully!", 'success')
+            else:
+                flash("Error saving letter. Please try again.", 'error')
+
+            return redirect(url_for('dashboard'))
+
+        return render_template('future_me.html')
+    return redirect(url_for('login'))
+
+def delete_futureme_letter(user_id, letter_id):
+    try:
+        query = "DELETE FROM FutureMeLetters WHERE letter_id = %s AND sender_id = %s"
+        values = (letter_id, user_id)
+
+        cursor = db.cursor()
+        cursor.execute(query, values)
+        db.commit()
+        cursor.close()
+
+        return True 
+    except Exception as e:
+        print('Error deleting FutureMe letter:', str(e))
+        return False
+
+# Route to delete FutureMe letter
+@app.route('/delete_futureme/<int:letter_id>')
+def delete_futureme(letter_id):
+    if 'user_id' in session:
+        user_id = session['user_id']
+        print(f"Deleting letter id : {letter_id} for user_id: {user_id}")
+        if delete_futureme_letter(user_id, letter_id):
+            flash("FutureMe letter deleted successfully!", 'success')
+            return redirect(url_for('dashboard'))
+        else:
+            return jsonify({'error': 'Error deleting FutureMe letter'}), 500
+
+    return jsonify({'error': 'User not authenticated'}), 401
+
+
+#####Productivity status
+@app.route('/productivity_tracker')
+def productivity_tracker():
+    return render_template('Feature_unavailable.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

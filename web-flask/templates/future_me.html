@@ -12,13 +12,28 @@
 <body>
 
 <div class="container">
-    <h1 class="futureme-title">Future Me</h1>
-    <a href="{{ url_for('dashboard') }}"><button class="close-btn">X</button></a>
+    <a href="{{ url_for('dashboard') }}"><button class="close-btn">X</button></a>    
+    <div class="ideas">
+        <h1 class="futureme-header">Self development</h1>
+        <iframe class="video" src="https://www.youtube.com/embed/BffPMIAELFY" frameborder="0" allowfullscreen></iframe>
+        <h2 class="futureme-subtitle">Embark on a Journey of Self-Discovery: Welcome to Your Future Me Letter Adventure!</h2>
+        <h2 class="futureme-subtitle">Some questions to ask youself</h2>
+        <ol>
+            <li><h2>What are my current goals?</h2></li>
+            <li><h2>Where do I see myself in [X] years?</h2></li>
+            <li><h2>What skills or knowledge do I want to acquire?</h2></li>
+            <li><h2>What are my core values and principles?</h2></li>
+            <li><h2>What challenges do I anticipate facing?</h2></li>
+            <li><h2>What accomplishments am I proud of so far?</h2></li>
+            <li><h2>What steps will I take to achieve my goals?</h2></li>                   
+        </ol>
+    </div>
+    <h1 class="futureme-title">Dear Future Me</h1>
     <br>
-    <form>
+    <form method="POST" action="{{ url_for('future_me') }}">
         <div class="form-group">
             <label for="letterName">What will you call me😀</label>
-            <input type="text" id="letterName" name="letterName" required>
+            <input type="text" id="letterName" placeholder="I am..." name="letterName" required>
         </div>
 
         <div class="form-group">
@@ -28,7 +43,7 @@
 
         <div class="form-group">
             <label for="letterContent">Letter Content:</label>
-            <textarea id="letterContent" name="letterContent" rows="5" required></textarea>
+            <textarea id="letterContent" placeholder="Suprise yourself..." name="letterContent" rows="5" required></textarea>
         </div>      
 
         <button class="button-custom" type="submit">Save Letter</button>

@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS users (
     dob DATE,
     password VARCHAR(255)
 );
-
+#for the checkbox
+ALTER TABLE events ADD COLUMN is_done BOOLEAN DEFAULT FALSE;
 
 CREATE TABLE IF NOT EXISTS events (
     event_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -27,14 +28,6 @@ CREATE TABLE IF NOT EXISTS FutureMeLetters (
     letter_content TEXT,
     delivery_date DATE,
     FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS Goals (
-    goal_id INT AUTO_INCREMENT PRIMARY KEY,
-    writer_id INT,
-    goal_content TEXT,
-    due_date DATE,
-    FOREIGN KEY (writer_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 

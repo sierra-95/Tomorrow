@@ -54,7 +54,11 @@
                                 <a href="{{ url_for('delete_event', event_id=event.event_id) }}" onclick="return confirm('Are you sure you want to delete this event?')">Delete</a>
                                 <!--script src="../static/js/delete_event.js"></script-->                                            
                             </div>
-                            <label style="color: var(--color-white);"><input type="checkbox" id="myCheckbox">Done</label>
+                            <label style="color: var(--color-white);">
+                                <input type="checkbox" id="myCheckbox{{ event.event_id }}" {% if event.is_done %}checked{% endif %} onclick="updateTaskState('{{ event.event_id }}')">
+                                Done
+                            </label>                                                                                
+                            <script src="../static/js/checkbox.js"></script>
                         </div>
                     </div>
                     <br>                                

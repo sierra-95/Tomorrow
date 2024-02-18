@@ -10,12 +10,12 @@ body {
 
 .container {
     position: relative;
-    background-image: url('../images/Unsplash/pawel.jpg');
-    background-size: cover;
+    /*background-image: url('../images/Unsplash/pawel.jpg');
+    background-size: cover;*/
     margin:20px;
     padding:10px;
     text-align: center;
-    width: 700px;
+    width: 900px;
     height:auto;
     background-color: var(--color-black);
     border-radius: 5px;
@@ -63,10 +63,22 @@ textarea {
     box-sizing: border-box;
     margin-bottom: 10px;
 }
+.futureme-header{
+    color: var(--color-white);
+    font-family: var(--font-family-official);
+    font-size: 1.5rem;
+    text-align: left;
+}
 .futureme-title {
     color: var(--color-white);
     font-family: var(--font-family-official);
     font-size: 1.5rem;
+}
+.futureme-subtitle {
+    color: var(--color-white-new);
+    font-family: var(--font-family-official);
+    font-size: 1rem;
+    text-align: left;
 }
 .close-btn {
     position: absolute;
@@ -83,6 +95,18 @@ textarea {
 .close-btn:hover {
     opacity: 80%;
 }
+.ideas{
+    color: var(--color-white);
+    text-align: left;
+    font-size: 0.55rem;
+    font-family: var(--font-family-base);
+    margin:20px;
+}
+.video{
+    width:500px;
+    height:325px;
+}
+
 @media (max-width: 768px) {
     .body {
         background-image: url('../images/Logo/dark-blue-light.png');
@@ -96,6 +120,16 @@ textarea {
 
     textarea {
         width: 100%;
+    }
+    .futureme-subtitle{
+        font-size: 1.2rem;
+    }
+    .ideas{
+        font-size: 0.6rem;
+    }
+    .video{
+        width:700px;
+        height: 525px;
     }
 }
 
@@ -112,5 +146,15 @@ textarea {
 
     textarea {
         width: 100%;
+    }
+    .video{
+        width:400px;
+        height: 225px;
+    }
+    .futureme-subtitle{
+        font-size: 1rem;
+    }
+    .ideas{
+        font-size: 0.55rem;
     }
 }

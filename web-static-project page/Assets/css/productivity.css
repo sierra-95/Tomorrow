@@ -1,0 +1,8 @@
+@import 'style.css';
+canvas {
+    display: block;
+    margin: 20px auto;
+    border: 1px solid var(--primary-color);
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}

@@ -6,7 +6,7 @@
     box-sizing: border-box;
     margin:10px;
     width:auto;
-    padding:100px;
+    padding:50px;
     font-family: var(--font-family-title);
     border: none;
     background-image: var(--background-image);
@@ -112,7 +112,7 @@ li{
     }
 
     .Hero-title {
-        font-size: 0.9rem;
+        font-size: 1.5rem;
     }
 
     .Hero-subtitle {

@@ -436,3 +436,39 @@ Traceback (most recent call last):
   File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 485, in getattr
     return getattr(obj, attribute)
 jinja2.exceptions.UndefinedError: 'user' is undefined
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 258, in dashboard
+    return render_template('index.html', user=user, events=events, future_me_letter=future_me_letter)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/index.html", line 211, in top-level template code
+    <a href="{{ url_for('delete_futureme', letter_id='future_me_letter.letter_id') }}" onclick="return confirm('FutureMe asks deletion confirmation')"><button class="button-custom">Delete</button></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 917, in build
+    rv = self._partial_build(endpoint, values, method, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 796, in _partial_build
+    rv = self._partial_build(
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 809, in _partial_build
+    build_rv = rule.build(values, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/rules.py", line 831, in build
+    return self._build_unknown(**values)
+  File "<werkzeug routing>", line 1, in <builder:'/delete_futureme/<int:letter_id>'>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/converters.py", line 163, in to_url
+    value = str(self.num_convert(value))
+ValueError: invalid literal for int() with base 10: 'future_me_letter.letter_id'
