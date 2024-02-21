@@ -298,3 +298,8 @@ body {
         width: auto;
     }
   }
+  @media (max-width: 460px) {
+    .calendar {
+        width: min-content;
+    }
+  }
