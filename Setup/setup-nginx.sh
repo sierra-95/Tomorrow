@@ -16,3 +16,5 @@ sudo ln -s /etc/nginx/sites-available/web-01 /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
 
+####Errors####
+cat /var/log/nginx/error.log
