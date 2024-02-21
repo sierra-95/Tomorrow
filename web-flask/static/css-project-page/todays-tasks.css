@@ -164,7 +164,7 @@
     }
 
     .todays-tasks-child-first {
-        width:440px;
+        width:auto;
         height:400px;
         margin: 10px;
         font-size: 0.7rem;
@@ -183,7 +183,6 @@
 
     .todays-tasks-title {
         font-size: 1.5rem;
-        display: none;
     }
 
     .todays-tasks-subtitle {
