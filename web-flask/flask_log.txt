@@ -541,3 +541,54 @@ Traceback (most recent call last):
   File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/converters.py", line 163, in to_url
     value = str(self.num_convert(value))
 ValueError: invalid literal for int() with base 10: 'future_me_letter.letter_id'
+Exception on /create_account_password [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 139, in create_account_password
+    send_welcome_email(user_info['email'], user_info)
+  File "/home/sierra-95/Tomorrow/web-flask/email_functions.py", line 42, in send_welcome_email
+    mail.send(msg)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 492, in send
+    message.send(connection)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 190, in send
+    message.as_bytes() if PY3 else message.as_string(),
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 385, in as_bytes
+    return self._message().as_bytes()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 307, in _message
+    ascii_attachments = current_app.extensions['mail'].ascii_attachments
+KeyError: 'mail'
+Exception on /create_account_password [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 508, in connect
+    return Connection(app.extensions['mail'])
+KeyError: 'mail'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 140, in create_account_password
+    send_welcome_email(user_info['email'], user_info)
+  File "/home/sierra-95/Tomorrow/web-flask/email_functions.py", line 42, in send_welcome_email
+    mail.send(msg)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 491, in send
+    with self.connect() as connection:
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 510, in connect
+    raise RuntimeError("The curent application was not configured with Flask-Mail")
+RuntimeError: The curent application was not configured with Flask-Mail

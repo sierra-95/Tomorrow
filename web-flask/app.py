@@ -1,5 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_mail import Mail, Message
 import mysql.connector
 from flask import flash
 from flask import Flask, jsonify
@@ -23,6 +24,16 @@ app.logger.addHandler(file_handler)
 bcrypt = Bcrypt(app)
 app.secret_key = 'P@ssword@!967'
 
+#####send Email############
+app.config['MAIL_SERVER'] = 'live.smtp.mailtrap.io'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'api'
+app.config['MAIL_PASSWORD'] = 'c372dd794ce8283166bfcc38b84060f5'
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+mail = Mail(app)
+
+######Database connection###########
 try:
     db = mysql.connector.connect(
         host="localhost",
@@ -128,9 +139,52 @@ def create_account_password():
             query = "UPDATE users SET password = %s WHERE id = %s"
             values = (hashed_password, user_id)
             execute_query(query, values)
+
+        user_info = get_user_info(user_id)
+        send_welcome_email(user_info['email'], user_info)    
         return render_template('registration_success.html')
 
     return render_template('create_account_password.html')
+
+def send_welcome_email(user_email, user_info):
+    msg = Message(subject='Welcome to Tomorrow - Your Journey Starts Now!',
+                  sender='mailtrap@holb20233m8xq2.tech',
+                  recipients=[user_email],
+                  html="""<html>
+                          <head>
+                              <style>
+                                  body {
+                                      font-family: 'Arial', sans-serif;
+                                      max-width: 600px;
+                                      margin: auto;
+                                      padding: 20px;
+                                  }
+                                  img {
+                                      display: block;
+                                      margin: auto;
+                                      max-width: 100%;
+                                  }
+                                  p {
+                                      text-align: justify;
+                                  }
+                                  .footer {
+                                      margin-top: 20px;
+                                      text-align: center;
+                                      color: #777;
+                                  }
+                              </style>
+                          </head>
+                          <body>
+                              <p>Dear {user_info['first_name']},</p>
+                              <p>We hope this email finds you well. Welcome to Tomorrow!</p>
+                              <img src="http://127.0.0.1:5000/static/images/Logo/Light-cyan.png" alt="Tomorrow Logo">
+                              <p>We're thrilled to have you on board, and your journey towards a brighter, more organized future begins right now.</p>
+                              <p>Picture a stress-free tomorrow where your tasks effortlessly align with your goals. That's the Tomorrow experience we're excited to bring to you.</p>
+                              <p>Thank you for choosing Tomorrow.</p>
+                              <p class="footer">Best regards,<br>The Tomorrow Team</p>
+                          </body>
+                          </html>""")
+    mail.send(msg)
 
 @app.route('/login_account')
 def login_account():
@@ -226,6 +280,7 @@ def get_user_info(user_id):
     cursor_user.close()
 
     user['events'] = get_user_events(user_id)
+    print(f"Debug: User Info - {user}")
     return user
 #Display futureme letters
 # Function to fetch FutureMe letter

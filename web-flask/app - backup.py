@@ -34,7 +34,6 @@ try:
 except mysql.connector.Error as err:
     print(f"Error: {err}")
 
-# Helper function to execute SQL queries
 def execute_query(query, values=None):
     cursor = db.cursor()
     if values:
@@ -44,7 +43,7 @@ def execute_query(query, values=None):
     db.commit()
     cursor.close()
 
-# Root page -Landing page
+######Landing page######
 @app.route('/')
 def index():
     return render_template('index-landing.html')
@@ -52,6 +51,9 @@ def index():
 def index_landing():
     return render_template('index-landing.html')
 
+
+
+######Account routes######
 @app.route('/welcome_create_account')
 def welcome_create_account():
     return render_template('welcome_create_account.html')
@@ -73,25 +75,17 @@ def create_account_names():
         cursor.close()
 
         if existing_user:
-            # Email already exists
             flash("User with this email already exists. Please log in.", 'error')
             return render_template('login_account.html')
-
-        # Email doesn't exist, proceed with the insertion
         query = "INSERT INTO users (first_name, last_name, username, email) VALUES (%s, %s, %s, %s)"
         values = (first_name, last_name, username, email)
-
         cursor = db.cursor() 
         cursor.execute(query, values)
 
         # Get the last inserted ID (user ID)
         user_id = cursor.lastrowid
         cursor.close() 
-
-        # Store user ID in the session
-        session['user_id'] = user_id
-
-        # Store user input in the session for later use
+        session['user_id'] = user_id        
         session['first_name'] = first_name
         session['last_name'] = last_name
         session['username'] = username
@@ -125,8 +119,7 @@ def create_account_password():
         if password != confirm_password:
             flash("Passwords don't match. Please try again.", 'error')
             return redirect(url_for('create_account_password'))
-
-        # Hash the password before storing it
+        
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         print(f"Hash method used: {hashed_password.split('$')[1]}")
 
@@ -138,7 +131,7 @@ def create_account_password():
         return render_template('registration_success.html')
 
     return render_template('create_account_password.html')
-#for index-landing nav
+
 @app.route('/login_account')
 def login_account():
     session.clear()
@@ -148,7 +141,7 @@ def login_account():
 def logout():
     session.clear()
     return render_template('login_account.html')
-########################################
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -164,10 +157,10 @@ def login():
 
         if user:
             stored_password = user['password']
-            user_id = user['id']  # Extract user ID
+            user_id = user['id'] 
             first_name = user['first_name']
 
-            print(f"User ID: {user_id}")  # Print user ID to the terminal
+            print(f"User ID: {user_id}") 
 
             if password == first_name: #or (stored_password and check_password_hash(stored_password, password)):
                 session['user_id'] = user_id
@@ -178,11 +171,11 @@ def login():
             else:
                 flash("Invalid username or password. Please try again.", 'error')
                 return redirect(url_for('login'))
-
-    # Render the login page if it's a GET request
     return render_template('login_account.html')
 
-#Dashboard section
+
+
+###########Dashboard section#################
 #no limit display events
 def get_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s ORDER BY event_date ASC"
@@ -203,7 +196,7 @@ def get_future_user_events(user_id):
     cursor_events.close()
 
     return future_events
-#set limit display future events
+#No limit display future events
 def get_all_future_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s AND event_date >= CURRENT_DATE() ORDER BY event_date ASC"
     values_events = (user_id,)
@@ -223,8 +216,7 @@ def get_past_user_events(user_id):
     cursor_events.close()
 
     return future_events
-
-
+#Display user info
 def get_user_info(user_id):
     query_user = "SELECT * FROM users WHERE id = %s"
     values_user = (user_id,)
@@ -233,29 +225,42 @@ def get_user_info(user_id):
     user = cursor_user.fetchone()
     cursor_user.close()
 
-    # Fetch user events
     user['events'] = get_user_events(user_id)
-
     return user
+#Display futureme letters
+# Function to fetch FutureMe letter
+def get_future_me_letter(user_id, letter_id=None):
+    if letter_id:
+        query = "SELECT * FROM FutureMeLetters WHERE letter_id = %s AND sender_id = %s"
+        values = (letter_id, user_id)
+    else:
+        query = "SELECT * FROM FutureMeLetters WHERE sender_id = %s"
+        values = (user_id,)
 
+    cursor = db.cursor(dictionary=True)
+    cursor.execute(query, values)
+    letter = cursor.fetchone()
+    cursor.close()
+
+    return letter
+
+#######Dashboard###########
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' in session:
         user_id = session['user_id']
 
-        # Retrieve user information
         user = get_user_info(user_id)
-
         events = get_future_user_events(user_id)
+        future_me_letter = get_future_me_letter(user_id)
 
         if user:
-            return render_template('index.html', user=user, events=events)
+            return render_template('index.html', user=user, events=events, future_me_letter=future_me_letter)
         else:
             flash("User not found.", 'error')
             return redirect(url_for('login'))
-
-    # Handle the case where the user is not logged in
     return redirect(url_for('login'))
+
 
 #Expired tasks
 @app.route('/expired_tasks')
@@ -271,8 +276,6 @@ def expired_tasks():
         else:
             flash("User not found.", 'error')
             return redirect(url_for('login'))
-
-    # Handle the case where the user is not logged in
     return redirect(url_for('login'))
 
 #All future tasks
@@ -289,10 +292,9 @@ def all_future_tasks():
         else:
             flash("User not found.", 'error')
             return redirect(url_for('login'))
-
-    # Handle the case where the user is not logged in
     return redirect(url_for('login'))
 
+###################Saving Events section###########
 from flask import session
 # Save event route
 @app.route('/save_event', methods=['POST'])
@@ -301,10 +303,7 @@ def save_event():
     data = request.json
     event_name = data.get('eventName')
     event_description = data.get('eventDescription')
-    event_date = data.get('eventDate')
-
-
-    # Get user_id from the session or wherever you store it
+    event_date = data.get('eventDate')    
     user_id = session.get('user_id')
     if event_name and user_id:        
         #query = "INSERT INTO events (user_id, event_name, event_date, event_description) VALUES (%s, %s, TRIM(%s), %s)"
@@ -331,7 +330,7 @@ def save_event():
         print('Invalid data or user not logged in.')
         return jsonify({'error': 'Invalid data or user not logged in'}), 400
 
-#edit event
+##########edit event############
 #fetch
 def get_event_info(event_id):
     query_event = "SELECT * FROM events WHERE event_id = %s"
@@ -347,7 +346,6 @@ def get_event_info(event_id):
 def update_event(event_id, event_name=None, event_date=None, event_description=None):
     # Initialize an empty list to store the SET clauses for the SQL query
     set_clauses = []
-
     # Check if each field is provided and add it to the SET clauses
     if event_name is not None:
         set_clauses.append("event_name = %s")
@@ -355,10 +353,8 @@ def update_event(event_id, event_name=None, event_date=None, event_description=N
         set_clauses.append("event_date = %s")
     if event_description is not None:
         set_clauses.append("event_description = %s")
-
     # Construct the SET part of the SQL query
     set_clause = ", ".join(set_clauses)
-
     # Build the SQL query
     query_update_event = f"UPDATE events SET {set_clause} WHERE event_id = %s"
 
@@ -374,11 +370,7 @@ def update_event(event_id, event_name=None, event_date=None, event_description=N
     print(f"New event name: {event_name}")
     print(f"New event date: {event_date}")
     print(f"New event description: {event_description}")
-
-    # Add the event_id to the values
     values_update_event.append(event_id)
-
-    # Execute the SQL query
     cursor_update_event = db.cursor()
     cursor_update_event.execute(query_update_event, values_update_event)
     db.commit()
@@ -410,7 +402,44 @@ def edit_event(event_id):
         return redirect(url_for('dashboard'))
 
     return render_template('edit_event.html', event=event)
+###checkbox
+@app.route('/update_task_state/<int:event_id>', methods=['POST'])
+def update_task_state_route(event_id):
+    is_done = request.json.get('isDone')
+    if 'user_id' in session:
+        user_id = session['user_id']
 
+        try:
+            if event_belongs_to_user(event_id, user_id):
+                update_task_state_in_db(event_id, is_done)
+                return jsonify({'message': 'Task state updated successfully'}), 200
+            else:
+                return jsonify({'error': 'Event does not belong to the user'}), 403
+        except Exception as e:
+            return jsonify({'error': f'Error updating task state: {str(e)}'}), 500
+    else:
+        return jsonify({'error': 'User not authenticated'}), 401
+
+def update_task_state_in_db(event_id, is_done):
+    query_update_task_state = "UPDATE events SET is_done = %s WHERE event_id = %s"
+    values_update_task_state = (is_done, event_id)
+
+    cursor_update_task_state = db.cursor()
+    cursor_update_task_state.execute(query_update_task_state, values_update_task_state)
+    db.commit()
+    cursor_update_task_state.close()
+
+def event_belongs_to_user(event_id, user_id):
+    query_check_event_owner = "SELECT 1 FROM events WHERE event_id = %s AND user_id = %s LIMIT 1"
+    values_check_event_owner = (event_id, user_id)
+
+    cursor_check_event_owner = db.cursor()
+    cursor_check_event_owner.execute(query_check_event_owner, values_check_event_owner)
+    result = cursor_check_event_owner.fetchone()
+    cursor_check_event_owner.close()
+
+    return result is not None
+    
 #delete event
 @app.route('/delete_event/<int:event_id>', methods=['GET'])
 def delete_event(event_id):
@@ -434,7 +463,8 @@ def delete_event(event_id):
         print('User not logged in.')
         return jsonify({'error': 'User not logged in'}), 401
         
-#account section
+
+############account section###################
 @app.route('/my_account', methods=['GET', 'POST'])
 def my_account():
     if 'user_id' in session:
@@ -493,6 +523,88 @@ def delete_user_route(user_id):
     flash("User deleted successfully.", 'success')
     print(f"Deleted user id: {user_id}")
     return redirect(url_for('index_landing'))
+
+
+###Self development
+
+#futureme
+@app.route('/future')
+def future():
+    return render_template('future_me.html')
+
+def save_future_me_letter(user_id, letter_name, delivery_date, letter_content):
+    try:
+        #query = "INSERT INTO FutureMeLetters (sender_id, letter_name, delivery_date, letter_content) VALUES (%s, %s, %s, %s)"
+        query = "INSERT INTO FutureMeLetters (sender_id, letter_name, delivery_date, letter_content) VALUES (%s, %s, %s, TRIM(%s))"
+        values = (user_id, letter_name, delivery_date, letter_content)
+
+        cursor = db.cursor()
+        cursor.execute(query, values)
+        db.commit()
+        cursor.close()
+
+        return True 
+    except Exception as e:
+        print('Error saving Future Me letter:', str(e))
+        return False
+
+@app.route('/future_me', methods=['POST'])
+def future_me():
+    if 'user_id' in session:
+        user_id = session['user_id']
+
+        if request.method == 'POST':
+            print(f"Letter for user with ID: {user_id}")            
+            letter_name = request.form.get('letterName')
+            delivery_date = request.form.get('deliveryDate')
+            letter_content = request.form.get('letterContent')
+            print(f"Saving: {letter_name} for user id: {user_id} to be delivered on {delivery_date}")
+            delivery_date_formatted = datetime.strptime(delivery_date, '%Y-%m-%d').date()
+
+            if save_future_me_letter(user_id, letter_name, delivery_date_formatted, letter_content):
+                flash("Letter saved successfully!", 'success')
+            else:
+                flash("Error saving letter. Please try again.", 'error')
+
+            return redirect(url_for('dashboard'))
+
+        return render_template('future_me.html')
+    return redirect(url_for('login'))
+
+def delete_futureme_letter(user_id, letter_id):
+    try:
+        query = "DELETE FROM FutureMeLetters WHERE letter_id = %s AND sender_id = %s"
+        values = (letter_id, user_id)
+
+        cursor = db.cursor()
+        cursor.execute(query, values)
+        db.commit()
+        cursor.close()
+
+        return True 
+    except Exception as e:
+        print('Error deleting FutureMe letter:', str(e))
+        return False
+
+# Route to delete FutureMe letter
+@app.route('/delete_futureme/<int:letter_id>')
+def delete_futureme(letter_id):
+    if 'user_id' in session:
+        user_id = session['user_id']
+        print(f"Deleting letter id : {letter_id} for user_id: {user_id}")
+        if delete_futureme_letter(user_id, letter_id):
+            flash("FutureMe letter deleted successfully!", 'success')
+            return redirect(url_for('dashboard'))
+        else:
+            return jsonify({'error': 'Error deleting FutureMe letter'}), 500
+
+    return jsonify({'error': 'User not authenticated'}), 401
+
+
+#####Productivity status
+@app.route('/productivity_tracker')
+def productivity_tracker():
+    return render_template('Feature_unavailable.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
