@@ -18,7 +18,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   margin: 0;
   background-color: var(--body-background-color);
   background-image: url(../../images/Logo/dark-blue-light.png);
@@ -26,6 +25,7 @@ body {
 }
 
 .create-account-container {
+  margin: 20px;
   color: var(--create-account-container-color);
   background-color: var(--create-account-container-background);
   padding: var(--create-account-container-padding);
@@ -61,12 +61,12 @@ input {
 /**@media**/
 @media (max-width: 768px) {
   .create-account-container {
-    width: 40%;
+    width: auto;
   }
 }
 
 @media (max-width: 460px) {
   .create-account-container {
-    width: 40%;
+    width: 250px;
   }
 }

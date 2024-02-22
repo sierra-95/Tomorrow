@@ -10,5 +10,5 @@ set FLASK_ENV=development
 flask run
 
 #nohup
-nohup flask run --host=0.0.0.0 --port=5000 &
+nohup flask run --host=0.0.0.0 --port=8000 &
 

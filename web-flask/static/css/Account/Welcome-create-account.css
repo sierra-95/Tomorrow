@@ -8,9 +8,9 @@ body{
     height:100vh;
 }
 .welcome-container{
+  margin:20px;
     width: auto;
     padding: 40px;
-    margin-left:100px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: var(--color-black);
 }
@@ -30,12 +30,10 @@ body{
 @media (max-width: 768px) {
     .welcome-container {
       width: auto;
-      margin-left: 0;
     }
   }
   @media (max-width: 460px) {
     .welcome-container {
-        width: auto;
-        margin-left: 0;
+        width: 250px;
       }
   }
