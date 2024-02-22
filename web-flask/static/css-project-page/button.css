@@ -253,11 +253,17 @@ input[type="checkbox"]:hover {
     .nav-list li {
         padding: 10px;
     }
+    .special{
+        display: flex;
+        width:auto;
+        justify-content: center;
+    }
     .button-special{
         display:flex;
     }
     .hover-button {
         padding:10px;
+        font-size: 0.9rem;
       }
     
       .options a {

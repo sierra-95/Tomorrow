@@ -33,7 +33,7 @@
     border-radius: 0px;
     background-color: var(--color-black);
     overflow-y: auto;
-    background-image: url('../images/Unsplash/andrea.jpg');
+    background-image: url('../images/Unsplash/street.jpg');
     background-size: cover;
 }
 .todays-tasks-child-first-content{
@@ -42,6 +42,7 @@
     padding:20px;
     border-radius: 5px;
     background-color: var(--color-black-new);
+    opacity: 90%;
 }
 .todays-tasks-child-first-content:hover{
     transition: opacity 0.2s ease-in;
@@ -94,8 +95,6 @@
     height: auto; 
 }
 
-
-
 .todays-tasks-title {
     font-size: 1.5rem;
     color: var(--color-white);
@@ -108,6 +107,11 @@
     color: var(--color-white);
     text-align: center;
     font-family: var(--font-family-base);
+}
+.visible{
+    background-color: var(--transparent-black);
+    width:auto;
+    padding:5px;
 }
 
 /**@media**/
@@ -153,40 +157,44 @@
 /* Responsive styles for screens up to 460px */
 @media (max-width: 460px) {
     .todays-tasks-container {
-        padding: 5px;
+        padding:0px;
+        margin:2px;
     }
 
     .todays-tasks-child-container {
         margin-left: 0;
         flex-direction: column;
-        align-items: center;
         width: 100%;
+        padding:0px;
     }
 
     .todays-tasks-child-first {
         width:auto;
         height:400px;
-        margin: 10px;
+        margin: 0px;
         font-size: 0.7rem;
-        margin-top: -25px;
     }
-    .todays-tasks-child-second {
-        margin: 10px;
+    .todays-tasks-child-second {        
+        margin: 0px;
         font-size: 0.7rem;
-        width:350px;
-        height:300px;
+        width:auto;
+        height:200px;
+        padding:20px;
     }
     .todays-tasks-child-second-content{
+        display: flex;
         margin-left: 0px;
         width: auto;
+        justify-content: center;
     }
 
     .todays-tasks-title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        display: none;
     }
 
     .todays-tasks-subtitle {
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin-top: 15px;
     }
     .todays-tasks-child-first-content-description{
@@ -195,8 +203,11 @@
         font-family: var(--font-family-base);
     }
     .todays-tasks-child-first-content-date{
-        color: var(--primary-color);
         font-size: 0.8rem;
         font-family: var(--font-family-official);
+    }
+    .todays-tasks-child-second-content img {
+        max-width: 90%;
+        height: auto; 
     }
 }

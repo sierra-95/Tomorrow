@@ -40,7 +40,7 @@ body {
 .calendar {
     box-sizing: border-box;
     height: max-content;
-    width: max-content;
+    width: min-content;
     background-color: var(--bg-main);
     border-radius: 0px;
     padding: 20px;
@@ -301,5 +301,8 @@ body {
   @media (max-width: 460px) {
     .calendar {
         width: min-content;
+    }
+    .calender-title{
+        font-size: 0.9rem;
     }
   }

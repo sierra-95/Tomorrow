@@ -1,0 +1,729 @@
+GET / - 200
+GET /static/css/index/button.css - 304
+GET /static/css/style.css - 304
+GET /static/css/index/Hero.css - 304
+GET /static/css/index/services.css - 304
+GET /static/css/index/latest.css - 304
+GET /static/css/index/about.css - 304
+GET /static/css/index/invite.css - 304
+GET /static/css/index/footer.css - 304
+GET /static/images/Logo/dark-blue-light.png - 304
+GET /static/js/hamburger-menu.js - 304
+GET /static/images/Unsplash/blue-bird.jpg - 304
+GET /static/images/Logo/Light-purple.png - 304
+GET /static/images/Unsplash/person-ocean.jpg - 304
+GET /welcome_create_account - 200
+GET /static/css/Account/Welcome-create-account.css - 304
+GET /static/css/index/Hero.css - 304
+GET /static/css/style.css - 304
+GET /static/css/index/button.css - 304
+GET /static/images/Logo/dark-blue-light.png - 304
+GET /create_account_names - 200
+GET /static/css/style.css - 304
+GET /static/css/index/button.css - 304
+GET /static/css/Account/create-account.css - 304
+GET /static/css/Account/style.css - 404
+GET /static/images/Logo/dark-blue-light.png - 304
+GET /create_account_names - 200
+GET /static/css/Account/create-account.css - 304
+GET /static/css/style.css - 304
+GET /static/css/index/button.css - 304
+GET /static/css/Account/style.css - 404
+GET /static/images/Logo/dark-blue-light.png - 304
+GET /static/images/Favicon/Dark.png - 304
+Exception on /save_event [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 189, in save_event
+    execute_query(query, values)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 38, in execute_query
+    cursor = db.cursor()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 728, in cursor
+    raise OperationalError("MySQL Connection not available.")
+mysql.connector.errors.OperationalError: MySQL Connection not available.
+Exception on /get_todays_events [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 217, in get_todays_events
+    today = datetime.date.today()
+AttributeError: 'method_descriptor' object has no attribute 'today'
+Exception on /get_todays_events [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 217, in get_todays_events
+    today = datetime.date.today()
+AttributeError: 'method_descriptor' object has no attribute 'today'
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 187, in dashboard
+    return render_template('dashboard.html', user_id=user_id)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 151, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: dashboard.html
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 187, in dashboard
+    return render_template('index.html', user_id=user_id)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/index.html", line 44, in top-level template code
+    <h1 class="Hero-title">Welcome {{ user['first_name'] }} {{ user['last_name'] }}</h1>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 466, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'user' is undefined
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 188, in dashboard
+    user = fetch_user_data(user_id)
+NameError: name 'fetch_user_data' is not defined
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 217, in dashboard
+    return render_template('index.html', user=user, events=events)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/index.html", line 33, in top-level template code
+    <li><a href="{{ url_for('my_account') }}">My Account<span></span></a></li>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'my_account'. Did you mean 'login_account' instead?
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 217, in dashboard
+    return render_template('index.html', user=user, events=events)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/index.html", line 79, in top-level template code
+    <a href="{{ url_for('edit_event') }}" onclick="return confirm('Did you mean to edit this event?')">Edit</a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'edit_event'. Did you forget to specify values ['event_id']?
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 217, in dashboard
+    return render_template('index.html', user=user, events=events)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/index.html", line 79, in top-level template code
+    <a href="{{ url_for('edit_event') }}" onclick="return confirm('Did you mean to edit this event?')">Edit</a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'edit_event'. Did you forget to specify values ['event_id']?
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 217, in dashboard
+    return render_template('index.html', user=user, events=events)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/index.html", line 79, in top-level template code
+    <a href="{{ url_for('edit_event', event_id=event_details.event_id) }}" onclick="return confirm('Did you mean to edit this event?')">Edit</a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'event_details' is undefined
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 217, in dashboard
+    return render_template('index.html', user=user, events=events)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/index.html", line 79, in top-level template code
+    <a href="{{ url_for('edit_event') }}" onclick="return confirm('Did you mean to edit this event?')">Edit</a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'edit_event'. Did you mean 'edit_events' instead?
+Exception on /edit_events [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 276, in edit_events
+    return render_template('edit_events.html', user=user, events=events)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 151, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: edit_events.html
+Exception on /edit_events [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 276, in edit_events
+    return render_template('edit_event.html', user=user, events=events)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/edit_event.html", line 17, in top-level template code
+    <input type="text" id="event-input" placeholder="Type your event..." value="{{ event_details.event_name }}" contenteditable="true">
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'event_details' is undefined
+Exception on /edit_events [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 274, in edit_events
+    return render_template('edit_event.html', user=user, events=events)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/edit_event.html", line 17, in top-level template code
+    <input type="text" id="event-input" placeholder="Type your event..." value="{{ event.event_name }}" contenteditable="true">
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'event' is undefined
+Exception on /my_account [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 430, in my_account
+    return render_template('account.html', user=user)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/account.html", line 67, in top-level template code
+    <form action="{{ url_for('delete_user_route', user_id=user_info['id']) }}" method="post">
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 466, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'user_info' is undefined
+Exception on /my_account [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 430, in my_account
+    return render_template('account.html', user=user)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/account.html", line 67, in top-level template code
+    <form action="{{ url_for('delete_user_route', user_id=user.id) }}" method="post">
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'delete_user_route' with values ['user_id']. Did you mean 'delete_user_account' instead?
+Exception on /delete_user/5 [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 469, in delete_user_account
+    return render_template('account.html', message='Failed to delete user')
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/account.html", line 43, in top-level template code
+    <input type="text" id="first-name" name="first_name" value="{{ user.first_name }}" class="editable-input" required>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'user' is undefined
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 258, in dashboard
+    return render_template('index.html', user=user, events=events, future_me_letter=future_me_letter)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/index.html", line 211, in top-level template code
+    <a href="{{ url_for('delete_futureme', letter_id='future_me_letter.letter_id') }}" onclick="return confirm('FutureMe asks deletion confirmation')"><button class="button-custom">Delete</button></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 917, in build
+    rv = self._partial_build(endpoint, values, method, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 796, in _partial_build
+    rv = self._partial_build(
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 809, in _partial_build
+    build_rv = rule.build(values, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/rules.py", line 831, in build
+    return self._build_unknown(**values)
+  File "<werkzeug routing>", line 1, in <builder:'/delete_futureme/<int:letter_id>'>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/converters.py", line 163, in to_url
+    value = str(self.num_convert(value))
+ValueError: invalid literal for int() with base 10: 'future_me_letter.letter_id'
+Exception on /create_account_password [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 139, in create_account_password
+    send_welcome_email(user_info['email'], user_info)
+  File "/home/sierra-95/Tomorrow/web-flask/email_functions.py", line 42, in send_welcome_email
+    mail.send(msg)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 492, in send
+    message.send(connection)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 190, in send
+    message.as_bytes() if PY3 else message.as_string(),
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 385, in as_bytes
+    return self._message().as_bytes()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 307, in _message
+    ascii_attachments = current_app.extensions['mail'].ascii_attachments
+KeyError: 'mail'
+Exception on /create_account_password [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 508, in connect
+    return Connection(app.extensions['mail'])
+KeyError: 'mail'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 140, in create_account_password
+    send_welcome_email(user_info['email'], user_info)
+  File "/home/sierra-95/Tomorrow/web-flask/email_functions.py", line 42, in send_welcome_email
+    mail.send(msg)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 491, in send
+    with self.connect() as connection:
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 510, in connect
+    raise RuntimeError("The curent application was not configured with Flask-Mail")
+RuntimeError: The curent application was not configured with Flask-Mail
+Exception on /create_account_password [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 144, in create_account_password
+    send_welcome_email(user_info['email'], user_info)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 187, in send_welcome_email
+    mail.send(msg)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 492, in send
+    message.send(connection)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 427, in send
+    connection.send(self)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask_mail.py", line 188, in send
+    self.host.sendmail(sanitize_address(envelope_from or message.sender),
+  File "/usr/lib/python3.10/smtplib.py", line 901, in sendmail
+    raise SMTPRecipientsRefused(senderrs)
+smtplib.SMTPRecipientsRefused: {'s': (501, b'5.1.3 Bad recipient address syntax')}
+Exception on /create_account_names [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 661, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 's' for key 'users.username'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 94, in create_account_names
+    cursor.execute(query, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 374, in execute
+    result = self._cnx.cmd_query(
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 74, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 669, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 's' for key 'users.username'
+Exception on /create_account_names [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 661, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Lock wait timeout exceeded; try restarting transaction
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 94, in create_account_names
+    cursor.execute(query, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 374, in execute
+    result = self._cnx.cmd_query(
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 74, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 669, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1205 (HY000): Lock wait timeout exceeded; try restarting transaction
+Exception on /create_account_names [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 106, in create_account_names
+    return render_template('create_account_names.html')
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/create_account_names.html", line 24, in top-level template code
+    <form action="{{ url_for('create_account_names', 'create_account_dob') }}" method="post">
+TypeError: Flask.url_for() takes 2 positional arguments but 3 were given
+Exception on /create_account_names [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 94, in create_account_names
+    cursor.execute(query, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 367, in execute
+    stmt = RE_PY_PARAM.sub(psub, stmt)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 120, in __call__
+    raise ProgrammingError(
+mysql.connector.errors.ProgrammingError: Not enough parameters for the SQL statement
+Exception on /create_account_password [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 133, in create_account_password
+    user_info = get_user_info(user_id)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 272, in get_user_info
+    user['events'] = get_user_events(user_id)
+TypeError: 'NoneType' object does not support item assignment
+Executing create_account_names route
+Executing create_account_names route
+Executing create_account_names route
+Executing create_account_names route
+Exception on /create_account_names [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 661, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'michaelmachohi@gmail.com' for key 'users.email'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 102, in create_account_names
+    cursor.execute(query, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 374, in execute
+    result = self._cnx.cmd_query(
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 74, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 669, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'michaelmachohi@gmail.com' for key 'users.email'
+Executing create_account_names route
+Executing create_account_names route
+Exception on /create_account_names [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 661, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Duplicate entry 'michaelmachohi@gmail.com' for key 'users.email'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 103, in create_account_names
+    cursor.execute(query, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/cursor_cext.py", line 374, in execute
+    result = self._cnx.cmd_query(
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 74, in wrapper
+    return method(cnx, *args, **kwargs)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 669, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.IntegrityError: 1062 (23000): Duplicate entry 'michaelmachohi@gmail.com' for key 'users.email'
+Executing create_account_names route
+Executing create_account_names route
+Error creating account: Transaction already in progress
+Exception on /create_account_names [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 102, in create_account_names
+    session['username'] = username
+NameError: name 'username' is not defined

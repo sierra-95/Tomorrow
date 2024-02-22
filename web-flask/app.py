@@ -76,8 +76,8 @@ def create_account_names():
     if request.method == 'POST':
         first_name = request.form['firstname']
         last_name = request.form['lastname']
-        username = request.form['username']
         email = request.form['email']
+        dob = request.form['dob']
         query_check_email = "SELECT id FROM users WHERE email = %s"
         values_check_email = (email,)
         cursor = db.cursor()
@@ -88,20 +88,28 @@ def create_account_names():
         if existing_user:
             flash("User with this email already exists. Please log in.", 'error')
             return render_template('login_account.html')
-        query = "INSERT INTO users (first_name, last_name, username, email) VALUES (%s, %s, %s, %s)"
-        values = (first_name, last_name, username, email)
+        
+        query = "INSERT INTO users (first_name, last_name, email, dob) VALUES (%s, %s, %s, %s)"
+        values = (first_name, last_name, email, dob)
         cursor = db.cursor() 
-        cursor.execute(query, values)
+        try:
+            cursor.execute(query, values)
+            print("Cursor executed successfully.")
 
-        # Get the last inserted ID (user ID)
-        user_id = cursor.lastrowid
-        cursor.close() 
-        session['user_id'] = user_id        
-        session['first_name'] = first_name
-        session['last_name'] = last_name
-        session['username'] = username
-        session['email'] = email
-        return redirect(url_for('create_account_dob'))
+            user_id = cursor.lastrowid
+            print(f"Last inserted ID: {user_id}")
+
+            session['user_id'] = user_id
+            session['first_name'] = first_name
+            session['last_name'] = last_name
+            session['email'] = email
+            return redirect(url_for('create_account_password'))
+
+        except Exception as e:
+            print(f"Error executing cursor: {e}")
+
+        finally:
+            cursor.close()
 
     return render_template('create_account_names.html')
 
@@ -199,11 +207,11 @@ def logout():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
         
-        query = "SELECT * FROM users WHERE username = %s OR first_name = %s"
-        values = (username, username)
+        query = "SELECT * FROM users WHERE email = %s OR first_name = %s"
+        values = (email, email)
         cursor = db.cursor(dictionary=True)
         cursor.execute(query, values)
         user = cursor.fetchone()

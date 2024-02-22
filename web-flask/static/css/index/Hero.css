@@ -125,6 +125,7 @@ li{
 @media (max-width: 460px) {
     .Hero-container {
         padding: 30px;
+        margin: 2px;
     }
 
     .child-Hero-container {

@@ -63,6 +63,7 @@
 @media (max-width: 460px) {
     .footer-container {
         padding: 5px;
+        margin: 2px;
     }
 
     .footer-child-container {

@@ -38,6 +38,7 @@
 @media (max-width: 768px) {
     .footer-container {
         padding: 10px;
+        margin: 2px;
     }
 
     .footer-child-container {
@@ -63,7 +64,7 @@
 /* Responsive styles for screens up to 460px */
 @media (max-width: 460px) {
     .footer-container {
-        padding: 5px;
+        padding: 2px;
     }
 
     .footer-child-container {

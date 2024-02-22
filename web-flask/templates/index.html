@@ -55,28 +55,19 @@
                 <h1 class="todays-tasks-title">Task manager</h1>
                 <div class="todays-tasks-child-container">
                     <!--first container-->
-                    <!--div class="todays-tasks-child-first">
-                        <h1 class="todays-tasks-subtitle">Today's planning</h1>
-                        <div class="todays-tasks-child-first-content">
-                            <h2 class="todays-tasks-child-first-content-title">Take car to garage
-                                <label><input type="checkbox" id="myCheckbox">Done</label>
-                            </h2>
-                        </div>
-                        <br>
-                        <br>
-                        <button class="button-custom"> + Add tasks</button>                        
-                    </div-->
                     <div class="todays-tasks-child-first">
-                        <h1 class="todays-tasks-subtitle">Upcoming tasks</h1>
-                        <div class="button-tasks">
-                            <h1 class="calender-title">The next 2 weeks</h1>                                                          
-                            <div class="hover-menu">
-                                <button class="hover-button">Options</button>
-                                <div class="options">
-                                  <a href="{{ url_for('all_future_tasks') }}" style="color: white;">All Tasks</a>
-                                  <a href="{{ url_for('expired_tasks') }}" style="color: white;">Expired tasks</a>
-                                </div>
-                            </div>                                                      
+                        <div class="visible">
+                            <h1 class="todays-tasks-subtitle">Upcoming Tasks</h1>
+                            <div class="button-tasks">
+                                <h1 class="calender-title">The next 2 weeks</h1>                                                          
+                                <div class="hover-menu">
+                                    <button class="hover-button">Options</button>
+                                    <div class="options">
+                                    <a href="{{ url_for('all_future_tasks') }}" style="color: white;">All Tasks</a>
+                                    <a href="{{ url_for('expired_tasks') }}" style="color: white;">Expired tasks</a>
+                                    </div>
+                                </div>                                                      
+                            </div>
                         </div>
                                        
                         <!-- Display user events -->
@@ -110,7 +101,9 @@
                             <h1 class="calender-title">Click calender date to add event</h1>
                         </div>                       
                     </div>
-                    <a href="#calender"><button class="button-special">View calender</button></a>
+                    <div class="special">
+                        <a href="#calender"><button class="button-special">View calender</button></a>
+                    </div>
                     <!--second container-->
                     <div class="todays-tasks-child-second">
                         <h1 style="color: var(--color-black);" class="todays-tasks-subtitle">Discover</h1>
@@ -147,49 +140,51 @@
                         <h1 class="todays-tasks-child-second-content-title">Music</h1>                   
                     </div>
                     <!--calender start-->
-                    <section id="calender">                        
-                        <div class="calendar light">
-                            <h1 class="calender-title">Click calender date to add event</h1>
-                            <div class="calendar-header">
-                                <span class="month-picker" id="month-picker">April</span>
-                                <div class="year-picker">
-                                    <span class="year-change" id="prev-year">
-                                        <pre style="margin:0;"><</pre>
-                                    </span>
-                                    <span id="year">2022</span>
-                                    <span class="year-change" id="next-year">
-                                        <pre style="margin:0;">></pre>
-                                    </span>
+                    <div class="special">
+                        <section id="calender">                        
+                            <div class="calendar light">
+                                <h1 class="calender-title">Click calender date to add event</h1>
+                                <div class="calendar-header">
+                                    <span class="month-picker" id="month-picker">April</span>
+                                    <div class="year-picker">
+                                        <span class="year-change" id="prev-year">
+                                            <pre style="margin:0;"><</pre>
+                                        </span>
+                                        <span id="year">2022</span>
+                                        <span class="year-change" id="next-year">
+                                            <pre style="margin:0;">></pre>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="calendar-body">
-                                <div class="calendar-week-day">
-                                    <div>Sun</div>
-                                    <div>Mon</div>
-                                    <div>Tue</div>
-                                    <div>Wed</div>
-                                    <div>Thu</div>
-                                    <div>Fri</div>
-                                    <div>Sat</div>
+                                <div class="calendar-body">
+                                    <div class="calendar-week-day">
+                                        <div>Sun</div>
+                                        <div>Mon</div>
+                                        <div>Tue</div>
+                                        <div>Wed</div>
+                                        <div>Thu</div>
+                                        <div>Fri</div>
+                                        <div>Sat</div>
+                                    </div>
+                                    <div class="calendar-days"></div>
                                 </div>
-                                <div class="calendar-days"></div>
-                            </div>
-                        
-                            <div class="month-list"></div>
-                            <div class="event-popup">
-                                <button class="close-btn" onclick="closeEventPopup()">X</button>
-                                <label for="event-input">Event:</label>
-                                <input type="text" id="event-input" placeholder="Type your event...">
-                                <label for="event-description">Description:</label> <!-- Add this line -->
-                                <textarea id="event-description" rows="4" placeholder="Type event description..."></textarea> <!-- Add this line -->
-                                <button id="save-btn" onclick="saveEvent()">Save</button>
-                            </div>                           
                             
-                        </div>
-                        <script src="../static/js/calender.js"></script>
-                        <script src="../static/js/event.js"></script>            
-                        
-                    </section>      
+                                <div class="month-list"></div>
+                                <div class="event-popup">
+                                    <button class="close-btn" onclick="closeEventPopup()">X</button>
+                                    <label for="event-input">Event:</label>
+                                    <input type="text" id="event-input" placeholder="Type your event...">
+                                    <label for="event-description">Description:</label> <!-- Add this line -->
+                                    <textarea id="event-description" rows="4" placeholder="Type event description..."></textarea> <!-- Add this line -->
+                                    <button id="save-btn" onclick="saveEvent()">Save</button>
+                                </div>                           
+                                
+                            </div>
+                            <script src="../static/js/calender.js"></script>
+                            <script src="../static/js/event.js"></script>            
+                            
+                        </section> 
+                    </div>
                     <!--calender end-->             
     
                 </div>
@@ -207,21 +202,22 @@
                         <br>
                         <p class="self-development-subtitle">Take a moment to capture your thoughts, set goals, and embrace the wisdom that comes with the passage
                             of time. Your words are a gift to your future self</p>
-                        <div class="self-development-child-first-content">
-                            {% if future_me_letter %}
+                        {% if future_me_letter %}
+                            <div class="self-development-child-first-content">
                                 <h1 class="self-development-child-first-content-title">Letter name: {{ future_me_letter.letter_name }}</h1>
                                 <p class="self-development-child-first-content-date">Delivery Date: {{ future_me_letter.delivery_date }}</p>
                                 <a href="{{ url_for('delete_futureme', letter_id=future_me_letter.letter_id) }}" onclick="return confirm('FutureMe asks deletion confirmation')"><button class="button-custom">Delete</button></a>
-                            {% else %}
-                                <h1 class="self-development-child-first-content-title">No letter written</h1>
-                            {% endif %}
-                        </div>                            
+                            </div>                                
+                        {% else %}
+                            <h1 class="self-development-child-first-content-title">No letter written</h1>
+                        {% endif %} 
+                        <br>                       
                         <a href="{{ url_for('future') }}"><button class="button-custom"> + Add Letter</button></a>
                         <br>
                         <br>
                     </div>
                     <div class="self-development-second-child">
-                        <h1 class="self-development-title">Be unique</h1>
+                        <h1 class="self-development-title2">Be unique</h1>
                         <div class="self-development-second-child-content">
                             <div class="self-development-child-second-flex">
                                 <h1 style="color: var(--color-black);" class="self-development-child-second-subtitle">Books</h1>                                
@@ -298,7 +294,7 @@
                         </div>                          
                     </div>
                     <div class="self-development-third-child">
-                        <h1 class="self-development-title">Productivity tracker</h1>
+                        <h1 class="self-development-title2">Productivity tracker</h1>
                         <!--div class="self-development-child-third-content">
                             <h1 class="self-development-child-third-content-title">No goals set</h1>
                         </div-->

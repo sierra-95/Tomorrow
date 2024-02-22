@@ -25,14 +25,20 @@
 }
 .self-development-title {
     font-size: 1.5rem;
-    color: var(--color-white);
+    color: var(--color-black-new);
+    text-align: center;
+    font-family: var(--font-family-official);
+}
+.self-development-title2 {
+    font-size: 1.5rem;
+    color: var(--color-white-new);
     text-align: center;
     font-family: var(--font-family-official);
 }
 
 .self-development-subtitle {
     font-size: 0.9rem;
-    color: var(--color-grey);
+    color: var(--color-grey-new);
     text-align: center;
     font-family: var(--font-family-base);
 }
@@ -55,6 +61,8 @@
     color: var(--color-white);
     background-color: var(--color-black);
     overflow-y: auto;
+    background-image: url('../images/Unsplash/fisher.jpg');
+    background-size: cover;
 }
 
 .self-development-child-first-content {
@@ -65,20 +73,14 @@
     padding: 20px;
     border-radius: 5px;
     background-color: var(--color-black-new);
-    background-image: url('../images/Unsplash/pawel.jpg');
-    background-size: cover;
-}
-
-.self-development-child-first-content:hover {
-    transition: opacity 0.2s ease-in;
-    opacity: 90%;
+    opacity:90%;
 }
 
 .self-development-child-first-content-title {
-    color: var(--color-white-new);
+    color: var(--color-white);
     font-size: 0.9rem;
     font-family: var(--font-family-base);
-    text-align: left;
+    text-align: center;
 }
 .self-development-child-first-content-date{
     color: var(--color-white-new);
@@ -239,27 +241,30 @@
 /* Responsive styles for screens up to 460px */
 @media (max-width: 460px) {
     .self-development-container {
-        padding: 5px;
+        padding: 0px;
+        margin:2px;
     }
 
     .self-development-child-container {
         box-sizing: border-box;
         margin-left: 0;
+        padding: 0px;
         flex-direction: column;
         align-items: center;
         width: auto;
     }
-
-    .self-development-third-child {
-        background-image: url(../images/Unsplash/bus.jpg);
-        background-size: cover;
+    
+    .self-development-first-child {
         width:auto;
-        padding: 10px;
+        height: auto;
         font-size: 0.7rem;
+        overflow-y: auto;
+        margin: 0px;
     }
+
     .self-development-second-child {
         width:auto;
-        padding: 10px;
+        padding: 2px;
         font-size: 0.7rem;
         margin:10px;
     }
@@ -272,12 +277,13 @@
         width:auto;
     }
 
-    .self-development-first-child {
+    .self-development-third-child {
+        background-image: url(../images/Unsplash/bus.jpg);
+        background-size: cover;
         width:auto;
-        height: auto;
-        padding: 10px;
+        padding: 2px;
         font-size: 0.7rem;
-        overflow-y: auto;
+        margin:0px;
     }
 
     .self-development-title {
@@ -289,7 +295,7 @@
         margin-top: 15px;
     }
     .chart{
-        width:350px;
+        width:360px;
         height: auto;
     }
 }
