@@ -50,7 +50,6 @@ textarea {
     padding: 8px;
     box-sizing: border-box;
     margin-bottom: 10px;
-    border-radius: 5px;
     overflow-y: auto;
     font-size: 1rem;
     height:200px;
@@ -148,7 +147,7 @@ textarea {
         width: 100%;
     }
     .video{
-        width:400px;
+        width:300px;
         height: 225px;
     }
     .futureme-subtitle{

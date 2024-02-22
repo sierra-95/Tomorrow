@@ -38,7 +38,7 @@
 
 .self-development-subtitle {
     font-size: 0.9rem;
-    color: var(--color-grey-new);
+    color: var(--color-white-new);
     text-align: center;
     font-family: var(--font-family-base);
 }
@@ -59,9 +59,9 @@
     border: 0px solid;
     border-radius: 0px;
     color: var(--color-white);
-    background-color: var(--color-black);
+    background-color: var(--primary-color);
     overflow-y: auto;
-    background-image: url('../images/Unsplash/fisher.jpg');
+    background-image: url('../images/Unsplash/fishwer.jpg');
     background-size: cover;
 }
 
@@ -72,7 +72,7 @@
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
-    background-color: var(--color-black-new);
+    background-color: var(--transparent-black);
     opacity:90%;
 }
 
@@ -261,6 +261,10 @@
         overflow-y: auto;
         margin: 0px;
     }
+    .self-development-child-first-content{
+        width: auto;
+        margin: 0px;
+    }
 
     .self-development-second-child {
         width:auto;
@@ -291,7 +295,7 @@
     }
 
     .self-development-subtitle {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         margin-top: 15px;
     }
     .chart{

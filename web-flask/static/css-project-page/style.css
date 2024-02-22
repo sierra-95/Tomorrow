@@ -1,7 +1,7 @@
 :root{
     /****Universal****/
     --primary-color:rgb(131, 84, 202);
-    --standby-color:rgb(131, 84, 202);
+    --transparent-primary:rgba(131, 84, 202, 0.6);
     --color-black: black;
     --color-black-new:#090909;
     --transparent-black: rgba(0, 0, 0, 0.6);
