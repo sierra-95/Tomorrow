@@ -37,7 +37,7 @@
 }
 
 .self-development-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--color-white-new);
     text-align: center;
     font-family: var(--font-family-base);
@@ -59,7 +59,7 @@
     border: 0px solid;
     border-radius: 0px;
     color: var(--color-white);
-    background-color: var(--primary-color);
+    background-color: var(--color-black);
     overflow-y: auto;
     background-image: url('../images/Unsplash/fishwer.jpg');
     background-size: cover;
@@ -72,7 +72,7 @@
     margin: 20px;
     padding: 20px;
     border-radius: 5px;
-    background-color: var(--transparent-black);
+    background-color: var(--transparent-primary);
     opacity:90%;
 }
 
@@ -295,7 +295,7 @@
     }
 
     .self-development-subtitle {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         margin-top: 15px;
     }
     .chart{
