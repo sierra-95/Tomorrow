@@ -174,7 +174,10 @@
         margin: 0px;
         font-size: 0.7rem;
     }
-    .todays-tasks-child-second {    
+    .todays-tasks-child-second{
+        display: none;
+    }
+    /*.todays-tasks-child-second {    
         display: none;    
         margin: 0px;
         font-size: 0.7rem;
@@ -187,7 +190,7 @@
         margin-left: 0px;
         width: auto;
         justify-content: center;
-    }
+    }*/
 
     .todays-tasks-title {
         font-size: 1.2rem;
