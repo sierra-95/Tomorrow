@@ -101,9 +101,9 @@
                             <h1 class="calender-title">Click calender date to add event</h1>
                         </div>                       
                     </div>
-                    <div class="special">
+                    <!--div class="special">
                         <a href="#calender"><button class="button-special">View calender</button></a>
-                    </div>
+                    </div-->
                     <!--second container-->
                     <div class="todays-tasks-child-second">
                         <h1 style="color: var(--color-black);" class="todays-tasks-subtitle">Discover</h1>
@@ -143,7 +143,8 @@
                     <div class="special">
                         <section id="calender">                        
                             <div class="calendar light">
-                                <h1 class="calender-title">Click calender date to add event</h1>
+                                <!--h1 class="calender-title">Click calender date to add event</h1!-->
+                                <br>
                                 <div class="calendar-header">
                                     <span class="month-picker" id="month-picker">April</span>
                                     <div class="year-picker">
@@ -194,28 +195,17 @@
         <section id="self-development">
             <div class="self-development-container">
                 <h1 class="development-title">Self development</h1>
-                <div class="self-development-child-container">                    
-                    <div class="self-development-first-child">
-                        <h1 class="self-development-title2">Future me</h1>
-                        <p class="self-development-subtitle">Welcome to the FutureMe Corner, a space dedicated to self-reflection and envisioning the journey ahead.
-                        Here, we invite you to pen down your aspirations, dreams, and lessons learned, addressing a letter to your future self.</p>
-                        <br>
-                        <p class="self-development-subtitle">Take a moment to capture your thoughts, set goals, and embrace the wisdom that comes with the passage
-                            of time. Your words are a gift to your future self</p>
-                        {% if future_me_letter %}
-                            <div class="self-development-child-first-content">
-                                <h1 class="self-development-child-first-content-title">Letter name: {{ future_me_letter.letter_name }}</h1>
-                                <p class="self-development-child-first-content-date">Delivery Date: {{ future_me_letter.delivery_date }}</p>
-                                <a href="{{ url_for('delete_futureme', letter_id=future_me_letter.letter_id) }}" onclick="return confirm('FutureMe asks deletion confirmation')"><button class="button-custom">Delete</button></a>
-                            </div>                                
-                        {% else %}
-                            <h1 class="self-development-child-first-content-title">No letter written</h1>
-                        {% endif %} 
-                        <br>                       
-                        <a href="{{ url_for('future') }}"><button class="button-custom"> + Add Letter</button></a>
-                        <br>
-                        <br>
-                    </div>
+                <div class="self-development-child-container"> 
+                    <div class="self-development-third-child">
+                        <h1 class="self-development-title2">Productivity tracker</h1>
+                        <!--div class="self-development-child-third-content">
+                            <h1 class="self-development-child-third-content-title">No goals set</h1>
+                        </div-->
+                        <h1 class="productivity-title">Record time spent on each task</h1>
+                        <canvas class="chart" id="lineChart"></canvas>
+                        <script src="../static/js/productivity.js"></script>
+                        <a href="{{ url_for('productivity_tracker') }}"><button class="button-custom"> Start Analysis</button></a>
+                    </div>                   
                     <div class="self-development-second-child">
                         <h1 class="self-development-title2">Be unique</h1>
                         <div class="self-development-second-child-content">
@@ -290,19 +280,31 @@
                                         <img class= "second" src="../static/images/Speeches/steve jobs.jpg" alt="steve jobs">                            
                                     </div>
                                 <h1 class="self-development-child-second-images-title">The stages of life -Steve Jobs</h1>                   
-                            </div>
+                            </div>                            
                         </div>                          
                     </div>
-                    <div class="self-development-third-child">
-                        <h1 class="self-development-title2">Productivity tracker</h1>
-                        <!--div class="self-development-child-third-content">
-                            <h1 class="self-development-child-third-content-title">No goals set</h1>
-                        </div-->
-                        <h1 class="productivity-title">Record time spent on each task</h1>
-                        <canvas class="chart" id="lineChart"></canvas>
-                        <script src="../static/js/productivity.js"></script>
-                        <a href="{{ url_for('productivity_tracker') }}"><button class="button-custom"> Start Analysis</button></a>
+                    <div class="self-development-first-child">
+                        <h1 class="self-development-title2">Future me</h1>
+                        <p class="self-development-subtitle">Welcome to the FutureMe Corner, a space dedicated to self-reflection and envisioning the journey ahead.
+                        Here, we invite you to pen down your aspirations, dreams, and lessons learned, addressing a letter to your future self.</p>
+                        <br>
+                        <p class="self-development-subtitle">Take a moment to capture your thoughts, set goals, and embrace the wisdom that comes with the passage
+                            of time. Your words are a gift to your future self</p>
+                        {% if future_me_letter %}
+                            <div class="self-development-child-first-content">
+                                <h1 class="self-development-child-first-content-title">Letter name: {{ future_me_letter.letter_name }}</h1>
+                                <p class="self-development-child-first-content-date">Delivery Date: {{ future_me_letter.delivery_date }}</p>
+                                <a href="{{ url_for('delete_futureme', letter_id=future_me_letter.letter_id) }}" onclick="return confirm('FutureMe asks deletion confirmation')"><button class="button-custom">Delete</button></a>
+                            </div>                                
+                        {% else %}
+                            <h1 class="self-development-child-first-content-title">No letter written</h1>
+                        {% endif %} 
+                        <br>                       
+                        <a href="{{ url_for('future') }}"><button class="button-custom"> + Add Letter</button></a>
+                        <br>
+                        <br>
                     </div>
+                    
                 </div>
             </div>
         </section>

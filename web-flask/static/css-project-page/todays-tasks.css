@@ -174,7 +174,8 @@
         margin: 0px;
         font-size: 0.7rem;
     }
-    .todays-tasks-child-second {        
+    .todays-tasks-child-second {    
+        display: none;    
         margin: 0px;
         font-size: 0.7rem;
         width:auto;

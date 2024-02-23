@@ -143,8 +143,6 @@
 }
 /*third child*/
 .self-development-third-child {
-    background-image: url('../images/Unsplash/bus.jpg');
-    background-size: cover;
     width:410px;
     height:410px;
     box-sizing: border-box;
@@ -199,8 +197,6 @@
     }
 
     .self-development-third-child {
-        background-image: url(../images/Unsplash/bus.jpg);
-        background-size: cover;
         width:auto;
         height: auto;
         padding: 20px;
@@ -282,8 +278,6 @@
     }
 
     .self-development-third-child {
-        background-image: url(../images/Unsplash/bus.jpg);
-        background-size: cover;
         width:auto;
         padding: 2px;
         font-size: 0.7rem;
