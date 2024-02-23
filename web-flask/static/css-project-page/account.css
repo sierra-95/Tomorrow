@@ -71,11 +71,16 @@
 
 @media (max-width: 460px) {
     .my-account-container {
-        max-width: 400px;
+        max-width: auto;
+        margin:0px;
+        padding:10px;
     }
 
     .my-account-title {
         font-size: 1.2rem;
+    }
+    .my-account-details {
+        margin-left: 0px;
     }
 
     .my-account-details p {

@@ -41,6 +41,7 @@ body {
     box-sizing: border-box;
     height: max-content;
     width: min-content;
+    border: 1px solid var(--primary-color);
     border-radius: 0px;
     padding: 0px;
     position: relative;
