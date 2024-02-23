@@ -25,3 +25,342 @@
 [2024-02-21 22:03:25 +0300] [9208] [INFO] Booting worker with pid: 9208
 [2024-02-21 22:03:25 +0300] [9209] [INFO] Booting worker with pid: 9209
 [2024-02-21 22:03:26 +0300] [9210] [INFO] Booting worker with pid: 9210
+Database connection successful
+ * Debug mode: off
+Address already in use
+Port 8000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Database connection successful
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://10.247.42.255:8000
+Press CTRL+C to quit
+127.0.0.1 - - [22/Feb/2024 18:20:16] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:20:21] "GET /logout HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:20:24] "GET /logout HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:20:28] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:20:42] "POST /login HTTP/1.0" 302 -
+127.0.0.1 - - [22/Feb/2024 18:20:43] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:20:57] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:21:08] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:21:34] "GET /index_landing HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:21:39] "GET /login_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:21:41] "POST /login HTTP/1.0" 302 -
+127.0.0.1 - - [22/Feb/2024 18:21:41] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:21:51] "GET /my_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:21:56] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:23:06] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:23:27] "GET /all_future_tasks HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:23:38] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:24:33] "GET /future HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:24:44] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:25:37] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:25:40] "GET /login_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:25:43] "POST /login HTTP/1.0" 302 -
+127.0.0.1 - - [22/Feb/2024 18:25:44] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:29:46] "GET /autodiscover/autodiscover.json?@zdi/Powershell HTTP/1.0" 404 -
+127.0.0.1 - - [22/Feb/2024 18:30:46] "GET /dashboard HTTP/1.0" 302 -
+127.0.0.1 - - [22/Feb/2024 18:30:46] "GET /d HTTP/1.0" 404 -
+127.0.0.1 - - [22/Feb/2024 18:30:47] "GET /login HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:30:51] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:31:01] "GET /welcome_create_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:31:03] "GET /create_account_names HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:33:54] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:34:09] "GET /login_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:34:12] "GET /welcome_create_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:34:14] "GET /create_account_names HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:34:39] "POST /create_account_names HTTP/1.0" 302 -
+127.0.0.1 - - [22/Feb/2024 18:34:40] "GET /create_account_password HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:34:55] "POST /create_account_password HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:34:56] "GET /favicon.ico HTTP/1.0" 404 -
+127.0.0.1 - - [22/Feb/2024 18:35:01] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:35:22] "GET / HTTP/1.0" 200 -
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+User ID: 1
+1
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+User ID: 1
+1
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+User ID: 1
+1
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Executing create_account_names route
+Executing create_account_names route
+Executing create_account_names route
+Cursor executed successfully.
+Last inserted ID: 7
+Hash method used: 2b
+Debug: User Info - {'id': 7, 'first_name': 'Antony', 'last_name': 'Kariuki', 'username': None, 'email': 'toshkaris148@gmail.com', 'dob': datetime.date(2002, 8, 28), 'password': '$2b$12$en0jm7xH827HQicqI1RnbuDtpGGsGSc3JNR/SscrB8fTpsKmlsUF6', 'events': []}
+Debug: User Info - {'id': 7, 'first_name': 'Antony', 'last_name': 'Kariuki', 'username': None, 'email': 'toshkaris148@gmail.com', 'dob': datetime.date(2002, 8, 28), 'password': '$2b$12$en0jm7xH827HQicqI1RnbuDtpGGsGSc3JNR/SscrB8fTpsKmlsUF6', 'events': []}
+127.0.0.1 - - [22/Feb/2024 18:35:23] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:35:36] "GET /welcome_create_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:35:39] "GET /login_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:35:46] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:35:59] "POST /save_event HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:36:00] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:36:01] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:36:20] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:38:01] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:38:05] "GET /welcome_create_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:38:08] "GET /create_account_names HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:38:18] "GET /create_account_names HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:38:21] "GET /login_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:38:24] "POST /login HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 18:47:42] "GET /.env HTTP/1.0" 404 -
+127.0.0.1 - - [22/Feb/2024 18:47:43] "POST / HTTP/1.0" 405 -
+127.0.0.1 - - [22/Feb/2024 19:06:50] "GET /dashboard HTTP/1.0" 302 -
+127.0.0.1 - - [22/Feb/2024 19:06:50] "GET /login HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 19:06:55] "POST /login HTTP/1.0" 302 -
+127.0.0.1 - - [22/Feb/2024 19:06:56] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 19:07:16] "GET /expired_tasks HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 19:07:20] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 19:08:59] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 19:09:06] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 19:09:16] "GET /future HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 19:12:27] "GET /logout HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 19:42:46] "GET /login HTTP/1.0" 200 -
+Database connection successful
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://10.247.42.255:8000
+Press CTRL+C to quit
+127.0.0.1 - - [22/Feb/2024 19:59:45] "GET /logout HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 19:59:51] "GET /welcome_create_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 19:59:54] "GET /create_account_names HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:00:17] "POST /login HTTP/1.0" 302 -
+127.0.0.1 - - [22/Feb/2024 20:00:17] "GET /dashboard HTTP/1.0" 200 -
+Database connection successful
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://10.247.42.255:8000
+Press CTRL+C to quit
+127.0.0.1 - - [22/Feb/2024 20:19:57] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:20:07] "GET /login_account HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:20:11] "POST /login HTTP/1.0" 302 -
+127.0.0.1 - - [22/Feb/2024 20:20:11] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:20:49] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:21:40] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:22:04] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:22:10] "GET /logout HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:22:14] "POST /login HTTP/1.0" 302 -
+127.0.0.1 - - [22/Feb/2024 20:22:15] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:26:04] "GET / HTTP/1.0" 200 -
+8.213.27.99 - - [22/Feb/2024 20:29:13] "GET http://100.26.222.122:8000/phpMyAdmin/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:14] "GET http://100.26.222.122:8000/phpmyadmin/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:14] "GET http://100.26.222.122:8000/phpMyAdmin-2.11.4/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:14] "GET http://100.26.222.122:8000/phpMyAdmin-2.11.3/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:15] "GET http://100.26.222.122:8000/phpMyAdmin-2.10.0.2/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:15] "GET http://100.26.222.122:8000/phpMyAdmin-2.10.3/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:16] "GET http://100.26.222.122:8000/phpMyAdmin-2.8.0.2/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:16] "GET http://100.26.222.122:8000/phpMyAdmin-2.10.2/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:17] "GET http://100.26.222.122:8000/phpMyAdmin-2.11.9.2/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:17] "GET http://100.26.222.122:8000/phpMyAdmin-2.11.0/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:17] "GET http://100.26.222.122:8000/phpMyAdmin-2.11.7/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:18] "GET http://100.26.222.122:8000/phpMyAdmin-2.11.1.2/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:18] "GET http://100.26.222.122:8000/pma/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:19] "GET http://100.26.222.122:8000/phpMyAdmin3/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:19] "GET http://100.26.222.122:8000/myadmin/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:20] "GET http://100.26.222.122:8000/MyAdmin/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:21] "GET http://100.26.222.122:8000/PHPMYADMIN/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:22] "GET http://100.26.222.122:8000/mysqladmin/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:22] "GET http://100.26.222.122:8000/SQL/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:22] "GET http://100.26.222.122:8000/phpMyAdmin-2.5.5-pl1/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:23] "GET http://100.26.222.122:8000/phpMyAdmin-2.5.5/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:23] "GET http://100.26.222.122:8000/phpMyAdmin-2.5.4/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:24] "GET http://100.26.222.122:8000/phpMyAdmin-2.5.7-pl1/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:24] "GET http://100.26.222.122:8000/admin/pma/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:25] "GET http://100.26.222.122:8000/phpMyAdmin-2/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:30] "GET http://100.26.222.122:8000/webadmin/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:30] "GET http://100.26.222.122:8000/admin/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:31] "GET http://100.26.222.122:8000/dbadmin/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:31] "GET http://100.26.222.122:8000/mysql/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:32] "GET http://100.26.222.122:8000/phpMyAdmin2/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:32] "GET http://100.26.222.122:8000/phpma/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:33] "GET http://100.26.222.122:8000/sqlweb/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:33] "GET http://100.26.222.122:8000/webdb/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:33] "GET http://100.26.222.122:8000/websql/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:34] "GET http://100.26.222.122:8000/_phpMyAdmin/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:34] "GET http://100.26.222.122:8000/php/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:35] "GET http://100.26.222.122:8000/admin/phpmyadmin/scripts/setup.txt HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:35] "GET http://100.26.222.122:8000/db/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:36] "GET http://100.26.222.122:8000/sqlmanager/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:36] "GET http://100.26.222.122:8000/mysqlmanager/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:36] "GET http://100.26.222.122:8000/phpmanager/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:37] "GET http://100.26.222.122:8000/php-myadmin/scripts/setup.php HTTP/1.0" 404 -
+8.213.27.99 - - [22/Feb/2024 20:29:42] "GET http://100.26.222.122:8000/mysql-admin/scripts/setup.php HTTP/1.0" 404 -
+127.0.0.1 - - [22/Feb/2024 20:32:05] "GET / HTTP/1.0" 200 -
+Database connection successful
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://10.247.42.255:8000
+Press CTRL+C to quit
+127.0.0.1 - - [22/Feb/2024 20:41:53] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:44:05] "GET /.env HTTP/1.0" 404 -
+127.0.0.1 - - [22/Feb/2024 20:44:05] "POST / HTTP/1.0" 405 -
+127.0.0.1 - - [22/Feb/2024 20:44:53] "GET /productivity_tracker HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 20:45:01] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 21:01:37] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 21:03:17] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [22/Feb/2024 21:03:17] "GET /favicon.ico HTTP/1.0" 404 -
+162.243.147.17 - - [22/Feb/2024 23:21:37] code 400, message Bad request syntax ('MGLNDD_100.26.222.122_8000')
+162.243.147.17 - - [22/Feb/2024 23:21:37] "MGLNDD_100.26.222.122_8000" HTTPStatus.BAD_REQUEST -
+205.210.31.137 - - [22/Feb/2024 23:45:47] "GET / HTTP/1.1" 200 -
+198.235.24.60 - - [22/Feb/2024 23:47:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2024 00:31:52] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 00:33:10] "GET / HTTP/1.0" 200 -
+106.75.5.101 - - [23/Feb/2024 00:33:15] "GET / HTTP/1.1" 200 -
+106.75.164.79 - - [23/Feb/2024 00:43:58] "GET / HTTP/1.1" 200 -
+106.75.164.79 - - [23/Feb/2024 00:44:00] "GET /../static/images/Favicon/Dark.png HTTP/1.1" 404 -
+106.75.164.79 - - [23/Feb/2024 00:44:00] "GET /favicon.ico HTTP/1.1" 404 -
+106.75.164.79 - - [23/Feb/2024 00:44:00] "GET /static/js/hamburger-menu.js HTTP/1.1" 200 -
+127.0.0.1 - - [23/Feb/2024 00:49:48] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 00:55:47] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 00:55:48] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 02:21:48] "GET /.env HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 02:21:48] "POST / HTTP/1.0" 405 -
+127.0.0.1 - - [23/Feb/2024 02:42:26] "GET /_profiler/phpinfo HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 02:42:27] "POST / HTTP/1.0" 405 -
+127.0.0.1 - - [23/Feb/2024 02:42:30] "POST /debug/default/view?panel=config HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 02:42:33] "POST /tool/view/phpinfo.view.php HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 02:42:35] "POST /wp-config.php-backup HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 02:42:37] "POST /%C0 HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 02:42:39] "POST /debug/default/view.html HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 02:42:41] "POST /debug/default/view HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 02:42:43] "POST /frontend/web/debug/default/view HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 02:42:44] "POST /web/debug/default/view HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 02:42:45] "POST /sapi/debug/default/view HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 04:42:49] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 05:01:18] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 05:02:10] "GET /welcome_create_account HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 05:02:17] "GET /create_account_names HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 05:02:30] "GET /login_account HTTP/1.0" 200 -
+[2024-02-23 05:02:34,621] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+127.0.0.1 - - [23/Feb/2024 05:02:34] "POST /login HTTP/1.0" 500 -
+127.0.0.1 - - [23/Feb/2024 05:02:44] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 05:05:41] "GET /welcome_create_account HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 05:05:54] "GET /login_account HTTP/1.0" 200 -
+[2024-02-23 05:05:58,734] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+127.0.0.1 - - [23/Feb/2024 05:05:58] "POST /login HTTP/1.0" 500 -
+127.0.0.1 - - [23/Feb/2024 05:05:59] "GET /favicon.ico HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 05:07:47] "GET /dashboard HTTP/1.0" 302 -
+127.0.0.1 - - [23/Feb/2024 05:07:47] "GET /login HTTP/1.0" 200 -
+[2024-02-23 05:07:50,358] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+127.0.0.1 - - [23/Feb/2024 05:07:50] "POST /login HTTP/1.0" 500 -
+127.0.0.1 - - [23/Feb/2024 05:21:24] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 05:21:29] "GET /sitemap.xml HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 05:21:29] "GET /robots.txt HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 05:48:12] "GET /.env HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 05:48:13] "POST / HTTP/1.0" 405 -
+127.0.0.1 - - [23/Feb/2024 06:06:19] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 06:06:27] "GET /welcome_create_account HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 06:06:55] "GET /login_account HTTP/1.0" 200 -
+[2024-02-23 06:07:20,115] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+127.0.0.1 - - [23/Feb/2024 06:07:20] "POST /login HTTP/1.0" 500 -
+127.0.0.1 - - [23/Feb/2024 06:07:20] "GET /favicon.ico HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 06:42:02] "GET / HTTP/1.0" 200 -
+219.152.189.144 - - [23/Feb/2024 06:48:25] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [23/Feb/2024 06:49:50] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 07:20:11] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 07:33:45] "GET /.env HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 07:33:46] "POST / HTTP/1.0" 405 -
+127.0.0.1 - - [23/Feb/2024 07:35:14] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 07:35:17] "GET /robots.txt HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 07:56:05] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 09:18:23] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 09:54:05] "GET /.env HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 09:54:06] "POST / HTTP/1.0" 405 -
+127.0.0.1 - - [23/Feb/2024 09:58:54] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 10:13:25] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 10:13:26] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 10:13:26] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 10:13:27] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 10:13:28] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 10:13:29] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 10:33:21] "POST /user.action HTTP/1.0" 404 -
+45.79.181.94 - - [23/Feb/2024 10:36:20] code 400, message Bad request version ('À\x14À')
+45.79.181.94 - - [23/Feb/2024 10:36:20] "\x16\x03\x01\x00\x85\x01\x00\x00\x81\x03\x03\x7f)t\x9ck°\x03D\x8b\x8a\x86Ñ­¹§°Uå}ÈlÏ\x13\x85\x94;Ú$úÎá¨\x00\x00 À/À0À+À,Ì¨Ì©À\x13À\x09À\x14À" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [23/Feb/2024 10:44:10] "POST /axis2/axis2-admin/login HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 10:44:11] "POST /axis2-admin/login HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 11:23:00] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 12:54:51] "GET / HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 12:57:31] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 12:57:31] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 12:57:32] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 12:57:33] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 12:57:34] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 12:57:35] "POST /_ignition/execute-solution HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 13:22:00] "GET /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 13:31:01] "GET /.env HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 13:31:02] "POST / HTTP/1.0" 405 -
