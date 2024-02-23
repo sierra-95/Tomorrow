@@ -149,7 +149,7 @@ def create_account_password():
             execute_query(query, values)
 
         user_info = get_user_info(user_id)
-        send_welcome_email(user_info['email'], user_info)    
+        #send_welcome_email(user_info['email'], user_info)    
         return render_template('registration_success.html')
 
     return render_template('create_account_password.html')
@@ -288,7 +288,7 @@ def get_user_info(user_id):
     cursor_user.close()
 
     user['events'] = get_user_events(user_id)
-    print(f"Debug: User Info - {user}")
+    #print(f"Debug: User Info - {user}")
     return user
 #Display futureme letters
 # Function to fetch FutureMe letter
