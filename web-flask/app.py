@@ -286,10 +286,23 @@ def get_user_info(user_id):
     cursor_user.execute(query_user, values_user)
     user = cursor_user.fetchone()
     cursor_user.close()
-
-    user['events'] = get_user_events(user_id)
-    #print(f"Debug: User Info - {user}")
+    if user is not None:
+        user['events'] = get_user_events(user_id)
+        # print(f"Debug: User Info - {user}")
+    else:
+        user = {'id': None, 'name': None, 'events': []}
     return user
+
+def get_user_events(user_id):
+    query_events = "SELECT * FROM events WHERE user_id = %s ORDER BY event_date ASC"
+    values_events = (user_id,)
+    cursor_events = db.cursor(dictionary=True)
+    cursor_events.execute(query_events, values_events)
+    events = cursor_events.fetchall()
+    cursor_events.close()
+
+    return events
+
 #Display futureme letters
 # Function to fetch FutureMe letter
 def get_future_me_letter(user_id, letter_id=None):
