@@ -123,16 +123,14 @@ li{
 /* Responsive styles for screens up to 460px */
 @media (max-width: 460px) {
     .Hero-container {
-        padding: 0px;
+        padding: 10px;
         margin:0px;
         margin-bottom: 1px;
-        width: auto;
     }
 
     .child-Hero-container {
         flex-direction: row;
         align-items: center;
-        width: auto;
     }
 
     .Logo {
@@ -143,7 +141,6 @@ li{
     .Hero {
         margin-left: 0;
         text-align: center;
-        width: auto;
     }
 
     .Hero-title {

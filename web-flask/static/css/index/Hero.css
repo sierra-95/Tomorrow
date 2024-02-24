@@ -132,7 +132,8 @@ li{
 /* Responsive styles for screens up to 460px */
 @media (max-width: 460px) {
     .Hero-container {
-        padding: 30px;
+        height: 600px;
+        padding: 20px;
         margin: 0px;
         background-image: url(../../images/Unsplash/blue-bird-potrait.jpg);
         background-color: var(--color-black);
