@@ -133,7 +133,7 @@ li{
 @media (max-width: 460px) {
     .Hero-container {
         height: 600px;
-        padding: 20px;
+        padding: 10px;
         margin: 0px;
         background-image: url(../../images/Unsplash/blue-bird-potrait.jpg);
         background-color: var(--color-black);
