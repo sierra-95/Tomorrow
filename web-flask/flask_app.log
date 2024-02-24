@@ -866,3 +866,96 @@ Traceback (most recent call last):
   File "/home/ubuntu/Tomorrow/web-flask/app.py", line 290, in get_user_info
     user['events'] = get_user_events(user_id)
 TypeError: 'NoneType' object does not support item assignment
+Exception on /my_account [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 564, in my_account
+    return render_template('account.html', user=user)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/ubuntu/Tomorrow/web-flask/templates/account.html", line 69, in top-level template code
+    <a href="{{ url_for('delete_user_route', user_id=user.id) }}"><button class="button-official" type="submit" onclick="return confirm('Are you sure you want to delete your account?')">Delete Account</button></a>
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1074, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'delete_user_route'. Did you forget to specify values ['user_id']?
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 329, in dashboard
+    user = get_user_info(user_id)
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 285, in get_user_info
+    cursor_user = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 329, in dashboard
+    user = get_user_info(user_id)
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 285, in get_user_info
+    cursor_user = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available

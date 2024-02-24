@@ -459,3 +459,213 @@ Executing create_account_names route
 [2024-02-23 14:32:23 +0000] [4422] [ERROR] Worker (pid:4452) exited with code 1
 [2024-02-23 14:32:23 +0000] [4422] [ERROR] Worker (pid:4452) exited with code 1.
 [2024-02-23 14:32:23 +0000] [4550] [INFO] Booting worker with pid: 4550
+Database connection successful
+ * Debug mode: off
+Address already in use
+Port 8000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Database connection successful
+ * Debug mode: off
+Address already in use
+Port 8000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Database connection successful
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://10.247.42.255:8000
+Press CTRL+C to quit
+[2024-02-23 15:46:40 +0000] [4924] [INFO] Starting gunicorn 21.2.0
+[2024-02-23 15:46:40 +0000] [4924] [INFO] Listening at: http://0.0.0.0:8000 (4924)
+[2024-02-23 15:46:40 +0000] [4924] [INFO] Using worker: sync
+[2024-02-23 15:46:40 +0000] [4926] [INFO] Booting worker with pid: 4926
+[2024-02-23 15:46:40 +0000] [4927] [INFO] Booting worker with pid: 4927
+[2024-02-23 15:46:40 +0000] [4928] [INFO] Booting worker with pid: 4928
+[2024-02-23 15:46:40 +0000] [4929] [INFO] Booting worker with pid: 4929
+[2024-02-23 15:49:15 +0000] [4924] [CRITICAL] WORKER TIMEOUT (pid:4928)
+[2024-02-23 15:49:15 +0000] [4928] [INFO] Worker exiting (pid: 4928)
+Database connection successful
+Executing create_account_names route
+Hash method used: 2b
+[2024-02-23 15:49:15 +0000] [4924] [ERROR] Worker (pid:4928) exited with code 1
+[2024-02-23 15:49:15 +0000] [4924] [ERROR] Worker (pid:4928) exited with code 1.
+[2024-02-23 15:49:15 +0000] [4932] [INFO] Booting worker with pid: 4932
+Database connection successful
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://10.247.42.255:8000
+Press CTRL+C to quit
+127.0.0.1 - - [23/Feb/2024 15:52:23] "GET /logout HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:52:24] "GET /static/css/Account/login.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:24] "GET /static/css/style.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:24] "GET /static/css/index/button.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:24] "GET /static/css/index/Hero.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:24] "GET /static/images/Logo/dark-blue-light.png HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:26] "POST /login HTTP/1.0" 302 -
+127.0.0.1 - - [23/Feb/2024 15:52:26] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/css-project-page/Hero.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/css-project-page/todays-tasks.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/css-project-page/style.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/css-project-page/button.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/css-project-page/calender.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/css-project-page/self-development.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/css-project-page/event.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/css-project-page/footer.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/css-project-page/productivity.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/js/hamburger-menu.js HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:27] "GET /static/images/Logo/dark-blue-light.png HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/js/checkbox.js HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Latest-news/person-ocean.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Latest-news/lake-naivasha.jpeg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Latest-news/Benz.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/js/calender.js HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Latest-news/music.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Unsplash/street.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Unsplash/blue-bird.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/js/event.js HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/js/productivity.js HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Books/power.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Books/grit.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Books/Think%20big.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Books/168-hours.png HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Speeches/jackie.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Speeches/Think%20fast.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Speeches/AngelaDuckworth.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:28] "GET /static/images/Speeches/oprah.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:29] "GET /static/images/Logo/Light-purple.png HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:29] "GET /static/images/Speeches/steve%20jobs.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:29] "GET /static/images/Unsplash/flower-red.jpg HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:52:29] "GET /static/images/Unsplash/fishwer.jpg HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 15:53:04] "POST /create_account_password HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:53:05] "GET /static/css-project-page/registration_success.css HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:53:05] "GET /static/js/registration_success.js HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:53:05] "GET /static/images/Logo/dark-blue-light.png HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:53:10] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:53:11] "GET /static/images/Logo/dark-blue-light.png HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:53:11] "GET /static/images/Unsplash/fishwer.jpg HTTP/1.0" 404 -
+[2024-02-23 15:53:37,230] ERROR in app: Exception on /my_account [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 564, in my_account
+    return render_template('account.html', user=user)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/ubuntu/Tomorrow/web-flask/templates/account.html", line 69, in top-level template code
+    <a href="{{ url_for('delete_user_route', user_id=user.id) }}"><button class="button-official" type="submit" onclick="return confirm('Are you sure you want to delete your account?')">Delete Account</button></a>
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1074, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'delete_user_route'. Did you forget to specify values ['user_id']?
+127.0.0.1 - - [23/Feb/2024 15:53:37] "GET /my_account HTTP/1.0" 500 -
+127.0.0.1 - - [23/Feb/2024 15:54:00] "GET /create_account_password HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:54:05] "GET /login_account HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:54:05] "GET /static/css/index/button.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:54:05] "GET /static/css/Account/login.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:54:06] "GET /static/css/style.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:54:06] "GET /static/css/index/Hero.css HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:54:06] "GET /static/images/Logo/dark-blue-light.png HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:54:08] "POST /login HTTP/1.0" 302 -
+127.0.0.1 - - [23/Feb/2024 15:54:08] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:54:08] "GET /static/images/Logo/dark-blue-light.png HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:54:09] "GET /static/images/Unsplash/fishwer.jpg HTTP/1.0" 404 -
+127.0.0.1 - - [23/Feb/2024 15:54:17] "GET /my_account HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:54:17] "GET /static/images/Logo/dark-blue-light.png HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:54:17] "GET /static/css-project-page/account.css HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:54:39] "GET /dashboard HTTP/1.0" 200 -
+127.0.0.1 - - [23/Feb/2024 15:54:40] "GET /static/images/Logo/dark-blue-light.png HTTP/1.0" 304 -
+127.0.0.1 - - [23/Feb/2024 15:54:40] "GET /static/images/Unsplash/fishwer.jpg HTTP/1.0" 404 -
+[2024-02-23 15:57:27 +0000] [5206] [INFO] Starting gunicorn 21.2.0
+[2024-02-23 15:57:27 +0000] [5206] [INFO] Listening at: http://0.0.0.0:8000 (5206)
+[2024-02-23 15:57:27 +0000] [5206] [INFO] Using worker: sync
+[2024-02-23 15:57:27 +0000] [5208] [INFO] Booting worker with pid: 5208
+[2024-02-23 15:57:27 +0000] [5209] [INFO] Booting worker with pid: 5209
+[2024-02-23 15:57:27 +0000] [5210] [INFO] Booting worker with pid: 5210
+[2024-02-23 15:57:27 +0000] [5211] [INFO] Booting worker with pid: 5211
+[2024-02-23 17:04:38 +0000] [5384] [INFO] Starting gunicorn 21.2.0
+[2024-02-23 17:04:38 +0000] [5384] [INFO] Listening at: http://0.0.0.0:8000 (5384)
+[2024-02-23 17:04:38 +0000] [5384] [INFO] Using worker: sync
+[2024-02-23 17:04:38 +0000] [5386] [INFO] Booting worker with pid: 5386
+[2024-02-23 17:04:38 +0000] [5387] [INFO] Booting worker with pid: 5387
+[2024-02-23 17:04:38 +0000] [5388] [INFO] Booting worker with pid: 5388
+[2024-02-23 17:04:38 +0000] [5389] [INFO] Booting worker with pid: 5389
+[2024-02-24 05:51:46,052] ERROR in app: Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 329, in dashboard
+    user = get_user_info(user_id)
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 285, in get_user_info
+    cursor_user = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+[2024-02-24 05:51:53,596] ERROR in app: Exception on /dashboard [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 329, in dashboard
+    user = get_user_info(user_id)
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 285, in get_user_info
+    cursor_user = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+[2024-02-24 05:51:59,393] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+[2024-02-24 06:24:50,783] ERROR in app: Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
