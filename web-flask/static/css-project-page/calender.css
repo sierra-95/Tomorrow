@@ -11,7 +11,7 @@
     --light-second: #c3c2c8;
     --light-hover: #edf0f5;
     --light-text: var(--primary-color);
-    --blue: var(--color-black);
+    --blue: var(--primary-color);
     --white: #fff;
     --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     --font-family: var(--font-family-base);
@@ -40,13 +40,14 @@ body {
 .calendar {
     box-sizing: border-box;
     height: max-content;
-    width: min-content;
+    width: 500px;
     border: 1px solid var(--primary-color);
     border-radius: 0px;
     padding: 0px;
     position: relative;
     overflow: hidden;
     font-family: var(--font-family);
+    background-color: var(--color-black);
 }
 
 .light .calendar {
@@ -303,6 +304,11 @@ body {
     }
     .calender-title{
         font-size: 0.9rem;
+    }
+    .special{
+        display: flex;
+        width:auto;
+        justify-content: center;
     }
   }
 

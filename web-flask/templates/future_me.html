@@ -10,47 +10,123 @@
     <title>Future Me</title>
 </head>
 <body>
+    <div class="container">
+        <a href="{{ url_for('dashboard') }}"><button class="close-btn">X</button></a>    
+        <div class="ideas">
+            <h1 class="futureme-header">Self development</h1>
+            <form method="POST" action="{{ url_for('future_me') }}">
 
-<div class="container">
-    <a href="{{ url_for('dashboard') }}"><button class="close-btn">X</button></a>    
-    <div class="ideas">
-        <h1 class="futureme-header">Self development</h1>
-        <iframe class="video" src="https://www.youtube.com/embed/BffPMIAELFY" frameborder="0" allowfullscreen></iframe>
-        <h2 class="futureme-subtitle">Embark on a Journey of Self-Discovery: Welcome to Your Future Me Letter Adventure!</h2>
-        <h2 class="futureme-subtitle">Some questions to ask youself</h2>
-        <ol>
-            <li><h2>What are my current goals?</h2></li>
-            <li><h2>Where do I see myself in [X] years?</h2></li>
-            <li><h2>What skills or knowledge do I want to acquire?</h2></li>
-            <li><h2>What are my core values and principles?</h2></li>
-            <li><h2>What challenges do I anticipate facing?</h2></li>
-            <li><h2>What accomplishments am I proud of so far?</h2></li>
-            <li><h2>What steps will I take to achieve my goals?</h2></li>                   
-        </ol>
+                <div class="form-group">
+                    <label for="letterContent">Letter Content:</label>
+                    <textarea id="letterContent" placeholder="Dear FutureMe, " name="letterContent" rows="5" required></textarea>
+                </div>
+    
+                <div class="flex">
+                    <div class="form-group">
+                        <label for="letterName">What will you call me?</label>
+                        <input type="text" id="letterName" placeholder="I am..." name="letterName" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="deliveryDate">Delivery Date:</label>
+                        <input type="date" id="deliveryDate" name="deliveryDate" required>
+                    </div>
+                    <button class="button-custom" type="submit">Save Letter</button>
+                </div>      
+            </form>
+            <br>
+            <iframe class="video" src="https://www.youtube.com/embed/BffPMIAELFY" frameborder="0" allowfullscreen></iframe>
+
+            <h2 class="futureme-subtitle">Embark on a Journey of Self-Discovery: Welcome to Your Future Me Letter Adventure!</h2>
+            <h2 class="futureme-subtitle">Some questions to ask youself</h2>
+            <ol>
+                <li><h2>What are my current goals?</h2></li>
+                <li><h2>Where do I see myself in [X] years?</h2></li>
+                <li><h2>What skills or knowledge do I want to acquire?</h2></li>
+                <li><h2>What are my core values and principles?</h2></li>
+                <li><h2>What challenges do I anticipate facing?</h2></li>
+                <li><h2>What accomplishments am I proud of so far?</h2></li>
+                <li><h2>What steps will I take to achieve my goals?</h2></li>                   
+            </ol>
+        </div> 
+        <br>
+        <br>
+        <a href="{{ url_for('dashboard') }}"><button class="button-custom">Go back home</button></a>       
     </div>
-    <h1 class="futureme-title">Dear Future Me</h1>
-    <br>
-    <form method="POST" action="{{ url_for('future_me') }}">
-        <div class="form-group">
-            <label for="letterName">What will you call me😀</label>
-            <input type="text" id="letterName" placeholder="I am..." name="letterName" required>
+    <div class="self-development-second-child">
+        <h1 class="self-development-title2">Be unique</h1>
+        <div class="self-development-second-child-content">
+            <div class="self-development-child-second-flex">
+                <h1 style="color: var(--color-black);" class="self-development-child-second-subtitle">Books</h1>                                
+                        
+                <a href="https://angeladuckworth.com/grit-book/" target="_blank">
+                    <div class="self-development-child-second-images">
+                        <img class= "first" src="../static/images/Books/grit.jpg" alt="Grit">                            
+                    </div>
+                </a>
+                <h1 class="self-development-child-second-images-title">Passion with perseverance</h1>                           
+                        
+                <a href="https://pgcag.files.wordpress.com/2010/01/48lawsofpower.pdf" target="_blank">
+                    <div class="self-development-child-second-images">
+                        <img class= "first" src="../static/images/Books/power.jpg" alt="power">    
+                    </div>
+                </a>
+                <h1 class="self-development-child-second-images-title">48 laws of power</h1>
+                        
+                <a href="https://www.njlifehacks.com/the-magic-of-thinking-big-david-j-schwartz-book-summary/" target="_blank">
+                    <div class="self-development-child-second-images">
+                        <img class= "first" src="../static/images/Books/Think big.jpg" alt="Think big">                            
+                    </div>
+                </a>
+                <h1 class="self-development-child-second-images-title">Magic of thinking big</h1>                            
+                        
+                <a href="https://www.shortform.com/summary/168-hours-summary-laura-vanderkam" target="_blank">
+                    <div class="self-development-child-second-images">
+                        <img class= "first" src="../static/images/Books/168-hours.png" alt="168 Hours">                            
+                    </div>
+                </a> 
+                <h1 class="self-development-child-second-images-title">168 Hours</h1>                       
+                                        
+            </div>
+            <div class="self-development-child-second-flex">
+                <h1 style="color: var(--color-black);" class="self-development-child-second-subtitle">Speeches</h1> 
+                <a href="https://www.youtube.com/watch?v=Y0B32z3WwwA" target="_blank">
+                    <div class="self-development-child-second-images">
+                        <img class= "second" src="../static/images/Speeches/jackie.jpg" alt="Jackie">                            
+                    </div>
+                </a>
+                <h1 class="self-development-child-second-images-title">Become a dragon -Jackie Chan</h1>
+
+                <a href="https://www.youtube.com/watch?v=HAnw168huqA" target="_blank">
+                    <div class="self-development-child-second-images">
+                        <img class= "second" src="../static/images/Speeches/Think fast.jpg" alt="think">                            
+                    </div>
+                </a>
+                <h1 class="self-development-child-second-images-title">Think faster, talk smarter -Matt Abrahams</h1>                            
+                        
+                <a href="https://www.youtube.com/watch?v=H14bBuluwB8" target="_blank">
+                    <div class="self-development-child-second-images">
+                        <img class= "second"src="../static/images/Speeches/AngelaDuckworth.jpg" alt="Angela duckworth">    
+                    </div>
+                </a>
+                <h1 class="self-development-child-second-images-title">Ted talk -Angela Duckworth</h1>                            
+                    
+                <a href="https://www.youtube.com/watch?v=KLe7Rxkrj94" target="_blank">
+                    <div class="self-development-child-second-images">
+                        <img class= "second"src="../static/images/Speeches/oprah.jpg" alt="oprah">                            
+                    </div>
+                </a>
+                <h1 class="self-development-child-second-images-title">Be yourself -Oprah Winfrey</h1>                            
+                        
+                <a href="https://www.youtube.com/watch?v=UF8uR6Z6KLc" target="_blank">
+                    <div class="self-development-child-second-images">
+                        <img class= "second" src="../static/images/Speeches/steve jobs.jpg" alt="steve jobs">                            
+                    </div>
+                    <h1 class="self-development-child-second-images-title">The stages of life -Steve Jobs</h1>                   
+                </div>                            
+            </div>                          
         </div>
-
-        <div class="form-group">
-            <label for="deliveryDate">Delivery Date:</label>
-            <input type="date" id="deliveryDate" name="deliveryDate" required>
-        </div>
-
-        <div class="form-group">
-            <label for="letterContent">Letter Content:</label>
-            <textarea id="letterContent" placeholder="Dear FutureMe, " name="letterContent" rows="5" required></textarea>
-        </div>      
-
-        <button class="button-custom" type="submit">Save Letter</button>
-    </form>
-    <br>
-    <br>
-</div>
+    </div>
 
 </body>
 </html>

@@ -144,6 +144,7 @@ input[type="checkbox"]:hover {
 .hover-menu {
     position: relative;
     display: inline-block;
+    margin-right: 20px;
   }
   
   .hover-button {
@@ -252,11 +253,6 @@ input[type="checkbox"]:hover {
 
     .nav-list li {
         padding: 10px;
-    }
-    .special{
-        display: flex;
-        width:auto;
-        justify-content: center;
     }
     .button-special{
         display:flex;

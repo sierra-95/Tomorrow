@@ -53,6 +53,52 @@
     font-family: var(--font-family-base);
 }
 
+.task-container{
+    width:auto;
+    height: 400px;
+    border:0px solid red;
+    display: flex;
+    justify-content: space-between;  
+    margin-left: 100px;
+    margin-right: 100px;  
+}
+.task-child-first{
+    width:300px;
+    height:300px;
+    height: auto;
+    border: 0px solid blue;
+}
+
+.task-first{
+    width:300px;
+    height: auto;
+}
+.task-child-second{
+    width:300px;
+    height:300px;
+    height: auto;
+    border: 0px solid blue;
+}
+.task-second{
+    width:300px;
+    height: auto;
+}
+.task-child-third{
+    width:300px;
+    height:300px;
+    height: auto;
+    border: 0px solid blue;
+}
+.task-third{
+    width:300px;
+    height: auto;
+}
+.task-subtitle{
+    padding:10px;
+    font-size: 0.9rem;
+    font-family: var(--font-family-base);
+}
+
 /**@media**/
 
 @media (max-width: 768px) {
@@ -78,6 +124,34 @@
         font-size: 0.9rem;
         margin-top: -20px;
     }
+    .task-container{
+        width:auto;
+        height: 400px; 
+        margin-left: auto;
+        margin-right: auto;
+        overflow-y: auto;  
+    }
+    .task-child-first{
+        width:auto;
+    }
+    .task-first{
+        width:200px
+    }    
+    .task-child-second{
+        width:auto;
+    }
+    .task-second{
+        width:200px
+    }
+    .task-child-third{
+        width:auto;
+    }
+    .task-third{
+        width: 200px;
+    }
+    .task-subtitle{
+        font-size: 0.9rem;
+    }
 }
 
 /* Responsive styles for screens up to 460px */
@@ -87,7 +161,6 @@
     }
 
     .services-child-container {
-        flex-direction: row;
         align-items: center;
         width: auto;
         margin-left: 0px;
@@ -96,6 +169,7 @@
     .services-child {
         padding: 10px;
         font-size: 0.7rem;
+        border-radius: 3px;
     }
 
     .services-title {
@@ -105,5 +179,25 @@
     .services-subtitle {
         font-size: 0.8rem;
         margin-top: -15px;
+    }
+    .task-container{
+        width:auto;
+        height: 400px;
+        flex-direction: column; 
+        margin-left: 0px;
+        margin-right: 0px;
+        overflow-y: auto;  
+    }
+    .task-child-first{
+        width:auto;
+    }    
+    .task-child-second{
+        width:auto;
+    }
+    .task-child-third{
+        width:auto;
+    }
+    .task-subtitle{
+        font-size: 0.9rem;
     }
 }

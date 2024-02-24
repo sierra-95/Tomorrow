@@ -4,9 +4,10 @@
 }
 .Hero-container{
     box-sizing: border-box;
-    margin:10px;
+    margin:0px;
     width:auto;
-    padding:100px;
+    height: 600px;
+    padding:20px;
     font-family: var(--font-family-title);
     border: none;
     background-image: var(--background-image);
@@ -17,7 +18,7 @@
     position: relative;
     padding:0px;
     border: none;
-    width:80%;
+    width:70%;
     margin: 0px;
     display: flex;
     justify-content:space-between; /* Put items at the start and end of the container */
@@ -29,20 +30,26 @@
     margin-left:50px;
 }
 .Hero{
-    margin-top: -10px;
+    margin-top: 70px;
     margin-left: 50px;
     text-align: left;
 }
 .Hero-title{
-    font-size: 4rem;
+    font-size: 6rem;
     color: var(--color-white);
     font-family: var(--font-family-official);
     
 }
+.hero-lower{
+    font-size: 1.5rem;
+}
+.hero-hidden{
+    display: none;       
+}
 .Hero-subtitle {
     font-size: 1rem;
     color: var(--color-grey);
-    margin-top: -50px;
+
 }
 
 .Hero button {
@@ -89,13 +96,14 @@ ul{
 li{
     padding:20px;
     font-family: var(--font-family-title);
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 /**@media**/
 
 @media (max-width: 768px) {
     .Hero-container {
+        width: auto;
         padding: 50px;
     }
 
@@ -125,7 +133,10 @@ li{
 @media (max-width: 460px) {
     .Hero-container {
         padding: 30px;
-        margin: 2px;
+        margin: 0px;
+        background-image: url(../../images/Unsplash/blue-bird-potrait.jpg);
+        background-color: var(--color-black);
+        display: block;
     }
 
     .child-Hero-container {
@@ -139,17 +150,24 @@ li{
     }
 
     .Hero {
-        margin-left: 0;
+        margin-left: 10px;
         text-align: center;
+        margin-top: 20px;
     }
-
-    .Hero-title {
-        font-size: 3rem;
+    .Hero-title{
+        font-size: 4rem;
     }
-
+    .hero-lower{
+        display:none;
+    }
+    .hero-hidden{
+        display: block;
+        font-size: 1rem;      
+    }
     .Hero-subtitle {
         font-size: 0.9rem;
-        margin-top: -20px;
+        color:var(--color-white-new);
+        margin-top: 10px; 
     }
 
 }

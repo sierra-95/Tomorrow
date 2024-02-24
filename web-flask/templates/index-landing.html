@@ -20,7 +20,7 @@
             <header>
                 <div class="child-Hero-container">
                     <div class="Logo">
-                        <a href="#"><img src="../static/images/Logo/dark-blue-light.png" alt="Logo" width="120px" height="auto"></a>
+                        <a href="#"><img src="../static/images/Logo/Light-purple.png" alt="Logo" width="120px" height="auto"></a>
                     </div>
                     <nav id="nav-links" class="hide-links">
                         <!-- Hamburger icon for screens with max-width: 460px -->
@@ -39,14 +39,17 @@
                     <script src="../static/js/hamburger-menu.js"></script>
                 </div>
             </header>
+            <br>
             <main>
                 <!--Hero section-->
                 <div class="child-Hero-container">
                     <div class="Hero">
                         <h1 class="Hero-title">Tomorrow
-                           <!--To<span style="color: var(--primary-color)">mo</span>rr<span style="color: var(--primary-color)">o</span>w-->
+                            <!--To<span style="color: var(--color-blue)">mo</span>rr<span style="color: var(--color-blue)">o</span>w-->
+                            <span class="hero-lower">- your personal task manager</span>                           
                         </h1>
-                        <h3 class="Hero-subtitle">Your personal task manager</h3>
+                        <h2 class="hero-hidden">- your personal task manager</h2>
+                        <h3 class="Hero-subtitle">Imagine having your own calender organized to your liking</h3>
                         <a href="{{ url_for('welcome_create_account') }}"><button class="button-official">Get started</button></a>
                     </div>
                 </div>                
@@ -55,22 +58,42 @@
         <!--services-->
         <section id="services">
             <div class="services-container">
-                <h1 class="services-title">Services</h1>
+                <h1 class="services-title">What we do</h1>
                 <h2 class="services-subtitle">We value your time</h2>
                 <div class="services-child-container">
                     <h2 class="services-child">Task priority</h2>
-                    <h2 class="services-child">Time tracking</h2>
+                    <h2 class="services-child">Productivity analysis</h2>
                     <h2 class="services-child">Goal tracking</h2>
+                </div>
+                <div class="task-container">
+                    <div class="task-child-first">
+                        <img class="task-first" src="../static/images/landing/calender.jpg">
+                        <p class="task-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, omnis expedita! Eum, praesentium
+                        cumque accusantium rem, sit quaerat est nisi ratione, deserunt ducimus quidem iste dicta quibusdam atque
+                        maxime cum!</p>
+                    </div>
+                    <div class="task-child-second">
+                        <img class="task-second" src="../static/images/landing/study-people.jpg">
+                        <p class="task-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, omnis expedita! Eum, praesentium
+                        cumque accusantium rem, sit quaerat est nisi ratione, deserunt ducimus quidem iste dicta quibusdam atque
+                        maxime cum!</p>
+                    </div>
+                    <div class="task-child-third">
+                        <img class="task-third" src="../static/images/landing/people-chill.jpg">
+                        <p class="task-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, omnis expedita! Eum, praesentium
+                        cumque accusantium rem, sit quaerat est nisi ratione, deserunt ducimus quidem iste dicta quibusdam atque
+                        maxime cum!</p>
+                    </div>
                 </div>
             </div>
         </section>
         <!--About Tomorrow-->
         <section id="about">
             <div class="about-container">
-                <div class="about-child-container">
-                    <img class="about-image" src="../static/images/Unsplash/person-ocean.jpg" width="400px" height="auto" alt="about">
+                <div class="about-child-container-first">
+                    <img class="about-image" src="../static/images/Unsplash/pic-about-01.jpg" width="auto" height="450px" alt="about">
                 </div>
-                <div class="about-child-container">
+                <div class="about-child-container-second">
                     <h1 class="about-title">About Tomorrow</h1>
                     <h3 class="about-subtitle">Get to know us</h3>
                     <h3 class="about-catch-phrase">Who are we?</h3>
@@ -110,7 +133,16 @@
                 <div class="invite-child-container">
                     <h1 class="invite-title">Join us</h1>
                     <h1 class="invite-subtitle">seize control of your tasks – start achieving more with our Personal Task Manager today!</h1>
-                    <a href="{{ url_for('welcome_create_account') }}"><button class="button-official">Get started</button></a>
+                    <div class="contact-button">
+                        <a href="{{ url_for('welcome_create_account') }}"><button class="button-official">Get started</button></a>
+                    </div>
+                </div>
+                <div class="contact">
+                    <h1 class="contact-title">Contact us</h1>
+                    <h1 class="contact-subtitle">We'd love to hear from you</h1>
+                    <div class="contact-button">
+                        <a href="#"><button class="button-official">Get in touch</button></a>
+                    </div>                
                 </div>
             </div>                
         </section>                        
