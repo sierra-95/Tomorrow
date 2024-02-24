@@ -959,3 +959,18 @@ Traceback (most recent call last):
   File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
     raise OperationalError("MySQL Connection not available")
 mysql.connector.errors.OperationalError: MySQL Connection not available
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
