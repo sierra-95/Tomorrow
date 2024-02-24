@@ -212,6 +212,8 @@
     .self-development-container {
         padding: 0px;
         margin:0px;
+        background-image: url(../images/Unsplash/pc.jpg);
+        background-size: cover;
     }
 
     .self-development-child-container {
@@ -250,6 +252,10 @@
 
     .self-development-title {
         font-size: 1.5rem;
+    }
+    .self-development-title2 {
+        font-size: 1.5rem;
+        color: var(--color-black);
     }
 
     .self-development-subtitle {
