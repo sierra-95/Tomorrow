@@ -190,5 +190,8 @@
         max-width: 90%;
         height: auto; 
     }
+    .visible{
+        background-color: var(--transparent-black-vary);
+    }
 
 }
