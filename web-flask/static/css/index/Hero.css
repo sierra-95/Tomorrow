@@ -136,7 +136,6 @@ li{
         margin: 0px;
         background-image: url(../../images/Unsplash/blue-bird-potrait.jpg);
         background-color: var(--color-black);
-        display: block;
     }
 
     .child-Hero-container {
@@ -150,7 +149,7 @@ li{
     }
 
     .Hero {
-        margin-left: 10px;
+        margin-left: 0px;
         text-align: center;
         margin-top: 20px;
     }
