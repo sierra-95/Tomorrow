@@ -126,11 +126,13 @@ li{
         padding: 0px;
         margin:0px;
         margin-bottom: 1px;
+        width: auto;
     }
 
     .child-Hero-container {
         flex-direction: row;
         align-items: center;
+        width: auto;
     }
 
     .Logo {
@@ -141,6 +143,7 @@ li{
     .Hero {
         margin-left: 0;
         text-align: center;
+        width: auto;
     }
 
     .Hero-title {
