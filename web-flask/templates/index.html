@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="../static/css-project-page/footer.css">
         <link rel="stylesheet" href="../static/css-project-page/self-development.css">
         <link rel="stylesheet" href="../static/css-project-page/event.css">
+        <link rel="stylesheet" href="../static/css-project-page/scale.css">
         <link rel="stylesheet" href="../static/css-project-page/productivity.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
@@ -32,44 +33,41 @@
                         <!-- Normal navigation for screens larger than 460px -->
                         <ul class="nav-list">
                             <li><a href="{{ url_for('index_landing') }}" target="_blank">Tomorrow<span></span></a></li>
-                            <li><a href="{{ url_for('my_account') }}">My Account<span></span></a></li>
+                            <li><a href="{{ url_for('my_account') }}">{{ user['first_name'] }}'s Account<span></span></a></li>
                             <li><a href="{{ url_for('logout') }}">Log out<span></span></a></li>
                         </ul>
                     </nav>
                     <script src="../static/js/hamburger-menu.js"></script>                    
                 </div>
             </header>
-            <main>
-                <!--User section-->
+            <!--main>
                 <div class="child-Hero-container">
                     <div class="Hero">
-                        <!--1 class="Hero-title">Welcome {{ user['first_name'] }} {{ user['last_name'] }}</h1-->
                         <h1 class="Hero-title">Welcome {{ user['first_name'] }} {{ user['last_name'] }}</h1>
                     </div>
                 </div>                
-            </main>            
+            </main-->            
         </div>
         <!--section Todays tasks-->
         <section id="todays-tasks">
             <div class="todays-tasks-container">
-                <h1 class="todays-tasks-title">Task manager</h1>
+                <div class="visible">
+                    <!--h1 class="todays-tasks-title">Task manager</h1-->
+                    <h1 class="todays-tasks-subtitle">Upcoming Tasks</h1>
+                    <div class="button-tasks">
+                        <h1 class="calender-title">The next 2 weeks</h1>                                                          
+                        <div class="hover-menu">
+                            <button class="hover-button">Options</button>
+                            <div class="options">
+                            <a href="{{ url_for('all_future_tasks') }}" style="color: white;">All Tasks</a>
+                            <a href="{{ url_for('expired_tasks') }}" style="color: white;">Expired tasks</a>
+                            </div>
+                        </div>                                                      
+                    </div>
+                </div>
                 <div class="todays-tasks-child-container">
                     <!--first container-->
-                    <div class="todays-tasks-child-first">
-                        <div class="visible">
-                            <h1 class="todays-tasks-subtitle">Upcoming Tasks</h1>
-                            <div class="button-tasks">
-                                <h1 class="calender-title">The next 2 weeks</h1>                                                          
-                                <div class="hover-menu">
-                                    <button class="hover-button">Options</button>
-                                    <div class="options">
-                                    <a href="{{ url_for('all_future_tasks') }}" style="color: white;">All Tasks</a>
-                                    <a href="{{ url_for('expired_tasks') }}" style="color: white;">Expired tasks</a>
-                                    </div>
-                                </div>                                                      
-                            </div>
-                        </div>
-                                       
+                    <div class="todays-tasks-child-first">                                       
                         <!-- Display user events -->
                         {% if events %}
                             {% for event in events %}
@@ -105,10 +103,9 @@
                         <a href="#calender"><button class="button-special">View calender</button></a>
                     </div-->
                     <!--second container-->
-                    <div class="todays-tasks-child-second">
+                    <!--div class="todays-tasks-child-second">
                         <h1 style="color: var(--color-black);" class="todays-tasks-subtitle">Discover</h1>
                         
-                        <!--Relax-->
                         <a href="https://muffingroup.com/blog/relaxing-websites/" target="_blank">
                             <div class="todays-tasks-child-second-content">
                                 <img src="../static/images/Latest-news/person-ocean.jpg" alt="Relax">                            
@@ -116,29 +113,27 @@
                         </a>
                         <h1 class="todays-tasks-child-second-content-title">Relax and live stress free</h1>
 
-                        <!-- Automobiles Section -->
                         <a href="https://www.carsdirect.com/" target="_blank">
                             <div class="todays-tasks-child-second-content ">
                                 <img src="../static/images/Latest-news/Benz.jpg" alt="Benz">    
                             </div>
                         </a>
                         <h1 class="todays-tasks-child-second-content-title">Dream big</h1>
-                    
-                        <!-- Adventure Section -->
+                   
                         <a href="https://travel.usnews.com/rankings/best-african-and-middle-eastern-vacations/" target="_blank">
                             <div class="todays-tasks-child-second-content">
                                 <img src="../static/images/Latest-news/lake-naivasha.jpeg" alt="Lake Naivasha">                            
                             </div> 
                         </a>
                         <h1 class="todays-tasks-child-second-content-title">Adventure</h1>
-                        <!--Music-->
+                    
                         <a href="https://open.spotify.com/?" target="_blank">
                             <div class="todays-tasks-child-second-content">
                                 <img src="../static/images/Latest-news/music.jpg" alt="music">                            
                             </div>
                         </a>
                         <h1 class="todays-tasks-child-second-content-title">Music</h1>                   
-                    </div>
+                    </div-->
                     <!--calender start-->
                     <div class="special">
                         <section id="calender">                        
@@ -194,7 +189,9 @@
         <!--section self development-->
         <section id="self-development">
             <div class="self-development-container">
-                <h1 class="development-title">Self development</h1>
+                <div class="self-visible">
+                    <h1 class="development-title">Self development</h1>
+                </div>
                 <div class="self-development-child-container"> 
                     <div class="self-development-third-child">
                         <h1 class="self-development-title2">Productivity tracker</h1>
@@ -202,106 +199,41 @@
                             <h1 class="self-development-child-third-content-title">No goals set</h1>
                         </div-->
                         <h1 class="productivity-title">Record time spent on each task</h1>
-                        <canvas class="chart" id="lineChart"></canvas>
-                        <script src="../static/js/productivity.js"></script>
+                        <div class="self-development-child-third-content">
+                            <div class="gauge-container">
+                                <div class="gauge">
+                                    <div class="inner-circle">
+                                        <div class="needle"></div>
+                                        <div class="oppose">
+                                            <div class="inner-oppose"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
                         <a href="{{ url_for('productivity_tracker') }}"><button class="button-custom"> Start Analysis</button></a>
                     </div>                   
-                    <div class="self-development-second-child">
-                        <h1 class="self-development-title2">Be unique</h1>
-                        <div class="self-development-second-child-content">
-                            <div class="self-development-child-second-flex">
-                                <h1 style="color: var(--color-black);" class="self-development-child-second-subtitle">Books</h1>                                
-                                <!-- Grit -->
-                                <a href="https://angeladuckworth.com/grit-book/" target="_blank">
-                                    <div class="self-development-child-second-images">
-                                        <img class= "first" src="../static/images/Books/grit.jpg" alt="Grit">                            
-                                    </div>
-                                </a>
-                                <h1 class="self-development-child-second-images-title">Passion with perseverance</h1>
-                            
-                                <!-- Power Section -->
-                                <a href="https://pgcag.files.wordpress.com/2010/01/48lawsofpower.pdf" target="_blank">
-                                    <div class="self-development-child-second-images">
-                                        <img class= "first" src="../static/images/Books/power.jpg" alt="power">    
-                                    </div>
-                                </a>
-                                <h1 class="self-development-child-second-images-title">48 laws of power</h1>
-
-                                <!-- Think big -->
-                                <a href="https://www.njlifehacks.com/the-magic-of-thinking-big-david-j-schwartz-book-summary/" target="_blank">
-                                    <div class="self-development-child-second-images">
-                                        <img class= "first" src="../static/images/Books/Think big.jpg" alt="Think big">                            
-                                    </div>
-                                </a>
-                                <h1 class="self-development-child-second-images-title">Magic of thinking big</h1>
-                            
-                                <!-- Time Section -->
-                                <a href="https://www.shortform.com/summary/168-hours-summary-laura-vanderkam" target="_blank">
-                                    <div class="self-development-child-second-images">
-                                        <img class= "first" src="../static/images/Books/168-hours.png" alt="168 Hours">                            
-                                    </div>
-                                </a> 
-                                <h1 class="self-development-child-second-images-title">168 Hours</h1>                           
-                                                   
-                            </div>
-                            <div class="self-development-child-second-flex">
-                                <h1 style="color: var(--color-black);" class="self-development-child-second-subtitle">Speeches</h1> 
-
-                                <a href="https://www.youtube.com/watch?v=Y0B32z3WwwA" target="_blank">
-                                    <div class="self-development-child-second-images">
-                                        <img class= "second" src="../static/images/Speeches/jackie.jpg" alt="Jackie">                            
-                                    </div>
-                                </a>
-                                <h1 class="self-development-child-second-images-title">Become a dragon -Jackie Chan</h1>
-
-                                <a href="https://www.youtube.com/watch?v=HAnw168huqA" target="_blank">
-                                    <div class="self-development-child-second-images">
-                                        <img class= "second" src="../static/images/Speeches/Think fast.jpg" alt="think">                            
-                                    </div>
-                                </a>
-                                <h1 class="self-development-child-second-images-title">Think faster, talk smarter -Matt Abrahams</h1>                            
-                                
-                                <a href="https://www.youtube.com/watch?v=H14bBuluwB8" target="_blank">
-                                    <div class="self-development-child-second-images">
-                                        <img class= "second"src="../static/images/Speeches/AngelaDuckworth.jpg" alt="Angela duckworth">    
-                                    </div>
-                                </a>
-                                <h1 class="self-development-child-second-images-title">Ted talk -Angela Duckworth</h1>                            
-                               
-                                <a href="https://www.youtube.com/watch?v=KLe7Rxkrj94" target="_blank">
-                                    <div class="self-development-child-second-images">
-                                        <img class= "second"src="../static/images/Speeches/oprah.jpg" alt="oprah">                            
-                                    </div>
-                                </a>
-                                <h1 class="self-development-child-second-images-title">Be yourself -Oprah Winfrey</h1>                            
-                                
-                                <a href="https://www.youtube.com/watch?v=UF8uR6Z6KLc" target="_blank">
-                                    <div class="self-development-child-second-images">
-                                        <img class= "second" src="../static/images/Speeches/steve jobs.jpg" alt="steve jobs">                            
-                                    </div>
-                                <h1 class="self-development-child-second-images-title">The stages of life -Steve Jobs</h1>                   
-                            </div>                            
-                        </div>                          
-                    </div>
                     <div class="self-development-first-child">
                         <h1 class="self-development-title2">Future me</h1>
                         <p class="self-development-subtitle">Welcome to the FutureMe Corner, a space dedicated to self-reflection and envisioning the journey ahead.
                         Here, we invite you to pen down your aspirations, dreams, and lessons learned, addressing a letter to your future self.</p>
                         <br>
-                        <p class="self-development-subtitle">Take a moment to capture your thoughts, set goals, and embrace the wisdom that comes with the passage
-                            of time. Your words are a gift to your future self</p>
+                        <!--p class="self-development-subtitle">Take a moment to capture your thoughts, set goals, and embrace the wisdom that comes with the passage
+                            of time. Your words are a gift to your future self</p-->                     
+                        <a href="{{ url_for('future') }}"><button class="button-custom"> + Add Letter</button></a>
+                        <br>
+                        <h1 class="content-title">Existing letters</h1>
+                        <hr>
                         {% if future_me_letter %}
                             <div class="self-development-child-first-content">
                                 <h1 class="self-development-child-first-content-title">Letter name: {{ future_me_letter.letter_name }}</h1>
                                 <p class="self-development-child-first-content-date">Delivery Date: {{ future_me_letter.delivery_date }}</p>
                                 <a href="{{ url_for('delete_futureme', letter_id=future_me_letter.letter_id) }}" onclick="return confirm('FutureMe asks deletion confirmation')"><button class="button-custom">Delete</button></a>
-                            </div>                                
+                            </div>                           
                         {% else %}
                             <h1 class="self-development-child-first-content-title">No letter written</h1>
-                        {% endif %} 
-                        <br>                       
-                        <a href="{{ url_for('future') }}"><button class="button-custom"> + Add Letter</button></a>
-                        <br>
+                        {% endif %}                        
                         <br>
                     </div>
                     

@@ -4,13 +4,12 @@
 }
 .Hero-container{
     box-sizing: border-box;
-    margin:10px;
+    margin:0px;
+    margin-bottom: 2px;
     width:auto;
-    padding:50px;
+    padding:20px;
     font-family: var(--font-family-title);
     border: none;
-    background-image: var(--background-image);
-    background-size: cover;
     background-color: var(--color-black);
 }
 .child-Hero-container{
@@ -58,7 +57,7 @@ a{
 nav a {
     position: relative;
     transition: 0.5s;
-    color: grey;
+    color: var(--color-white-new);
     text-decoration: none; 
 }
 
@@ -125,7 +124,8 @@ li{
 @media (max-width: 460px) {
     .Hero-container {
         padding: 30px;
-        margin:2px;
+        margin:0px;
+        margin-bottom: 1px;
     }
 
     .child-Hero-container {

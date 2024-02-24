@@ -334,8 +334,8 @@ def dashboard():
             return render_template('index.html', user=user, events=events, future_me_letter=future_me_letter)
         else:
             flash("User not found.", 'error')
-            return redirect(url_for('login'))
-    return redirect(url_for('login'))
+            return redirect(url_for('login_account'))
+    return redirect(url_for('login_account'))
 
 
 #Expired tasks
@@ -351,8 +351,8 @@ def expired_tasks():
             return render_template('expired_tasks.html', user=user, events=events)
         else:
             flash("User not found.", 'error')
-            return redirect(url_for('login'))
-    return redirect(url_for('login'))
+            return redirect(url_for('login_account'))
+    return redirect(url_for('login_account'))
 
 #All future tasks
 @app.route('/all_future_tasks')
@@ -367,8 +367,8 @@ def all_future_tasks():
             return render_template('all_future_tasks.html', user=user, events=events)
         else:
             flash("User not found.", 'error')
-            return redirect(url_for('login'))
-    return redirect(url_for('login'))
+            return redirect(url_for('login_account'))
+    return redirect(url_for('login_account'))
 
 ###################Saving Events section###########
 from flask import session
@@ -564,9 +564,9 @@ def my_account():
             return render_template('account.html', user=user)
         else:
             flash("User not found.", 'error')
-            return redirect(url_for('login'))
+            return redirect(url_for('login_account'))
 
-    return redirect(url_for('login'))
+    return redirect(url_for('login_account'))
 
 def update_user_details(user_id, first_name=None, last_name=None, username=None, email=None, dob=None):
     print(f"Updating user with ID: {user_id}")
@@ -645,7 +645,7 @@ def future_me():
             return redirect(url_for('dashboard'))
 
         return render_template('future_me.html')
-    return redirect(url_for('login'))
+    return redirect(url_for('login_account'))
 
 def delete_futureme_letter(user_id, letter_id):
     try:

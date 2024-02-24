@@ -8,11 +8,14 @@
     /*background-image: var(--background-self-development-image);
     background-size: cover;*/
     box-sizing: border-box;
+    border: 1px solid transparent;
     width: auto;
     height: auto;
-    border: none;
     padding: 0px;
-    margin: 10px;
+    margin: 0px;
+    margin-top: 1px;
+    background-image: url('../images/FutureMe/splash-shoe.jpg');
+    background-size: cover;
 }
 
 .self-development-child-container {
@@ -31,48 +34,58 @@
 }
 .self-development-title2 {
     font-size: 1.5rem;
-    color: var(--color-white-new);
+    color: var(--color-white);
     text-align: center;
     font-family: var(--font-family-official);
 }
 
 .self-development-subtitle {
-    font-size: 0.8rem;
-    color: var(--color-white-new);
+    font-size: 0.9rem;
+    color: var(--color-white);
     text-align: center;
     font-family: var(--font-family-base);
+}
+.content-title{
+    font-size: 1.2rem;
+    color: var(--color-white);
+    text-align: left;
 }
 
 .development-title {
     text-align: center;
     font-size: 1.5rem;
     font-family: var(--font-family-official);
+    color: var(--color-white)
 }
-
+.self-visible{
+    background-color: var(--transparent-black);
+    width:auto;
+    padding:5px;
+}
 /*first child*/
 .self-development-first-child {
-    width:400px;
-    height:410px;
+    width:500px;
+    height:500px;
     box-sizing: border-box;
-    padding: 0px;
+    margin: 5px;
+    padding: 10px;
     text-align: center;
     border: 0px solid;
     border-radius: 0px;
     color: var(--color-white);
-    background-color: var(--color-black);
+    background-color: var(--transparent-black-vary);
     overflow-y: auto;
-    background-image: url('../images/Unsplash/fishwer.jpg');
-    background-size: cover;
+    justify-content: center;
 }
 
 .self-development-child-first-content {
     box-sizing: border-box;
-    width: auto;
+    width: 300px;
     border: none;
     margin: 20px;
-    padding: 20px;
+    padding:5px;
     border-radius: 5px;
-    background-color: var(--transparent-primary);
+    background-color: var(--transparent-black);
     opacity:90%;
 }
 
@@ -80,94 +93,36 @@
     color: var(--color-white);
     font-size: 0.9rem;
     font-family: var(--font-family-base);
-    text-align: center;
+    text-align: left;
 }
 .self-development-child-first-content-date{
     color: var(--color-white-new);
     font-size: 0.8rem;
     font-family: var(--font-family-base);
-    text-align: left;
-}
-/*second child*/
-.self-development-second-child {
-    width:430px;
-    height:410;
-    box-sizing: border-box;
-    padding: 5px;
     text-align: center;
-    border: 0px solid;
-    border-radius: 0px;
-    color: var(--color-white);
-    background-color: var(--color-black);
-}
-.self-development-second-child-content{
-    display:flex;
-    justify-content: space-between;
-}
-.self-development-child-second-flex {
-    width: 210px;
-    height:340px;
-    padding:0px;
-    border: 0px solid;
-    border-radius: 0px;
-    background-color: var(--color-white);
-    overflow-y: auto;
-}
-.self-development-child-second-images{
-    box-sizing: border-box;
-    display: block;
-    padding:10px;
-    width:190px;
-    height:auto;
-}
-.first {
-    max-width: 100%;
-    height: 250px; 
-}
-.second {
-    max-width: 100%;
-    height: auto; 
-}
-.self-development-child-second-images img:hover {
-    border:2px solid var(--color-red);
-}
-.self-development-child-second-subtitle{
-    font-size: 1.2rem;
-    font-family: var(--font-family-official);
-}
-.self-development-child-second-images-title{
-    font-size: 0.7rem;
-    font-family: var(--font-family-base);
-    text-align: center;
-    color: var(--color-black);
 }
 /*third child*/
 .self-development-third-child {
-    width:410px;
-    height:410px;
+    width:500px;
+    height:500px;
     box-sizing: border-box;
-    padding: 0px;
+    margin: 5px;
+    padding: 10px;
     text-align: center;
     border: 0px solid;
     border-radius: 0px;
     color: var(--color-white);
-    background-color: var(--color-black);
+    background-color: var(--transparent-black-new);
     overflow-y: auto;
-}
-
-.chart{
-    width:400px;
-    height: 200px;
 }
 
 .self-development-child-third-content {
     box-sizing: border-box;
     width: auto;
     border: none;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: var(--color-black-new);
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
 }
 
 .self-development-child-third-content:hover {
@@ -201,6 +156,7 @@
         height: auto;
         padding: 20px;
         font-size: 0.8rem;
+        margin-bottom: 1px;
     }
 
     .self-development-first-child {
@@ -208,20 +164,6 @@
         height: auto;
         padding: 20px;
         font-size: 0.8rem;
-    }
-    .self-development-second-child {
-        width:auto;
-        padding: 10px;
-        font-size: 0.7rem;
-        margin:10px;
-    }
-    .self-development-child-second-flex {
-        width:340px;
-        height: 290px;
-        overflow-y: auto;
-    }
-    .self-development-child-second-images{
-        width:auto;
     }
 
     .self-development-title {
@@ -238,7 +180,7 @@
 @media (max-width: 460px) {
     .self-development-container {
         padding: 0px;
-        margin:2px;
+        margin:0px;
     }
 
     .self-development-child-container {
@@ -246,7 +188,6 @@
         margin-left: 0;
         padding: 0px;
         flex-direction: column;
-        align-items: center;
         width: auto;
     }
     
@@ -256,32 +197,23 @@
         font-size: 0.7rem;
         overflow-y: auto;
         margin: 0px;
+        margin-bottom: 1px;
+        background-color: var(--transparent-black);
     }
     .self-development-child-first-content{
         width: auto;
         margin: 0px;
     }
-
-    .self-development-second-child {
-        width:auto;
-        padding: 2px;
-        font-size: 0.7rem;
-        margin:10px;
-    }
-    .self-development-child-second-flex {
-        width:180px;
-        height: 310px;
-        overflow-y: auto;
-    }
-    .self-development-child-second-images{
-        width:auto;
-    }
-
     .self-development-third-child {
         width:auto;
         padding: 2px;
         font-size: 0.7rem;
         margin:0px;
+        margin-bottom: 2px;
+        padding-bottom: 10px;
+    }
+    .self-development-child-third-content{
+        width: auto;
     }
 
     .self-development-title {
@@ -289,7 +221,7 @@
     }
 
     .self-development-subtitle {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         margin-top: 15px;
     }
     .chart{

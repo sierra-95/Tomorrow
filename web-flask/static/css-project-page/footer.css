@@ -4,7 +4,7 @@
     width: auto;
     height: auto;
     padding: 20px;
-    margin: 10px;
+    margin: 0px;
     background-color: var(--color-black);
     margin-top:0px;
     color: var(--color-white);
@@ -38,7 +38,7 @@
 @media (max-width: 768px) {
     .footer-container {
         padding: 10px;
-        margin: 2px;
+        margin: 0px;
     }
 
     .footer-child-container {

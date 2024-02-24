@@ -5,6 +5,8 @@
     --color-black: black;
     --color-black-new:#090909;
     --transparent-black: rgba(0, 0, 0, 0.6);
+    --transparent-black-new: rgba(0, 0, 0, 0.9);
+    --transparent-black-vary: rgba(0, 0, 0, 0.4);
     --color-grey:grey;
     --color-grey-new:rgb(70, 68, 68);
     --color-white:#ffffff;
