@@ -959,6 +959,23 @@ Traceback (most recent call last):
   File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
     raise OperationalError("MySQL Connection not available")
 mysql.connector.errors.OperationalError: MySQL Connection not available
+<<<<<<< HEAD
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/flask/app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/Tomorrow/web-flask/app.py", line 215, in login
+    cursor = db.cursor(dictionary=True)
+  File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
+    raise OperationalError("MySQL Connection not available")
+mysql.connector.errors.OperationalError: MySQL Connection not available
+=======
 Exception on /dashboard [GET]
 Traceback (most recent call last):
   File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
@@ -1048,3 +1065,4 @@ Traceback (most recent call last):
   File "/home/sierra-95/.local/lib/python3.10/site-packages/mysql/connector/connection_cext.py", line 990, in handle_unread_result
     raise InternalError("Unread result found")
 mysql.connector.errors.InternalError: Unread result found
+>>>>>>> d88ac3d320918637ecebb54a377b31d8666b0d7e
