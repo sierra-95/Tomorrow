@@ -80,7 +80,7 @@
 /* Responsive styles for screens up to 460px */
 @media (max-width: 460px) {
     .about-container {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
         margin: 0px;
     }

@@ -43,9 +43,6 @@
 .hero-lower{
     font-size: 1.5rem;
 }
-.hero-upper{
-    display:none;
-}
 .hero-hidden{
     display: none;       
 }
@@ -106,6 +103,7 @@ li{
 
 @media (max-width: 768px) {
     .Hero-container {
+        width: auto;
         padding: 50px;
     }
 
@@ -157,12 +155,7 @@ li{
         margin-top: 20px;
     }
     .Hero-title{
-        display: none;
-    }
-    .hero-upper {
-        display: block;
         font-size: 4rem;
-        font-family: var(--font-family-official);
     }
     .hero-lower{
         display:none;
