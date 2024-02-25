@@ -4,14 +4,15 @@
     width:auto;
     height:auto;
     border:none;
-    padding:20px;
+    padding:0px;
     margin:10px;
     display: flex;
     justify-content: space-between;
 }
 .invite-child-container{
+    background-color: var(--color-black);
     box-sizing: border-box;
-    width:auto;
+    width:620px;
     height:auto;
     border:none;
     padding:20px;
@@ -19,12 +20,12 @@
 }
 .invite-title{
     font-size: 3rem;
-    color: var(--color-black);
+    color: var(--color-white);
     font-family: var(--font-family-official);
 }
 .invite-subtitle {
     font-size: 0.9rem;
-    color: var(--color-black);
+    color: var(--primary-color);
     margin-top: -30px;
     font-family: var(--font-family-base);
 }
@@ -34,20 +35,21 @@
     display: none;
 }
 .contact{
-    width:650px;
+    width:620px;
     height:300px;
     border: 0px solid red;
+    background-color: var(--color-black);
 }
 .contact-title{
-    color: var(--color-black);
+    color: var(--color-white);
     text-align: center;
     font-size: 3rem;
 }
 .contact-subtitle{
-    color: var(--color-black);
+    color: var(--primary-color);
     margin-top:-40px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-family: var(--font-family-base);
 }
 .contact-button{
@@ -58,13 +60,15 @@
 
 @media (max-width: 768px) {
     .invite-container {
-        padding: 10px;
-        flex-direction: row;
+        padding: 0px;
+        flex-direction: column;
+        margin:0px;
     }
 
     .invite-child-container {
-        width: 300px;
-        margin-left: 5%;
+        margin:0px;
+        margin-bottom: 2px;
+        width: auto;
     }
 
     .invite-title {
@@ -76,7 +80,8 @@
         margin-top: -20px;
     }
     .contact{
-        width:300px;
+        width:auto;
+        margin:0px;
     }
     .contact-title{
         font-size: 2.5rem;
@@ -90,13 +95,16 @@
 /* Responsive styles for screens up to 460px */
 @media (max-width: 460px) {
     .invite-container {
-        padding: 5px;
+        padding: 0px;
+        margin: 0px;
         flex-direction: column;
     }
 
     .invite-child-container {
+        margin: 0px;
         width: auto;
         margin-left: 0;
+        margin-bottom: 2px;
     }
 
     .invite-title {

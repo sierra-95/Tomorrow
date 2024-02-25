@@ -1,0 +1,32 @@
+<!---------------------------Reminder for event-->
+<html>                            
+  <body style="
+      font-family: 'Arial', sans-serif;
+          max-width: 600px;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid rgb(79, 79, 211);">
+      <img style="
+      display: block;
+      margin: auto;
+      max-width: 30%;"
+      src="https://web-01.holb20233m8xq2.tech/images/dark-blue-light.png" alt="Tomorrow Logo" >
+      <h1 style="
+          font-size: 1.2rem;
+          text-align: center;
+          color:#777">
+          Tomorrow</h1>
+      <hr>
+      <p style="text-align: justify;">Dear {{ user_info['first_name'] }},</p>
+      <p style="text-align: justify;">Just a reminder that your event '{event_name}' is scheduled for {event_date}.</p>
+      <p style="text-align: justify;">Don't forget to prepare for it!</p>
+      <p style="text-align: justify;">Incase of any enquiries, feel free to 
+        <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
+      </p>
+      <p
+        style="margin-top: 20px;
+        text-align: center;
+        color: #777;">
+        Best regards,<br>The Tomorrow Team</p>
+    </body>
+</html>

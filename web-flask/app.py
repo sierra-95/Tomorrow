@@ -137,32 +137,37 @@ def send_async_email(user_email, user_info):
                 subject='Welcome to Tomorrow - Your Journey Starts Now!',
                 sender='mailtrap@holb20233m8xq2.tech',
                 recipients=[user_email],
-                html=f"""<html>                          
-                          <body>
-                            <p style="text-align: justify;">Dear { user_info['first_name'] },</p>
-                            <p style="text-align: justify;">We hope this email finds you well.<p>
-                                
-                            <h1 style="
-                                font-size: 1.2rem;
-                                color:#777">
-                                Welcome to Tomorrow</h1>
-                              <img style="
+                html=f"""<html>
+                            <body style="
+                                    font-family: 'Arial', sans-serif;
+                                    max-width: 600px;
+                                    margin: auto;
+                                    padding: 20px;
+                                    border:1px solid rgb(131, 84, 202);">
+                                    <p style="text-align: justify;">Dear { user_info['first_name'] },</p>
+                                    <p style="text-align: justify;">We hope this email finds you well.<p>
+                                                                
+                                    <h1 style="
+                                    font-size: 1.2rem;
+                                    color:#777">
+                                    Welcome to Tomorrow</h1>
+                                    <img style="
                                     display: block;
                                     margin: auto;
                                     max-width: 100%;"
                                     src="https://web-01.holb20233m8xq2.tech/images/Light-purple.png" alt="Tomorrow Logo" >
-                              <p style="text-align: justify;">We're thrilled to have you on board, and your journey towards a brighter, more organized future begins right now.</p>
-                              <p style="text-align: justify;">Picture a stress-free tomorrow where your tasks effortlessly align with your goals. That's the Tomorrow experience we're excited to bring to you.</p>
-                              <p style="text-align: justify;">Incase of any enquiries, feel free to 
-                                <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
-                              </p>
-                              <p style="text-align: justify;">Thank you for choosing Tomorrow.</p>
-                              <p style="margin-top: 20px;
+                                    <p style="text-align: justify;">We're thrilled to have you on board, and your journey towards a brighter, more organized future begins right now.</p>
+                                    <p style="text-align: justify;">Picture a stress-free tomorrow where your tasks effortlessly align with your goals. That's the Tomorrow experience we're excited to bring to you.</p>
+                                    <p style="text-align: justify;">Incase of any enquiries, feel free to 
+                                    <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
+                                    </p>
+                                    <p style="text-align: justify;">Thank you for choosing Tomorrow.</p>
+                                    <p style="margin-top: 20px;
                                         text-align: center;
                                         color: #777;">
                                         Best regards,<br>The Tomorrow Team</p>
-                          </body>
-                          </html>""")
+                            </body>                                        
+                        </html>""")
             mail.send(msg)
     except Exception as e:
         print(f"Error sending email: {e}")
@@ -398,19 +403,20 @@ def save_event():
             execute_query(query, values)
             print('Event saved successfully.')
             user_info = get_user_info(user_id)
+
+            ##Event saved success##
             saved_event_notification_thread = Thread(
             target=send_saved_event_notification,
-            args=(user_info['email'], event_name, event_date_for_notification.strftime('%Y-%m-%d'))
+            args=(user_info['email'], event_name, event_date_formatted.strftime('%Y-%m-%d'), user_info)
             )
             saved_event_notification_thread.start()
 
+            ###Reminder###
             event_date_for_notification = event_date_formatted - timedelta(days=1)
-
-            # Start a new thread to send the event notification email asynchronously
-            #notification_thread = Thread(
-                ##args=(user_info['email'], event_name, event_date_for_notification.strftime('%Y-%m-%d'))
-            #)
-            #notification_thread.start()
+            notification_thread = Thread(
+                args=(user_info['email'], event_name, event_date_for_notification.strftime('%Y-%m-%d'), user_info)
+            )
+            notification_thread.start()
             return jsonify({'message': 'Event saved successfully'}), 200
         except Exception as e:
             print('Error saving event:', str(e))
@@ -420,7 +426,7 @@ def save_event():
         print('Invalid data or user not logged in.')
         return jsonify({'error': 'Invalid data or user not logged in'}), 400
 ###email for saved event###
-def send_saved_event_notification(user_email, event_name, event_date):
+def send_saved_event_notification(user_email, event_name, event_date, user_info):
     try:
         with app.app_context():
             msg = Message(
@@ -432,9 +438,27 @@ def send_saved_event_notification(user_email, event_name, event_date):
                                 font-family: 'Arial', sans-serif;
                                     max-width: 600px;
                                     margin: auto;
-                                    padding: 20px;">
-                                <p style="text-align: justify;">Dear User,</p>
+                                    padding: 20px;
+                                    border: 1px solid rgb(79, 79, 211);">
+                                <img style="
+                                display: block;
+                                margin: auto;
+                                max-width: 30%;"
+                                src="https://web-01.holb20233m8xq2.tech/images/dark-blue-light.png" alt="Tomorrow Logo" >
+                                <h1 style="
+                                    font-size: 1.2rem;
+                                    text-align: center;
+                                    color:#777">
+                                    Tomorrow</h1>
+                                <hr>
+                                <p style="text-align: justify;">Dear { user_info['first_name'] },</p>
                                 <p style="text-align: justify;">Your Event: {event_name} due {event_date} has been saved successfully! You will be notified 1 day prior</p>
+                                <p style="text-align: justify;">Incase of any changes or task completed earlier, feel free to edit or tick done.</p>
+                                <img style="
+                                display: block;
+                                margin: auto;
+                                max-width: 80%;"
+                                src="https://web-01.holb20233m8xq2.tech/images/edit-event.png" alt="Tomorrow Logo" >
                                 <p style="text-align: justify;">Incase of any enquiries, feel free to 
                                     <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
                                 </p>
@@ -443,33 +467,49 @@ def send_saved_event_notification(user_email, event_name, event_date):
                                 text-align: center;
                                 color: #777;">Best regards,<br>The Tomorrow Team</p>
                             </body>
-                          </html>""")
+                            </html>""")
             mail.send(msg)
     except Exception as e:
         print(f"Error sending saved event notification email: {e}")
 ##email for event reminder###
-def send_event_notification_async(user_email, event_name, event_date):
+def send_event_notification_async(user_email, event_name, event_date, user_info):
     try:
         with app.app_context():
             msg = Message(
                 subject=f'Event Reminder: {event_name}',
                 sender='mailtrap@holb20233m8xq2.tech',
                 recipients=[user_email],
-                html=f"""<html>
-                            <body>
-                            <p style="text-align: justify;">Dear User,</p>
-                            <p style="text-align: justify;">Just a reminder that your event {event_name} is scheduled for {event_date}.</p>
-                            <p style="text-align: justify;">Don't forget to prepare for it!</p>
-                            <p style="text-align: justify;">Incase of any enquiries, feel free to 
-                                <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
-                            </p>
-                            <p
-                                style="margin-top: 20px;
-                                text-align: center;
-                                color: #777;">
-                                Best regards,<br>The Tomorrow Team</p>
-                            </body>
-                        </html>""")
+                html=f"""<html>                            
+                            <body style="
+                                font-family: 'Arial', sans-serif;
+                                    max-width: 600px;
+                                    margin: auto;
+                                    padding: 20px;
+                                    border: 1px solid rgb(79, 79, 211);">
+                                <img style="
+                                display: block;
+                                margin: auto;
+                                max-width: 30%;"
+                                src="https://web-01.holb20233m8xq2.tech/images/dark-blue-light.png" alt="Tomorrow Logo" >
+                                <h1 style="
+                                    font-size: 1.2rem;
+                                    text-align: center;
+                                    color:#777">
+                                    Tomorrow</h1>
+                                <hr>
+                                <p style="text-align: justify;">Dear { user_info['first_name'] },</p>
+                                <p style="text-align: justify;">Just a reminder that your event '{event_name}' is scheduled for {event_date}.</p>
+                                <p style="text-align: justify;">Don't forget to prepare for it!</p>
+                                <p style="text-align: justify;">Incase of any enquiries, feel free to 
+                                    <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
+                                </p>
+                                <p
+                                    style="margin-top: 20px;
+                                    text-align: center;
+                                    color: #777;">
+                                    Best regards,<br>The Tomorrow Team</p>
+                                </body>
+                            </html>""")
             mail.send(msg)
     except Exception as e:
         print(f"Error sending event notification email: {e}")
@@ -745,9 +785,9 @@ def delete_futureme(letter_id):
 
 
 #####Productivity status
-@app.route('/productivity_tracker')
-def productivity_tracker():
-    return render_template('Feature_unavailable.html')
+@app.route('/productivity_analysis')
+def productivity_analysis():
+    return render_template('productivity.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

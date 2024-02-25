@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Analysis</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .scale {
+            width: 150px;
+            height: 200px; /* Adjusted height for better visibility */
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .scale:hover {
+            transform: scale(1.1);
+        }
+
+        .scale h2 {
+            text-align: center;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .values {
+            text-align: center;
+            font-size: 40px;
+            color: #3498db; /* Adjusted color for better visibility */
+        }
+
+        .accelerometer {
+            position: relative;
+        }
+
+        .accelerometer-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #3498db;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s ease;
+        }
+
+        .accelerometer:hover .accelerometer-dot {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+        @media (max-width: 768px) {
+        .scale {
+            width: 120px;
+            height: 160px;
+            font-size: 14px;
+        }
+
+        .values {
+            font-size: 18px;
+        }
+        }
+
+        @media (max-width: 460px) {
+            body{
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .container{
+                padding:10px;
+                flex-direction: column;
+            }
+            .scale {
+                width: 100%;
+                height: 100px;
+                font-size: 12px;
+            }
+
+            .values {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            body{
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .container{
+                padding:10px;
+                flex-direction: column;
+            }
+            .scale {
+                width: auto;
+                height: 100px;
+                font-size: 10px;
+            }
+
+            .values {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="scale" id="TaskCompletionRate">
+            <h2>Task Completion Rate</h2>
+            <div class="values" id="TaskCompletionRateValues"></div>
+        </div>
+
+        <div class="scale" id="TimeManagement">
+            <h2>Time Management</h2>
+            <div class="values" id="TimeManagementValues"></div>
+        </div>
+
+        <div class="scale" id="TaskResponseTime">
+            <h2>Task Response Time</h2>
+            <div class="values" id="TaskResponseTimeValues"></div>
+        </div>
+
+        <div class="scale accelerometer" id="ProductivitySummary">
+            <h2>Productivity Summary</h2>
+            <div class="values" id="ProductivitySummaryValues"></div>
+            <div class="accelerometer-dot"></div>
+        </div>
+    </div>
+
+    <script>
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function updateScales() {
+            const scales = ['TaskCompletionRate', 'TimeManagement', 'TaskResponseTime', 'ProductivitySummary'];
+
+            scales.forEach(scaleId => {
+                const scaleElement = document.getElementById(scaleId);
+                const valuesElement = document.getElementById(`${scaleId}Values`);
+                const randomValue = getRandomInt(0, 100);
+                valuesElement.innerHTML = `<p>${randomValue}%</p>`;
+            });
+        }
+
+        // Update scales on page load
+        updateScales();
+
+        // Update scales every 3 seconds for demonstration purposes
+        setInterval(updateScales, 10000);
+    </script>
+</body>
+</html>
