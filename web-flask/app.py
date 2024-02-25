@@ -5,7 +5,7 @@ import mysql.connector
 from flask import flash
 from flask import Flask, jsonify
 import logging
-from datetime import datetime
+from datetime import datetime,timedelta
 from flask_bcrypt import Bcrypt
 from threading import Thread
 
@@ -137,48 +137,30 @@ def send_async_email(user_email, user_info):
                 subject='Welcome to Tomorrow - Your Journey Starts Now!',
                 sender='mailtrap@holb20233m8xq2.tech',
                 recipients=[user_email],
-                html="""<html>
-                          <head>
-                              <style>
-                                  body {
-                                      font-family: 'Arial', sans-serif;
-                                      max-width: 600px;
-                                      margin: auto;
-                                      padding: 20px;
-                                  }
-                                  img {
-                                      display: block;
-                                      margin: auto;
-                                      max-width: 100%;
-                                  }
-                                  p {
-                                      text-align: justify;
-                                  }
-                                  .footer {
-                                      margin-top: 20px;
-                                      text-align: center;
-                                      color: #777;
-                                  }
-                                  .title {
-                                      text-align: left;
-                                      font-size: 1.5rem;
-                                      color:#777;
-                                  }
-                              </style>
-                          </head>
+                html=f"""<html>                          
                           <body>
-                            <p>Dear {{ user_info['first_name'] }},,</p>
-                            <p>We hope this email finds you well.<p>
+                            <p style="text-align: justify;">Dear { user_info['first_name'] },</p>
+                            <p style="text-align: justify;">We hope this email finds you well.<p>
                                 
-                            <h1 class="title">Welcome to Tomorrow</h1>
-                              <img src="https://web-01.holb20233m8xq2.tech/images/Light-purple.png" alt="Tomorrow Logo">
-                              <p>We're thrilled to have you on board, and your journey towards a brighter, more organized future begins right now.</p>
-                              <p>Picture a stress-free tomorrow where your tasks effortlessly align with your goals. That's the Tomorrow experience we're excited to bring to you.</p>
-                              <p>Incase of any enquiries, feel free to 
+                            <h1 style="
+                                font-size: 1.2rem;
+                                color:#777">
+                                Welcome to Tomorrow</h1>
+                              <img style="
+                                    display: block;
+                                    margin: auto;
+                                    max-width: 100%;"
+                                    src="https://web-01.holb20233m8xq2.tech/images/Light-purple.png" alt="Tomorrow Logo" >
+                              <p style="text-align: justify;">We're thrilled to have you on board, and your journey towards a brighter, more organized future begins right now.</p>
+                              <p style="text-align: justify;">Picture a stress-free tomorrow where your tasks effortlessly align with your goals. That's the Tomorrow experience we're excited to bring to you.</p>
+                              <p style="text-align: justify;">Incase of any enquiries, feel free to 
                                 <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
                               </p>
-                              <p>Thank you for choosing Tomorrow.</p>
-                              <p class="footer">Best regards,<br>The Tomorrow Team</p>
+                              <p style="text-align: justify;">Thank you for choosing Tomorrow.</p>
+                              <p style="margin-top: 20px;
+                                        text-align: center;
+                                        color: #777;">
+                                        Best regards,<br>The Tomorrow Team</p>
                           </body>
                           </html>""")
             mail.send(msg)
@@ -402,8 +384,6 @@ def save_event():
     event_date = data.get('eventDate')    
     user_id = session.get('user_id')
     if event_name and user_id:        
-        #query = "INSERT INTO events (user_id, event_name, event_date, event_description) VALUES (%s, %s, TRIM(%s), %s)"
-        #values = (user_id, event_name, event_date, event_description)
         event_date_formatted = datetime.strptime(event_date, '%Y-%B-%d').date()
         event_date_trimmed = event_date_formatted.strftime('%Y-%m-%d')
 
@@ -417,6 +397,20 @@ def save_event():
         try:
             execute_query(query, values)
             print('Event saved successfully.')
+            user_info = get_user_info(user_id)
+            saved_event_notification_thread = Thread(
+            target=send_saved_event_notification,
+            args=(user_info['email'], event_name, event_date_for_notification.strftime('%Y-%m-%d'))
+            )
+            saved_event_notification_thread.start()
+
+            event_date_for_notification = event_date_formatted - timedelta(days=1)
+
+            # Start a new thread to send the event notification email asynchronously
+            #notification_thread = Thread(
+                ##args=(user_info['email'], event_name, event_date_for_notification.strftime('%Y-%m-%d'))
+            #)
+            #notification_thread.start()
             return jsonify({'message': 'Event saved successfully'}), 200
         except Exception as e:
             print('Error saving event:', str(e))
@@ -425,7 +419,60 @@ def save_event():
     else:
         print('Invalid data or user not logged in.')
         return jsonify({'error': 'Invalid data or user not logged in'}), 400
-
+###email for saved event###
+def send_saved_event_notification(user_email, event_name, event_date):
+    try:
+        with app.app_context():
+            msg = Message(
+                subject=f'Event Saved: {event_name}',
+                sender='mailtrap@holb20233m8xq2.tech',
+                recipients=[user_email],
+                html=f"""<html>                            
+                            <body style="
+                                font-family: 'Arial', sans-serif;
+                                    max-width: 600px;
+                                    margin: auto;
+                                    padding: 20px;">
+                                <p style="text-align: justify;">Dear User,</p>
+                                <p style="text-align: justify;">Your Event: {event_name} due {event_date} has been saved successfully! You will be notified 1 day prior</p>
+                                <p style="text-align: justify;">Incase of any enquiries, feel free to 
+                                    <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
+                                </p>
+                                <p 
+                                style="margin-top: 20px;
+                                text-align: center;
+                                color: #777;">Best regards,<br>The Tomorrow Team</p>
+                            </body>
+                          </html>""")
+            mail.send(msg)
+    except Exception as e:
+        print(f"Error sending saved event notification email: {e}")
+##email for event reminder###
+def send_event_notification_async(user_email, event_name, event_date):
+    try:
+        with app.app_context():
+            msg = Message(
+                subject=f'Event Reminder: {event_name}',
+                sender='mailtrap@holb20233m8xq2.tech',
+                recipients=[user_email],
+                html=f"""<html>
+                            <body>
+                            <p style="text-align: justify;">Dear User,</p>
+                            <p style="text-align: justify;">Just a reminder that your event {event_name} is scheduled for {event_date}.</p>
+                            <p style="text-align: justify;">Don't forget to prepare for it!</p>
+                            <p style="text-align: justify;">Incase of any enquiries, feel free to 
+                                <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
+                            </p>
+                            <p
+                                style="margin-top: 20px;
+                                text-align: center;
+                                color: #777;">
+                                Best regards,<br>The Tomorrow Team</p>
+                            </body>
+                        </html>""")
+            mail.send(msg)
+    except Exception as e:
+        print(f"Error sending event notification email: {e}")
 ##########edit event############
 #fetch
 def get_event_info(event_id):

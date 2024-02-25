@@ -1113,3 +1113,318 @@ Traceback (most recent call last):
     raise OperationalError("MySQL Connection not available")
 mysql.connector.errors.OperationalError: MySQL Connection not available
 >>>>>>> 936ca92f7553ee3ae682748c181db9133785db2b
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 271, in login
+    user_obj = User(user_id, user['name'], get_user_events(user_id))  # Assuming you have a User class
+KeyError: 'name'
+Exception on /login [POST]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 273, in login
+    user_obj = User()
+TypeError: User.__init__() missing 3 required positional arguments: 'user_id', 'first_name', and 'events'
+Exception on /edit_event/3 [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 530, in edit_event
+    return render_template('edit_event.html', event=event)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/edit_event.html", line 14, in top-level template code
+    <a href="{{ url_for('dashboard') }}"><button class="close-btn">X</button></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'dashboard'. Did you forget to specify values ['user_id']?
+Exception on /edit_event/3 [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 534, in edit_event
+    return render_template('edit_event.html', event=event)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/edit_event.html", line 14, in top-level template code
+    <a href="{{ url_for('dashboard') }}"><button class="close-btn">X</button></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'dashboard'. Did you forget to specify values ['user_id']?
+Exception on /edit_event/3 [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 534, in edit_event
+    return render_template('edit_event.html', event=event)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/edit_event.html", line 14, in top-level template code
+    <a href="{{ url_for('dashboard', user_id=user_id) }}"><button class="close-btn">X</button></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 917, in build
+    rv = self._partial_build(endpoint, values, method, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 796, in _partial_build
+    rv = self._partial_build(
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 809, in _partial_build
+    build_rv = rule.build(values, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/rules.py", line 831, in build
+    return self._build_unknown(**values)
+  File "<werkzeug routing>", line 1, in <builder:'/dashboard/<int:user_id>'>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/converters.py", line 163, in to_url
+    value = str(self.num_convert(value))
+jinja2.exceptions.UndefinedError: 'user_id' is undefined
+Exception on /edit_event/3 [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 534, in edit_event
+    return render_template('edit_event.html', event=event)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/edit_event.html", line 14, in top-level template code
+    <a href="{{ url_for('dashboard', user_id=user_id) }}"><button class="close-btn">X</button></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 917, in build
+    rv = self._partial_build(endpoint, values, method, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 796, in _partial_build
+    rv = self._partial_build(
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 809, in _partial_build
+    build_rv = rule.build(values, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/rules.py", line 831, in build
+    return self._build_unknown(**values)
+  File "<werkzeug routing>", line 1, in <builder:'/dashboard/<int:user_id>'>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/converters.py", line 163, in to_url
+    value = str(self.num_convert(value))
+jinja2.exceptions.UndefinedError: 'user_id' is undefined
+Exception on /edit_event/3 [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 534, in edit_event
+    return render_template('edit_event.html', event=event)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/edit_event.html", line 14, in top-level template code
+    <a href="{{ url_for('dashboard', user_id=user_id) }}"><button class="close-btn">X</button></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 917, in build
+    rv = self._partial_build(endpoint, values, method, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 796, in _partial_build
+    rv = self._partial_build(
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 809, in _partial_build
+    build_rv = rule.build(values, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/rules.py", line 831, in build
+    return self._build_unknown(**values)
+  File "<werkzeug routing>", line 1, in <builder:'/dashboard/<int:user_id>'>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/converters.py", line 163, in to_url
+    value = str(self.num_convert(value))
+jinja2.exceptions.UndefinedError: 'user_id' is undefined
+Exception on /edit_event/3 [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 534, in edit_event
+    return render_template('edit_event.html', event=event)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/edit_event.html", line 14, in top-level template code
+    <a href="{{ url_for('dashboard', user_id=user_id) }}"><button class="close-btn">X</button></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 917, in build
+    rv = self._partial_build(endpoint, values, method, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 796, in _partial_build
+    rv = self._partial_build(
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 809, in _partial_build
+    build_rv = rule.build(values, append_unknown)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/rules.py", line 831, in build
+    return self._build_unknown(**values)
+  File "<werkzeug routing>", line 1, in <builder:'/dashboard/<int:user_id>'>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/converters.py", line 163, in to_url
+    value = str(self.num_convert(value))
+jinja2.exceptions.UndefinedError: 'user_id' is undefined
+Exception on /my_account [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 618, in my_account
+    return render_template('account.html', user=user)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/account.html", line 18, in top-level template code
+    <a href="{{ url_for('dashboard') }}"><img src="../static/images/Logo/dark-blue-light.png" alt="Logo" width="120px" height="auto"></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'dashboard'. Did you forget to specify values ['user_id']?
+Exception on /expired_tasks [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 401, in expired_tasks
+    return render_template('expired_tasks.html', user=user, events=events)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/expired_tasks.html", line 19, in top-level template code
+    <a href="{{ url_for('dashboard') }}"><img src="../static/images/Logo/dark-blue-light.png" alt="Logo" width="120px" height="auto"></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'dashboard'. Did you forget to specify values ['user_id']?
+Exception on /all_future_tasks [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/sierra-95/Tomorrow/web-flask/app.py", line 417, in all_future_tasks
+    return render_template('all_future_tasks.html', user=user, events=events)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/templating.py", line 133, in _render
+    rv = template.render(context)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/sierra-95/Tomorrow/web-flask/templates/all_future_tasks.html", line 20, in top-level template code
+    <a href="{{ url_for('dashboard') }}"><img src="../static/images/Logo/dark-blue-light.png" alt="Logo" width="120px" height="auto"></a>
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1071, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1060, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/werkzeug/routing/map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'dashboard'. Did you forget to specify values ['user_id']?

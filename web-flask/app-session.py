@@ -1,25 +1,34 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash, g, jsonify
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask import Flask, render_template, request, redirect, url_for, session
+from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from flask_mail import Mail, Message
 import mysql.connector
+from flask import flash
+from flask import Flask, jsonify
 import logging
 from datetime import datetime
 from flask_bcrypt import Bcrypt
+from threading import Thread
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'P@ssword@!967'
+#crash logging
+handler = logging.FileHandler('flask_app.log')
+handler.setLevel(logging.INFO) 
+app.logger.addHandler(handler)
 
-# Database Configuration
-app.config['DB_CONFIG'] = {
-    'host': 'localhost',
-    'user': 'Tomorrow',
-    'password': 'P@ssword@!967',
-    'database': 'Tomorrow',
-}
 
-# Password encryption
+#terminal logging
+app.logger.setLevel(logging.DEBUG)
+file_handler = logging.FileHandler('flask_log.txt')
+app.logger.addHandler(file_handler)
+
+#Password encryption
 bcrypt = Bcrypt(app)
+app.secret_key = 'P@ssword@!967'
+##Flask log-in##
+login_manager = LoginManager(app)
 
-# Mail Configuration
+#####send Email############
 app.config['MAIL_SERVER'] = 'live.smtp.mailtrap.io'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = 'api'
@@ -28,48 +37,26 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 mail = Mail(app)
 
-# Crash logging
-handler = logging.FileHandler('flask_app.log')
-handler.setLevel(logging.INFO)
-app.logger.addHandler(handler)
-
-# Terminal logging
-app.logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler('flask_log.txt')
-app.logger.addHandler(file_handler)
-
-
-# Database Connection Functions
-def get_db():
-    if 'db' not in g:
-        g.db = mysql.connector.connect(**app.config['DB_CONFIG'])
-    return g.db
-
-
-def close_db(e=None):
-    db = g.pop('db', None)
-    if db is not None:
-        db.close()
-
-app.before_request(get_db)
-app.teardown_request(close_db)
-
+######Database connection###########
+try:
+    db = mysql.connector.connect(
+        host="localhost",
+        user="Tomorrow",
+        password="P@ssword@!967",
+        database="Tomorrow" 
+    )
+    print("Database connection successful")
+except mysql.connector.Error as err:
+    print(f"Error: {err}")
 
 def execute_query(query, values=None):
-    db = get_db()
     cursor = db.cursor()
-    try:
-        if values:
-            cursor.execute(query, values)
-        else:
-            cursor.execute(query)
-        db.commit()
-    except Exception as e:
-        print(f"Error executing query: {e}")
-        db.rollback()
-    finally:
-        cursor.close()
-
+    if values:
+        cursor.execute(query, values)
+    else:
+        cursor.execute(query)
+    db.commit()
+    cursor.close()
 
 ######Landing page######
 @app.route('/')
@@ -97,7 +84,7 @@ def create_account_names():
         dob = request.form['dob']
         query_check_email = "SELECT id FROM users WHERE email = %s"
         values_check_email = (email,)
-        cursor = g.db.cursor()
+        cursor = db.cursor()
         cursor.execute(query_check_email, values_check_email)
         existing_user = cursor.fetchone()
         cursor.close()
@@ -108,7 +95,7 @@ def create_account_names():
         
         query = "INSERT INTO users (first_name, last_name, email, dob) VALUES (%s, %s, %s, %s)"
         values = (first_name, last_name, email, dob)
-        cursor = g.db.cursor() 
+        cursor = db.cursor() 
         try:
             cursor.execute(query, values)
             print("Cursor executed successfully.")
@@ -145,37 +132,15 @@ def create_account_dob():
         return redirect(url_for('create_account_password'))
     return render_template('create_account_dob.html')
 
-
-@app.route('/create_account_password', methods=['GET', 'POST'])
-def create_account_password():
-    if request.method == 'POST':
-        password = request.form['password']
-        confirm_password = request.form['confirm_password']
-
-        if password != confirm_password:
-            flash("Passwords don't match. Please try again.", 'error')
-            return redirect(url_for('create_account_password'))
-        
-        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-        print(f"Hash method used: {hashed_password.split('$')[1]}")
-
-        user_id = session.get('user_id', None)
-        if user_id:
-            query = "UPDATE users SET password = %s WHERE id = %s"
-            values = (hashed_password, user_id)
-            execute_query(query, values)
-
-        user_info = get_user_info(user_id)
-        #send_welcome_email(user_info['email'], user_info)    
-        return render_template('registration_success.html')
-
-    return render_template('create_account_password.html')
-
-def send_welcome_email(user_email, user_info):
-    msg = Message(subject='Welcome to Tomorrow - Your Journey Starts Now!',
-                  sender='mailtrap@holb20233m8xq2.tech',
-                  recipients=[user_email],
-                  html="""<html>
+#####Account creation email######
+def send_async_email(user_email, user_info):
+    try:
+        with app.app_context():
+            msg = Message(
+                subject='Welcome to Tomorrow - Your Journey Starts Now!',
+                sender='mailtrap@holb20233m8xq2.tech',
+                recipients=[user_email],
+                html="""<html>
                           <head>
                               <style>
                                   body {
@@ -197,30 +162,93 @@ def send_welcome_email(user_email, user_info):
                                       text-align: center;
                                       color: #777;
                                   }
+                                  .title {
+                                      text-align: left;
+                                      font-size: 1.5rem;
+                                      color:#777;
+                                  }
                               </style>
                           </head>
                           <body>
-                              <p>Dear {user_info['first_name']},</p>
-                              <p>We hope this email finds you well. Welcome to Tomorrow!</p>
-                              <img src="http://127.0.0.1:5000/static/images/Logo/Light-cyan.png" alt="Tomorrow Logo">
+                            <p>Dear {{ user_info['first_name'] }},,</p>
+                            <p>We hope this email finds you well.<p>
+                                
+                            <h1 class="title">Welcome to Tomorrow</h1>
+                              <img src="https://web-01.holb20233m8xq2.tech/images/Light-purple.png" alt="Tomorrow Logo">
                               <p>We're thrilled to have you on board, and your journey towards a brighter, more organized future begins right now.</p>
                               <p>Picture a stress-free tomorrow where your tasks effortlessly align with your goals. That's the Tomorrow experience we're excited to bring to you.</p>
+                              <p>Incase of any enquiries, feel free to 
+                                <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
+                              </p>
                               <p>Thank you for choosing Tomorrow.</p>
                               <p class="footer">Best regards,<br>The Tomorrow Team</p>
                           </body>
                           </html>""")
-    mail.send(msg)
+            mail.send(msg)
+    except Exception as e:
+        print(f"Error sending email: {e}")
+
+@app.route('/create_account_password', methods=['GET', 'POST'])
+def create_account_password():
+    if request.method == 'POST':
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        if password != confirm_password:
+            flash("Passwords don't match. Please try again.", 'error')
+            return redirect(url_for('create_account_password'))
+        
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        print(f"Hash method used: {hashed_password.split('$')[1]}")
+
+        user_id = session.get('user_id', None)
+        if user_id:
+            query = "UPDATE users SET password = %s WHERE id = %s"
+            values = (hashed_password, user_id)
+            execute_query(query, values)
+
+        user_info = get_user_info(user_id)
+
+        # Start a new thread to send the email in the background
+        email_thread = Thread(target=send_async_email, args=(user_info['email'], user_info))
+        email_thread.start()
+
+        return render_template('registration_success.html')
+
+    return render_template('create_account_password.html')
+
+########Logins#################
+from flask_login import UserMixin
+
+class User(UserMixin):
+    def __init__(self, user_id, first_name, events):
+        self.id = user_id
+        self.name = first_name
+        self.events = events
+
+    @staticmethod
+    def get(user_id):
+        user_data = get_user_info(user_id)
+        if user_data:
+            return User(user_data['id'], user_data['first_name'], user_data['events'])
+        return None
+@login_manager.user_loader
+def load_user(user_id):
+    user_data = get_user_info(user_id)
+    if user_data:
+        return User(user_data['id'], user_data['first_name'], user_data['events'])
+    return None
 
 @app.route('/login_account')
 def login_account():
     session.clear()
     return render_template('login_account.html')
 
-@app.route('/logout')
-def logout():
-    session.clear()
-    return render_template('login_account.html')
+from flask_login import login_user, current_user
 
+from flask_login import login_user
+
+from flask_login import login_user
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -229,7 +257,7 @@ def login():
         
         query = "SELECT * FROM users WHERE email = %s OR first_name = %s"
         values = (email, email)
-        cursor = g.db.cursor(dictionary=True)
+        cursor = db.cursor(dictionary=True)
         cursor.execute(query, values)
         user = cursor.fetchone()
         cursor.close()
@@ -241,25 +269,29 @@ def login():
 
             print(f"User ID: {user_id}") 
 
-            if password == first_name: #or (stored_password and check_password_hash(stored_password, password)):
+            if password == first_name: 
                 session['user_id'] = user_id
-                print(session['user_id'])
+                user_obj = User(user_id=user_id, first_name=first_name, events=[])  # Adjust accordingly
+                login_user(user_obj)  # Log the user in using Flask-Login
                 flash("Login successful!", 'success')
-                #return render_template('index.html', user=user)
-                return redirect(url_for('dashboard'))
+                return redirect(url_for('dashboard', user_id=user_id))
             else:
                 flash("Invalid username or password. Please try again.", 'error')
                 return redirect(url_for('login_account'))
     return render_template('login_account.html')
 
 
-
+@app.route('/logout')
+def logout():
+    session.clear()
+    logout_user()  
+    return render_template('login_account.html')
 ###########Dashboard section#################
 #no limit display events
 def get_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s ORDER BY event_date ASC"
     values_events = (user_id,)
-    cursor_events = g.db.cursor(dictionary=True)
+    cursor_events = db.cursor(dictionary=True)
     cursor_events.execute(query_events, values_events)
     events = cursor_events.fetchall()
     cursor_events.close()
@@ -269,7 +301,7 @@ def get_user_events(user_id):
 def get_future_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s AND event_date >= CURRENT_DATE() ORDER BY event_date ASC LIMIT 14"
     values_events = (user_id,)
-    cursor_events = g.db.cursor(dictionary=True)
+    cursor_events = db.cursor(dictionary=True)
     cursor_events.execute(query_events, values_events)
     future_events = cursor_events.fetchall()
     cursor_events.close()
@@ -279,7 +311,7 @@ def get_future_user_events(user_id):
 def get_all_future_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s AND event_date >= CURRENT_DATE() ORDER BY event_date ASC"
     values_events = (user_id,)
-    cursor_events = g.db.cursor(dictionary=True)
+    cursor_events = db.cursor(dictionary=True)
     cursor_events.execute(query_events, values_events)
     future_events = cursor_events.fetchall()
     cursor_events.close()
@@ -289,7 +321,7 @@ def get_all_future_user_events(user_id):
 def get_past_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s AND event_date <= CURRENT_DATE() ORDER BY event_date DESC"
     values_events = (user_id,)
-    cursor_events = g.db.cursor(dictionary=True)
+    cursor_events = db.cursor(dictionary=True)
     cursor_events.execute(query_events, values_events)
     future_events = cursor_events.fetchall()
     cursor_events.close()
@@ -299,7 +331,7 @@ def get_past_user_events(user_id):
 def get_user_info(user_id):
     query_user = "SELECT * FROM users WHERE id = %s"
     values_user = (user_id,)
-    cursor_user = g.db.cursor(dictionary=True)
+    cursor_user = db.cursor(dictionary=True)
     cursor_user.execute(query_user, values_user)
     user = cursor_user.fetchone()
     cursor_user.close()
@@ -313,7 +345,7 @@ def get_user_info(user_id):
 def get_user_events(user_id):
     query_events = "SELECT * FROM events WHERE user_id = %s ORDER BY event_date ASC"
     values_events = (user_id,)
-    cursor_events = g.db.cursor(dictionary=True)
+    cursor_events = db.cursor(dictionary=True)
     cursor_events.execute(query_events, values_events)
     events = cursor_events.fetchall()
     cursor_events.close()
@@ -330,7 +362,7 @@ def get_future_me_letter(user_id, letter_id=None):
         query = "SELECT * FROM FutureMeLetters WHERE sender_id = %s"
         values = (user_id,)
 
-    cursor = g.db.cursor(dictionary=True)
+    cursor = db.cursor(dictionary=True)
     cursor.execute(query, values)
     letter = cursor.fetchone()
     cursor.close()
@@ -338,21 +370,22 @@ def get_future_me_letter(user_id, letter_id=None):
     return letter
 
 #######Dashboard###########
-@app.route('/dashboard')
-def dashboard():
-    if 'user_id' in session:
-        user_id = session['user_id']
+from flask_login import current_user, login_required
 
-        user = get_user_info(user_id)
-        events = get_future_user_events(user_id)
-        future_me_letter = get_future_me_letter(user_id)
+@app.route('/dashboard/<int:user_id>')
+@login_required
+def dashboard(user_id):
+    # Rest of your code remains the same
+    user = get_user_info(user_id)
+    events = get_future_user_events(user_id)
+    future_me_letter = get_future_me_letter(user_id)
 
-        if user:
-            return render_template('index.html', user=user, events=events, future_me_letter=future_me_letter)
-        else:
-            flash("User not found.", 'error')
-            return redirect(url_for('login_account'))
-    return redirect(url_for('login_account'))
+    if user:
+        return render_template('index.html', user=user, events=events, future_me_letter=future_me_letter)
+    else:
+        flash("User not found.", 'error')
+        return redirect(url_for('login_account'))
+
 
 
 #Expired tasks
@@ -429,7 +462,7 @@ def get_event_info(event_id):
     query_event = "SELECT * FROM events WHERE event_id = %s"
     values_event = (event_id,)
     
-    cursor_event = g.db.cursor(dictionary=True)
+    cursor_event = db.cursor(dictionary=True)
     cursor_event.execute(query_event, values_event)
     
     event = cursor_event.fetchone()
@@ -464,37 +497,43 @@ def update_event(event_id, event_name=None, event_date=None, event_description=N
     print(f"New event date: {event_date}")
     print(f"New event description: {event_description}")
     values_update_event.append(event_id)
-    cursor_update_event = g.db.cursor()
+    cursor_update_event = db.cursor()
     cursor_update_event.execute(query_update_event, values_update_event)
-    g.db.commit()
+    db.commit()
     cursor_update_event.close()
 
+from flask_login import current_user
+
 @app.route('/edit_event/<int:event_id>', methods=['GET', 'POST'])
+@login_required
 def edit_event(event_id):
     # Retrieve event information based on event_id
     event = get_event_info(event_id)
 
     if not event:
         flash("Event not found.", 'error')
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('dashboard', user_id=current_user.id))
 
     if request.method == 'POST':
         updated_event_name = request.form.get('event_name')
         updated_event_date = request.form.get('event_date')
         updated_event_description = request.form.get('event_description')
 
-        
         print(f"Form submission for editing event with ID: {event_id}")
         print(f"New event name: {updated_event_name}")
         print(f"New event date: {updated_event_date}")
         print(f"New event description: {updated_event_description}")
 
-        update_event(event_id, updated_event_name, updated_event_date, updated_event_description)
-
-        flash("Event updated successfully.", 'success')
-        return redirect(url_for('dashboard'))
+        if event['user_id'] == current_user.id:
+            update_event(event_id, updated_event_name, updated_event_date, updated_event_description)
+            flash("Event updated successfully.", 'success')
+            return redirect(url_for('dashboard', user_id=current_user.id))
+        else:
+            flash("You do not have permission to edit this event.", 'error')
+            return redirect(url_for('dashboard', user_id=current_user.id))
 
     return render_template('edit_event.html', event=event)
+
 ###checkbox
 @app.route('/update_task_state/<int:event_id>', methods=['POST'])
 def update_task_state_route(event_id):
@@ -517,16 +556,16 @@ def update_task_state_in_db(event_id, is_done):
     query_update_task_state = "UPDATE events SET is_done = %s WHERE event_id = %s"
     values_update_task_state = (is_done, event_id)
 
-    cursor_update_task_state = g.db.cursor()
+    cursor_update_task_state = db.cursor()
     cursor_update_task_state.execute(query_update_task_state, values_update_task_state)
-    g.db.commit()
+    db.commit()
     cursor_update_task_state.close()
 
 def event_belongs_to_user(event_id, user_id):
     query_check_event_owner = "SELECT 1 FROM events WHERE event_id = %s AND user_id = %s LIMIT 1"
     values_check_event_owner = (event_id, user_id)
 
-    cursor_check_event_owner = g.db.cursor()
+    cursor_check_event_owner = db.cursor()
     cursor_check_event_owner.execute(query_check_event_owner, values_check_event_owner)
     result = cursor_check_event_owner.fetchone()
     cursor_check_event_owner.close()
@@ -596,18 +635,18 @@ def update_user_details(user_id, first_name=None, last_name=None, username=None,
     query_update_user = "UPDATE users SET first_name = %s, last_name = %s, username = %s, email = %s, dob = %s WHERE id = %s"
     values_update_user = [first_name, last_name, username, email, dob, user_id]
 
-    cursor_update_user = g.db.cursor()
+    cursor_update_user = db.cursor()
     cursor_update_user.execute(query_update_user, values_update_user)
-    g.db.commit()
+    db.commit()
     cursor_update_user.close()
 
 #DANGER ZONE -DELETE ACCOUNT
 def delete_user(user_id):
     query_delete_user = "DELETE FROM users WHERE id = %s"
     values_delete_user = (user_id,)
-    cursor_delete_user = g.db.cursor()
+    cursor_delete_user = db.cursor()
     cursor_delete_user.execute(query_delete_user, values_delete_user)
-    g.db.commit()
+    db.commit()
     cursor_delete_user.close()
 
 @app.route('/delete_user/<int:user_id>')
@@ -631,9 +670,9 @@ def save_future_me_letter(user_id, letter_name, delivery_date, letter_content):
         query = "INSERT INTO FutureMeLetters (sender_id, letter_name, delivery_date, letter_content) VALUES (%s, %s, %s, TRIM(%s))"
         values = (user_id, letter_name, delivery_date, letter_content)
 
-        cursor = g.db.cursor()
+        cursor = db.cursor()
         cursor.execute(query, values)
-        g.db.commit()
+        db.commit()
         cursor.close()
 
         return True 
@@ -659,7 +698,7 @@ def future_me():
             else:
                 flash("Error saving letter. Please try again.", 'error')
 
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('dashboard', user_id=user_id))
 
         return render_template('future_me.html')
     return redirect(url_for('login_account'))
@@ -669,9 +708,9 @@ def delete_futureme_letter(user_id, letter_id):
         query = "DELETE FROM FutureMeLetters WHERE letter_id = %s AND sender_id = %s"
         values = (letter_id, user_id)
 
-        cursor = g.db.cursor()
+        cursor = db.cursor()
         cursor.execute(query, values)
-        g.db.commit()
+        db.commit()
         cursor.close()
 
         return True 
@@ -687,7 +726,7 @@ def delete_futureme(letter_id):
         print(f"Deleting letter id : {letter_id} for user_id: {user_id}")
         if delete_futureme_letter(user_id, letter_id):
             flash("FutureMe letter deleted successfully!", 'success')
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('dashboard', user_id=user_id))
         else:
             return jsonify({'error': 'Error deleting FutureMe letter'}), 500
 
@@ -698,9 +737,6 @@ def delete_futureme(letter_id):
 @app.route('/productivity_tracker')
 def productivity_tracker():
     return render_template('Feature_unavailable.html')
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

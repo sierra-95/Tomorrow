@@ -173,11 +173,11 @@ def dashboard():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
         
-        query = "SELECT * FROM users WHERE username = %s OR first_name = %s"
-        values = (username, username)
+        query = "SELECT * FROM users WHERE email = %s OR first_name = %s"
+        values = (email, email)
         cursor = db.cursor(dictionary=True)
         cursor.execute(query, values)
         user = cursor.fetchone()
@@ -185,21 +185,20 @@ def login():
 
         if user:
             stored_password = user['password']
-            user_id = user['id']  # Extract user ID
+            user_id = user['id'] 
             first_name = user['first_name']
 
-            print(f"User ID: {user_id}")  # Print user ID to the terminal
+            print(f"User ID: {user_id}") 
 
             if password == first_name: #or (stored_password and check_password_hash(stored_password, password)):
                 session['user_id'] = user_id
                 print(session['user_id'])
                 flash("Login successful!", 'success')
-                return render_template('index.html', user=user)
+                #return render_template('index.html', user=user)
+                return redirect(url_for('dashboard'))
             else:
                 flash("Invalid username or password. Please try again.", 'error')
-                return redirect(url_for('login'))
-
-    # Render the login page if it's a GET request
+                return redirect(url_for('login_account'))
     return render_template('login_account.html')
 #working
 # Save event route
