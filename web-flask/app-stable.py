@@ -53,6 +53,71 @@ def login():
 
 #******************************************************************#
 #working
+@app.route('/create_account_password', methods=['GET', 'POST'])
+def create_account_password():
+    if request.method == 'POST':
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        if password != confirm_password:
+            flash("Passwords don't match. Please try again.", 'error')
+            return redirect(url_for('create_account_password'))
+        
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        print(f"Hash method used: {hashed_password.split('$')[1]}")
+
+        user_id = session.get('user_id', None)
+        if user_id:
+            query = "UPDATE users SET password = %s WHERE id = %s"
+            values = (hashed_password, user_id)
+            execute_query(query, values)
+
+        user_info = get_user_info(user_id)
+        send_welcome_email(user_info['email'], user_info)    
+        return render_template('registration_success.html')
+
+    return render_template('create_account_password.html')
+
+def send_welcome_email(user_email, user_info):
+    msg = Message(subject='Welcome to Tomorrow - Your Journey Starts Now!',
+                  sender='mailtrap@holb20233m8xq2.tech',
+                  recipients=[user_email],
+                  html="""<html>
+                          <head>
+                              <style>
+                                  body {
+                                      font-family: 'Arial', sans-serif;
+                                      max-width: 600px;
+                                      margin: auto;
+                                      padding: 20px;
+                                  }
+                                  img {
+                                      display: block;
+                                      margin: auto;
+                                      max-width: 100%;
+                                  }
+                                  p {
+                                      text-align: justify;
+                                  }
+                                  .footer {
+                                      margin-top: 20px;
+                                      text-align: center;
+                                      color: #777;
+                                  }
+                              </style>
+                          </head>
+                          <body>
+                              <p>Dear {user_info['first_name']},</p>
+                              <p>We hope this email finds you well. Welcome to Tomorrow!</p>
+                              <img src="http://127.0.0.1:5000/static/images/Logo/Light-cyan.png" alt="Tomorrow Logo">
+                              <p>We're thrilled to have you on board, and your journey towards a brighter, more organized future begins right now.</p>
+                              <p>Picture a stress-free tomorrow where your tasks effortlessly align with your goals. That's the Tomorrow experience we're excited to bring to you.</p>
+                              <p>Thank you for choosing Tomorrow.</p>
+                              <p class="footer">Best regards,<br>The Tomorrow Team</p>
+                          </body>
+                          </html>""")
+    mail.send(msg)
+#working
 @app.route('/edit_event/<int:event_id>', methods=['GET', 'POST'])
 def edit_event(event_id):
     event = get_event_info(event_id)

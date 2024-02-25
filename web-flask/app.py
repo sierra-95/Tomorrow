@@ -7,6 +7,7 @@ from flask import Flask, jsonify
 import logging
 from datetime import datetime
 from flask_bcrypt import Bcrypt
+from threading import Thread
 
 app = Flask(__name__)
 #crash logging
@@ -128,37 +129,15 @@ def create_account_dob():
         return redirect(url_for('create_account_password'))
     return render_template('create_account_dob.html')
 
-
-@app.route('/create_account_password', methods=['GET', 'POST'])
-def create_account_password():
-    if request.method == 'POST':
-        password = request.form['password']
-        confirm_password = request.form['confirm_password']
-
-        if password != confirm_password:
-            flash("Passwords don't match. Please try again.", 'error')
-            return redirect(url_for('create_account_password'))
-        
-        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
-        print(f"Hash method used: {hashed_password.split('$')[1]}")
-
-        user_id = session.get('user_id', None)
-        if user_id:
-            query = "UPDATE users SET password = %s WHERE id = %s"
-            values = (hashed_password, user_id)
-            execute_query(query, values)
-
-        user_info = get_user_info(user_id)
-        #send_welcome_email(user_info['email'], user_info)    
-        return render_template('registration_success.html')
-
-    return render_template('create_account_password.html')
-
-def send_welcome_email(user_email, user_info):
-    msg = Message(subject='Welcome to Tomorrow - Your Journey Starts Now!',
-                  sender='mailtrap@holb20233m8xq2.tech',
-                  recipients=[user_email],
-                  html="""<html>
+#####Account creation email######
+def send_async_email(user_email, user_info):
+    try:
+        with app.app_context():
+            msg = Message(
+                subject='Welcome to Tomorrow - Your Journey Starts Now!',
+                sender='mailtrap@holb20233m8xq2.tech',
+                recipients=[user_email],
+                html="""<html>
                           <head>
                               <style>
                                   body {
@@ -180,19 +159,60 @@ def send_welcome_email(user_email, user_info):
                                       text-align: center;
                                       color: #777;
                                   }
+                                  .title {
+                                      text-align: left;
+                                      font-size: 1.5rem;
+                                      color:#777;
+                                  }
                               </style>
                           </head>
                           <body>
-                              <p>Dear {user_info['first_name']},</p>
-                              <p>We hope this email finds you well. Welcome to Tomorrow!</p>
-                              <img src="http://127.0.0.1:5000/static/images/Logo/Light-cyan.png" alt="Tomorrow Logo">
+                            <p>Dear {{ user_info['first_name'] }},,</p>
+                            <p>We hope this email finds you well.<p>
+                                
+                            <h1 class="title">Welcome to Tomorrow</h1>
+                              <img src="https://web-01.holb20233m8xq2.tech/images/Light-purple.png" alt="Tomorrow Logo">
                               <p>We're thrilled to have you on board, and your journey towards a brighter, more organized future begins right now.</p>
                               <p>Picture a stress-free tomorrow where your tasks effortlessly align with your goals. That's the Tomorrow experience we're excited to bring to you.</p>
+                              <p>Incase of any enquiries, feel free to 
+                                <a href="mailto:tomorrow.clientdesk@gmail.com">contact us</a>
+                              </p>
                               <p>Thank you for choosing Tomorrow.</p>
                               <p class="footer">Best regards,<br>The Tomorrow Team</p>
                           </body>
                           </html>""")
-    mail.send(msg)
+            mail.send(msg)
+    except Exception as e:
+        print(f"Error sending email: {e}")
+
+@app.route('/create_account_password', methods=['GET', 'POST'])
+def create_account_password():
+    if request.method == 'POST':
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        if password != confirm_password:
+            flash("Passwords don't match. Please try again.", 'error')
+            return redirect(url_for('create_account_password'))
+        
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+        print(f"Hash method used: {hashed_password.split('$')[1]}")
+
+        user_id = session.get('user_id', None)
+        if user_id:
+            query = "UPDATE users SET password = %s WHERE id = %s"
+            values = (hashed_password, user_id)
+            execute_query(query, values)
+
+        user_info = get_user_info(user_id)
+
+        # Start a new thread to send the email in the background
+        email_thread = Thread(target=send_async_email, args=(user_info['email'], user_info))
+        email_thread.start()
+
+        return render_template('registration_success.html')
+
+    return render_template('create_account_password.html')
 
 @app.route('/login_account')
 def login_account():
