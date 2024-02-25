@@ -232,7 +232,7 @@ def login():
                 return redirect(url_for('dashboard'))
             else:
                 flash("Invalid username or password. Please try again.", 'error')
-                return redirect(url_for('login'))
+                return redirect(url_for('login_account'))
     return render_template('login_account.html')
 
 

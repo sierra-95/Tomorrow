@@ -1165,3 +1165,25 @@ Traceback (most recent call last):
   File "/home/ubuntu/.local/lib/python3.8/site-packages/mysql/connector/connection.py", line 1235, in cursor
     raise OperationalError("MySQL Connection not available")
 mysql.connector.errors.OperationalError: MySQL Connection not available
+Exception on /static/images/Unsplash/blue-bird.jpg [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 889, in finalize_request
+    response = self.make_response(rv)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1197, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The return type must be a string, dict, list, tuple with headers or status, Response instance, or WSGI callable, but it was a CMySQLConnection.
+Exception on /index_landing [GET]
+Traceback (most recent call last):
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 870, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 889, in finalize_request
+    response = self.make_response(rv)
+  File "/home/sierra-95/.local/lib/python3.10/site-packages/flask/app.py", line 1197, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The return type must be a string, dict, list, tuple with headers or status, Response instance, or WSGI callable, but it was a CMySQLConnection.
