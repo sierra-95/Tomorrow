@@ -1,6 +1,6 @@
 @import '../style.css';
 :root{
-    --background-image:url('../../images/Unsplash/blue-bird.jpg') ;
+    --background-image:url('../../images/Unsplash/white-house.jpg') ;
 }
 .Hero-container{
     box-sizing: border-box;
@@ -36,19 +36,20 @@
 }
 .Hero-title{
     font-size: 6rem;
-    color: var(--color-white);
+    color: var(--color-black-new);
     font-family: var(--font-family-official);
     
 }
 .hero-lower{
     font-size: 1.5rem;
+    color: var(--color-jungle)
 }
 .hero-hidden{
     display: none;       
 }
 .Hero-subtitle {
     font-size: 1rem;
-    color: var(--color-grey);
+    color: var(--color-white);
 
 }
 
@@ -65,7 +66,7 @@ a{
 nav a {
     position: relative;
     transition: 0.5s;
-    color: grey;
+    color: var(--color-jungle);
     text-decoration: none; 
 }
 
@@ -135,8 +136,6 @@ li{
         height: 600px;
         padding: 10px;
         margin: 0px;
-        background-image: url(../../images/Unsplash/blue-bird-potrait.jpg);
-        background-color: var(--color-black);
     }
 
     .child-Hero-container {
@@ -162,7 +161,8 @@ li{
     }
     .hero-hidden{
         display: block;
-        font-size: 1rem;      
+        font-size: 1rem; 
+        color: var(--color-jungle);     
     }
     .Hero-subtitle {
         font-size: 0.9rem;

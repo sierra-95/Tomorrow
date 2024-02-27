@@ -170,18 +170,21 @@
 
     .latest-child-first {
         width: auto;
+        height: 100px;
         padding:0px;
         font-size: 0.7rem;
         margin-bottom: 5px;
     }
     .latest-child-second {
         width: auto;
+        height: 100px;
         padding:0px;
         font-size: 0.7rem;
         margin-bottom: 5px;
     }
     .latest-child-third {
         width: auto;
+        height: 100px;
         padding:0px;
         font-size: 0.7rem;
     }

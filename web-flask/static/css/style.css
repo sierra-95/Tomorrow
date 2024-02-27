@@ -2,7 +2,9 @@
     /****Universal****/
     --primary-color:rgb(131, 84, 202);
     --standby-color:rgb(131, 84, 202);
-    --color-black: black;
+    --color-black: rgb(0, 0, 0);
+    --color-black-new:#373535;
+    --color-jungle:#0c2416;
     --transparent-black: rgba(0, 0, 0, 0.6);
     --transparent-black-new: rgba(0, 0, 0, 0.9);
     --transparent-black-vary: rgba(0, 0, 0, 0.4);

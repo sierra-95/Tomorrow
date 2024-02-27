@@ -1,11 +1,11 @@
 @import '../style.css';
 :root{
     --button-official-padding: 20px;
-    --button-official-border: solid 2px var(--color-white);
+    --button-official-border: solid 2px var(--color-jungle);
     --button-official-border-radius:4px;
-    --button-official-color: var(--color-white);
-    --button-official-background-color: var(--color-white);
-    --button-official-hover-background: var(--primary-color);
+    --button-official-color: var(--color-black);
+    --button-official-background-color: var(--color-jungle);
+    --button-official-hover-background: var(--color-jungle);
     --button-official-hover-color: var(--color-white);
     --button-custom-padding: 10px;
     --button-custom-border: none;

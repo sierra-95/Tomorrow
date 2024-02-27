@@ -62,6 +62,9 @@ def index():
 @app.route('/index_landing')
 def index_landing():
     return render_template('index-landing.html')
+@app.route('/services')
+def services():
+    return render_template('works.html')
 
 
 

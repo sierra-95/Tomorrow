@@ -61,9 +61,9 @@
                 <h1 class="services-title">What we do</h1>
                 <h2 class="services-subtitle">We value your time</h2>
                 <div class="services-child-container">
-                    <h2 class="services-child">Task priority</h2>
-                    <h2 class="services-child">Productivity analysis</h2>
-                    <h2 class="services-child">Goal tracking</h2>
+                    <a href="{{ url_for('services') }}"><h2 class="services-child">Task priority</h2></a>
+                    <a href="{{ url_for('services') }}"><h2 class="services-child">Productivity analysis</h2></a>
+                   <a href="{{ url_for('services') }}"> <h2 class="services-child">Goal tracking</h2></a>
                 </div>
                 <div class="task-container">
                     <div class="task-child-first">
@@ -138,7 +138,7 @@
             <div class="invite-container">
                 <div class="invite-child-container">
                     <h1 class="invite-title">Join us</h1>
-                    <h1 class="invite-subtitle">seize control of your tasks – start achieving more with our Personal Task Manager today!</h1>
+                    <h1 class="invite-subtitle">Start achieving more with our Personal Task Manager today!</h1>
                     <div class="contact-button">
                         <a href="{{ url_for('welcome_create_account') }}"><button class="button-official">Get started</button></a>
                     </div>
