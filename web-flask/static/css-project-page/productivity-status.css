@@ -1,0 +1,155 @@
+@import 'style.css';
+.first-section {
+    box-sizing: border-box;
+    width: auto;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.second-section{
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section {
+    box-sizing: border-box;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-title{
+    font-size: 1rem;
+    color:var(--color-black-new)
+}
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.stopwatch-section {
+    border: 0px solid red;
+    width: 200px;
+}
+.stopwatch-title{
+    font-size: 1rem;
+    font-family: var(--font-family-base);
+}
+.stopwatch {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3498db;
+}
+.stopwatch-buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stopwatch-button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.stopwatch-button:hover {
+    background-color: #2980b9;
+}
+
+.side-panel {
+    box-sizing: border-box;
+    width: 500px;
+    height: 300px;
+    background-color: #f5f5f5;
+    border-left: 1px solid #ddd;
+    overflow-y: auto;
+    padding: 10px;
+}
+.side-panel-child-first-content{
+    width:300px;
+    border:none;
+    padding:20px;
+    border-radius: 5px;
+    background-color: var(--color-black-new);
+    opacity: 90%;
+}
+.side-panel-child-first-content:hover{
+    transition: opacity 0.2s ease-in;
+    opacity: 90%;
+}
+.side-panel-child-first-content-title{
+    color: var(--color-white-new);
+    font-size: 0.9rem;
+    font-family: var(--font-family-base);
+}
+.side-panel-child-first-content-description{
+    color: var(--color-white);
+    font-size: 0.8rem;
+    font-family: var(--font-family-base);
+}
+.side-panel-child-first-content-date{
+    color: var(--color-white);
+    font-size: 0.8rem;
+    font-family: var(--font-family-official);
+}
+
+.side-panel-title {
+    font-size: 1rem;
+    color: var(--color-white);
+    text-align: center;
+    font-family: var(--font-family-official);
+}
+
+.side-panel-subtitle {
+    font-size: 1rem;
+    color: #3498db;
+    text-align: center;
+    font-family: var(--font-family-base);
+}
+.Productivity-button{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 768px) {}
+@media (max-width: 460px) {
+    .first-section{
+        width: auto;
+    }
+    .second-section{
+        width: auto;
+        flex-direction: column;
+    }
+    .stopwatch-section {
+        width: auto;
+    }
+    .stopwatch-button{
+        margin:2px;
+    }
+    .side-panel-child-first-content{
+        width:250px;
+    }
+    .side-panel-subtitle{
+        text-align: left;
+    }
+}

@@ -16,7 +16,7 @@
     --button-custom-hover-opacity: 70%;
     /*##############*/
     --button-display: inline-block;
-    --button-padding: 0.5rem 1rem;
+    --button-padding: 1rem 1.5rem;
     --button-border: 0.2rem;
     --button-color: var(--color-black);
     --button-text-decoration: none;
@@ -170,10 +170,10 @@ input[type="checkbox"]:hover {
     position: absolute;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    padding: 0px;
+    padding: 5px;
     z-index: 1;
     color:white;
-    background-color: var(--color-black);
+    background-color: var(--transparent-primary);
   }
   /*display options*/
   .hover-menu:hover .options {

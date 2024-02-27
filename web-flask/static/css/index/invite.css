@@ -10,7 +10,7 @@
     justify-content: space-between;
 }
 .invite-child-container{
-    background-color: var(--color-black);
+    background-color: var(--transparent-black-new);
     box-sizing: border-box;
     width:620px;
     height:auto;
@@ -38,7 +38,7 @@
     width:620px;
     height:300px;
     border: 0px solid red;
-    background-color: var(--color-black);
+    background-color: var(--transparent-black-new);
 }
 .contact-title{
     color: var(--color-white);

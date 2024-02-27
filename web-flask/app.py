@@ -787,7 +787,19 @@ def delete_futureme(letter_id):
 #####Productivity status
 @app.route('/productivity_analysis')
 def productivity_analysis():
-    return render_template('productivity.html')
+    if 'user_id' in session:
+        user_id = session['user_id']
+
+        user = get_user_info(user_id)
+        events = get_future_user_events(user_id)
+        future_me_letter = get_future_me_letter(user_id)
+
+        if user:
+            return render_template('productivity-status.html', user=user, events=events, future_me_letter=future_me_letter)
+        else:
+            flash("User not found.", 'error')
+            return redirect(url_for('login_account'))
+    return redirect(url_for('login_account'))
 
 if __name__ == '__main__':
     app.run(debug=True)

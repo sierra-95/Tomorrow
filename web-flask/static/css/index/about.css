@@ -83,11 +83,11 @@
         flex-direction: column-reverse;
         align-items: center;
         margin: 0px;
+        height: auto;
     }
 
     .about-child-container-first {
         margin: 0px;
-        margin-bottom: -100px;
     }
     .about-image{
         width:370px;

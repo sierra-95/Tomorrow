@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../static/images/Favicon/Dark.png">
+    <link rel="stylesheet" href="../static/css-project-page/style.css">
+    <link rel="stylesheet" href="../static/css-project-page/Hero.css"> 
+    <link rel="stylesheet" href="../static/css-project-page/button.css">
+    <link rel="stylesheet" href="../static/css-project-page/productivity-updates.css">
+    <link rel="stylesheet" href="../static/css-project-page/productivity-status.css">
+    <title>Productivity Dashboard</title>
+</head>
+<body>
+        <div class="first-section">
+            <div class="profile-section">
+                <div class="profile-picture">
+                    <img src="../static/images/Unsplash/dog.jpg" alt="Profile Picture">
+                </div>
+                <div class="profile-username">
+                    <h2 class="profile-title">Hello {{ user['first_name'] }} {{ user['last_name'] }}</h2>
+                </div>
+            </div>
+            <div class="stopwatch-section">
+                <h1 class="stopwatch-title">Start focus session</h1>
+                <div class="stopwatch" id="stopwatch">00:00:00</div>
+                <br>
+                <div class="stopwatch-buttons">
+                    <button class="stopwatch-button" onclick="startStopwatch()">Start</button>
+                    <button class="stopwatch-button" onclick="stopStopwatch()">Stop</button>
+                    <button class="stopwatch-button" onclick="resetStopwatch()">Reset</button>
+                </div>
+            </div>
+            <script src="../static/js/productivity-status.js"></script>
+        </div>
+        <div class="second-section">
+            <div class="side-panel">
+                <h1 class="side-panel-subtitle">Tasks for next 2 weeks</h1>
+                <!-- Display user events -->
+                {% if events %}
+                {% for event in events %}
+                    <div class="side-panel-child-first-content">                                    
+                        <h2 class="side-panel-child-first-content-title">Event name: {{ event.event_name }}</h2>                
+                        <p class="side-panel-child-first-content-description">{{ event.event_description }}</p>
+                        <p class="side-panel-child-first-content-date">Date: {{ event.event_date }}</p>
+                        <div class="event-options">                                        
+                            <button class="options-btn" onclick="toggleOptions('{{ event.event_id }}')">...</button>                                        
+                            <div class="options-dropdown" id="options{{ event.event_id }}">
+                                <a href="{{ url_for('edit_event', event_id=event.event_id) }}" onclick="return confirm('Did you mean to edit this event?')">Edit</a>
+                                <!--a href="#" onclick="deleteEvent(1)">Delete</a-->
+                                <a href="{{ url_for('delete_event', event_id=event.event_id) }}" onclick="return confirm('Are you sure you want to delete this event?')">Delete</a>                                           
+                            </div>
+                            <label style="color: var(--color-white);">
+                                <input type="checkbox" id="myCheckbox{{ event.event_id }}" {% if event.is_done %}checked{% endif %} onclick="updateTaskState('{{ event.event_id }}')">
+                                Done
+                            </label>                                                                                
+                            <script src="../static/js/checkbox.js"></script> 
+                        </div>
+                    </div>
+                    <br>                                
+                {% endfor %}
+                {% else %}
+                    <p class="todays-tasks-child-first-content-title">No events created.</p>
+                {% endif %}   
+            </div>                
+            <div class="control-container">
+                <div class="container">
+                    <div class="scale" id="TaskCompletionRate">
+                        <h2>Task Completion Rate</h2>
+                        <div class="values" id="TaskCompletionRateValues"></div>
+                    </div>
+            
+                    <div class="scale" id="TimeManagement">
+                        <h2>Time Management</h2>
+                        <div class="values" id="TimeManagementValues"></div>
+                    </div>
+            
+                    <div class="scale" id="TaskResponseTime">
+                        <h2>Task Response Time</h2>
+                        <div class="values" id="TaskResponseTimeValues"></div>
+                    </div>
+            
+                    <div class="scale accelerometer" id="ProductivitySummary">
+                        <h2>Productivity Summary</h2>
+                        <div class="values" id="ProductivitySummaryValues"></div>
+                        <div class="accelerometer-dot"></div>
+                    </div>
+                </div>
+                <script src="../static/js/productivity-updates.js"></script>
+            </div>    
+        </div>
+        <div class="Productivity-button">
+            <a href="{{ url_for('dashboard') }}"><button class="button-custom">Go back home</button></a> 
+        </div>
+</body>
+</html>

@@ -14,7 +14,7 @@
     padding: 0px;
     margin: 0px;
     margin-top: 1px;
-    background-image: url('../images/FutureMe/splash-shoe.jpg');
+    background-image: url('../images/Unsplash/white-snow.jpg');
     background-size: cover;
 }
 
@@ -27,12 +27,6 @@
     justify-content: space-between;
 }
 .self-development-title {
-    font-size: 1.5rem;
-    color: var(--color-black-new);
-    text-align: center;
-    font-family: var(--font-family-official);
-}
-.self-development-title2 {
     font-size: 1.5rem;
     color: var(--color-white);
     text-align: center;
@@ -57,8 +51,12 @@
     font-family: var(--font-family-official);
     color: var(--color-white)
 }
+.development-subtitle{
+    font-family: var(--font-family-base);
+    font-size: 0.9rem;
+}
 .self-visible{
-    background-color: var(--transparent-black);
+    background-color: var(--transparent-black-new);
     width:auto;
     padding:5px;
 }
@@ -73,7 +71,7 @@
     border: 0px solid;
     border-radius: 0px;
     color: var(--color-white);
-    background-color: var(--transparent-black-vary);
+    background-color: var(--transparent-black);
     overflow-y: auto;
     justify-content: center;
 }
@@ -85,7 +83,7 @@
     margin: 20px;
     padding:5px;
     border-radius: 5px;
-    background-color: var(--transparent-black);
+    background-color: var(--transparent-black-new);
     opacity:90%;
 }
 
@@ -103,26 +101,32 @@
 }
 /*third child*/
 .self-development-third-child {
-    width:500px;
+    width:400px;
     height:500px;
     box-sizing: border-box;
     margin: 5px;
     padding: 10px;
     text-align: center;
-    border: 0px solid;
-    border-radius: 0px;
+    border-radius: 5px;
     color: var(--color-white);
-    background-color: var(--transparent-black-new);
+    background-color: transparent;
     overflow-y: auto;
 }
 
 .self-development-child-third-content {
     box-sizing: border-box;
     width: auto;
-    border: none;
     background-color: transparent;
     display: flex;
     justify-content: center;
+}
+.self-development-visible{
+    background-color: var(--transparent-black);
+    width:auto;
+    border-radius: 5px;
+    padding:5px;
+    margin-bottom:5px;
+    margin-top: -10px;
 }
 
 .self-development-child-third-content:hover {
@@ -167,7 +171,6 @@
     max-width: 100%;
     height: auto; 
 }
-
 
 /**@media**/
 
@@ -239,7 +242,7 @@
     }
     .self-development-third-child {
         width:auto;
-        padding: 2px;
+        padding: 0px;
         font-size: 0.7rem;
         margin:0px;
         margin-bottom: 2px;
@@ -263,6 +266,11 @@
         margin-top: 15px;
     }
     .self-visible{
+        background-color: var(--transparent-black-new);
+        margin-bottom: 1px;
+    }
+    .productivity-visible{
+        width:auto;
         background-color: var(--transparent-black-vary);
     }
 }

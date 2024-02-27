@@ -2,9 +2,9 @@
 
 .gauge-container {
     position: relative;
-    width: 300px;
-    height: 300px;
-    opacity: 50%;
+    width: 280px;
+    height: 280px;
+    opacity: 70%;
 }
 
 .gauge {
