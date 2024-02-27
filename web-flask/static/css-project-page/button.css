@@ -248,7 +248,7 @@ input[type="checkbox"]:hover {
         top: 80px;
         left: 0;
         width: 100%;
-        background-color: var(--color-black);
+        background-color: var(--color-white-new);
         z-index: 1;
     }
     .nav-list.show {
