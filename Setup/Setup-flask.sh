@@ -4,7 +4,7 @@ pip install Flask-Mail
 pip install Flask-Bcrypt
 pip install mysql-connector-python
 
-#Running
+##Running
 set FLASK_APP=app.py
 set FLASK_ENV=development
 flask run
