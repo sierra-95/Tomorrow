@@ -8,6 +8,6 @@ nohup gunicorn -b 0.0.0.0:8000 -w 4 wsgi:app
 ##fore debug
 gunicorn -b 0.0.0.0:8000 -w 4 --log-level=debug wsgi:app
 
-#pkill
+##pkill
 pkill -9 -f gunicorn
 
